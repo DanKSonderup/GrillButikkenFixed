@@ -1,4 +1,4 @@
-﻿@model WebApp.Models.Frontend.InventoryAndProductionOverview
+﻿@model List<WebApp.DTO.RawMaterialDTO>
 @{
     ViewBag.Title = "Råvarer";
 }
@@ -28,24 +28,22 @@
     <table class="table table-striped">
         <thead>
             <tr>
-                <th>Varenummer</th>
+                <th>ID</th>
                 <th>Varenavn</th>
-                <th>Kategori</th>
-                <th>Enhed</th>
-                <th>Modtagelsesdato</th>
-                <th>Mængde</th>
+                <th>Værdi</th>
+                <th>Måleenhed</th>
+                <th>Udløbsdato</th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var item in Model.RawMaterials)
+            @foreach (var item in Model)
             {
                 <tr>
-                    <td>@item.UUID</td>
-                    <td>@item.MaterialName</td>
-                    <td>@item.Category</td>
-                    <td>@item.Unit</td>
-                    <td>@item.ReceivedDate.ToString("dd-MM-yyyy")</td>
-                    <td>@item.Quantity</td>
+                    <td>@item.Material_id</td>
+                    <td>@item.Name</td>
+                    <td>@item.MeasurementValue</td>
+                    <td>@item.MeasurementType</td>
+                    <td>@item.ExpirationDate</td>
                 </tr>
             }
         </tbody>
