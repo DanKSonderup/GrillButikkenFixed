@@ -132,13 +132,16 @@
     <Compile Include="DataAccess\Context\DatabaseContext.cs" />
     <Compile Include="DataAccess\Context\DbInitializer.cs" />
     <Compile Include="DataAccess\Repositories\BilRepository.cs" />
+    <Compile Include="DataAccess\Repositories\MeasurementTypeRepository.cs" />
     <Compile Include="DataAccess\Repositories\ProductProductionRepository.cs" />
     <Compile Include="DataAccess\Repositories\RawMaterialRepository.cs" />
     <Compile Include="DTO\BilDTO.cs" />
     <Compile Include="DTO\Mappers\BilMapper.cs" />
+    <Compile Include="DTO\Mappers\MeasurementTypeMapper.cs" />
     <Compile Include="DTO\Mappers\ProductMapper.cs" />
     <Compile Include="DTO\Mappers\ProductProductionMapper.cs" />
     <Compile Include="DTO\Mappers\RawMaterialMapper.cs" />
+    <Compile Include="DTO\MeasurementTypeDTO.cs" />
     <Compile Include="DTO\ProductDTO.cs" />
     <Compile Include="DTO\ProductProductionDTO.cs" />
     <Compile Include="DTO\RawMaterialDTO.cs" />
@@ -157,8 +160,7 @@
     <Compile Include="Models\Status.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\ProductProduction.cs" />
-    <Compile Include="Service\IProductionProjectService.cs" />
-    <Compile Include="Service\IRawMaterialService.cs" />
+    <Compile Include="Service\MeasurementTypeService.cs" />
     <Compile Include="Service\ProductProductionService.cs" />
     <Compile Include="Service\RawMaterialService.cs" />
   </ItemGroup>
@@ -237,6 +239,7 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Home\CreateRawMaterialView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

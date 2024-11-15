@@ -8,6 +8,7 @@ using WebApp.BLL;
 using WebApp.DTO;
 using WebApp.Models;
 using WebApp.Models.Frontend;
+using WebApp.Service;
 using Unit = WebApp.Models.Frontend.Unit;
 
 namespace WebApp.Controllers
@@ -109,6 +110,33 @@ namespace WebApp.Controllers
 
             ViewBag.Message = "Your production page.";
             return View(model);
+        }
+
+        public ActionResult CreateRawMaterialView()
+        {
+
+            ViewBag.MeasurementTypes = MeasurementTypeService.GetAllMeasurementTypes();
+            return View();
+        }
+
+        // POST: CreateRawMaterial
+        [HttpPost]
+        public ActionResult CreateRawMaterial(string name, MeasurementType measurementType, double measurementValue)
+        {
+            // Simuler en service, der opretter råmaterialet
+            RawMaterialService service = new RawMaterialService();
+            service.CreateRawMaterial(name, measurementType, measurementValue);
+
+            // Redirect til råvareroversigten
+            return RedirectToAction("RåvarerView");
+        }
+
+        [HttpPost]
+        public ActionResult CreateMeasurementType(string name)
+        {
+            MeasurementTypeService.CreateMeasurementType(name);
+
+            return RedirectToAction("CreateRawMaterialView");
         }
     }
 }

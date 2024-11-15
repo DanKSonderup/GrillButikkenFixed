@@ -8,7 +8,7 @@ using WebApp.Models;
 
 namespace WebApp.Service
 {
-    public class RawMaterialService : IRawMaterialService
+    public class RawMaterialService
     {
         RawMaterialRepository rawMaterialRepository = new RawMaterialRepository();
         public RawMaterialDTO CreateRawMaterial(string name, MeasurementType measurementType, double measurementValue)

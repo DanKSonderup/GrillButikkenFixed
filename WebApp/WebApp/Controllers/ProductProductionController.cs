@@ -11,9 +11,9 @@ namespace WebApp.Controllers
 {
     public class ProductProductionController : Controller
     {
-        private IProductionProjectService _productionService;
+        private ProductProductionService _productionService;
 
-        public ProductProductionController(IProductionProjectService productionService)
+        public ProductProductionController(ProductProductionService productionService)
         {
             _productionService = productionService;
         }

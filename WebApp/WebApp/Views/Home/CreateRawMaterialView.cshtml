@@ -1,0 +1,33 @@
+﻿@model WebApp.DTO.RawMaterialDTO
+
+<h2>Opret Nyt Råmateriale</h2>
+
+<form asp-action="CreateRawMaterial" asp-controller="Home" method="post">
+    <div class="form-group">
+        <label for="name">Navn</label>
+        <input type="text" class="form-control" id="name" name="name" required />
+    </div>
+    <div class="form-group">
+        <label for="unit">Enhed</label>
+        <select class="form-control" id="unit" name="measurementType">
+            @foreach (var type in ViewBag.MeasurementTypes)
+            {
+                <option value="@type.Id">@type.Name</option>
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="amount">Mængde</label>
+        <input type="number" class="form-control" id="amount" name="measurementValue" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Opret</button>
+</form>
+
+<h3>Opret Ny Enhed</h3>
+<form asp-action="CreateMeasurementType" method="post">
+    <div class="form-group">
+        <label for="newMeasurementType">Navn</label>
+        <input type="text" class="form-control" id="newMeasurementType" name="name" required />
+    </div>
+    <button type="submit" class="btn btn-secondary">Opret Enhed</button>
+</form>

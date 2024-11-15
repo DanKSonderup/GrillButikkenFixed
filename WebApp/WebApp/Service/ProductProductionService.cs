@@ -7,7 +7,7 @@ using WebApp.Models;
 
 namespace WebApp.Service
 {
-    public class ProductProductionService : IProductionProjectService
+    public class ProductProductionService
     {
         public ProductProduction GetProductProductionById(Guid guid)
         {
