@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Web;
 
 namespace WebApp.Models
@@ -14,8 +15,9 @@ namespace WebApp.Models
         public Dictionary<RawMaterial, double> RawMaterialNeeded { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
+        public int AmountInStock { get; set; }
 
-        public Product(int id, string name, TimeSpan estimatedProductionTime, Dictionary<RawMaterial, double> rawMaterialNeeded, DateTime createdAt, DateTime updatedAt)
+        public Product(int id, string name, TimeSpan estimatedProductionTime, Dictionary<RawMaterial, double> rawMaterialNeeded, DateTime createdAt, DateTime updatedAt, int amountInStock)
         {
             Id = id;
             Name = name;
@@ -23,6 +25,7 @@ namespace WebApp.Models
             RawMaterialNeeded = rawMaterialNeeded;
             CreatedAt = createdAt;
             UpdatedAt = updatedAt;
+            AmountInStock = amountInStock;
         }
 
         public void AddMaterial(RawMaterial rawMaterial, double amount)
@@ -45,6 +48,7 @@ namespace WebApp.Models
                 RawMaterialNeeded[rawMaterial] -= amount;
             }
         }
+
 
         public override string ToString()
         {
