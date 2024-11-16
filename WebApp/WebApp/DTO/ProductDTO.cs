@@ -14,8 +14,13 @@ namespace WebApp.DTO
         public Dictionary<RawMaterial, double> RawMaterialNeeded { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
+        public int AmountInStock { get; set; }
 
-        public ProductDTO(int id, string name, TimeSpan estimatedProductionTime, Dictionary<RawMaterial, double> rawMaterialNeeded, DateTime createdAt, DateTime updatedAt)
+        public ProductDTO()
+        {
+        }
+
+        public ProductDTO(int id, string name, TimeSpan estimatedProductionTime, Dictionary<RawMaterial, double> rawMaterialNeeded, DateTime createdAt, DateTime updatedAt, int amountInStock)
         {
             Id = id;
             Name = name;
@@ -23,6 +28,7 @@ namespace WebApp.DTO
             RawMaterialNeeded = rawMaterialNeeded;
             CreatedAt = createdAt;
             UpdatedAt = updatedAt;
+            AmountInStock = amountInStock;
         }
 
 

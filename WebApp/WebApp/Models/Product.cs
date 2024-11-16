@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.EnterpriseServices;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
@@ -7,15 +9,16 @@ namespace WebApp.Models
 {
     public class Product
     {
-
+        [Key]
         public int Id { get; set; }
         public string Name { get; set; }
         public TimeSpan EstimatedProductionTime { get; set; }
         public Dictionary<RawMaterial, double> RawMaterialNeeded { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
+        public int AmountInStock { get; set; }
 
-        public Product(int id, string name, TimeSpan estimatedProductionTime, Dictionary<RawMaterial, double> rawMaterialNeeded, DateTime createdAt, DateTime updatedAt)
+        public Product(int id, string name, TimeSpan estimatedProductionTime, Dictionary<RawMaterial, double> rawMaterialNeeded, DateTime createdAt, DateTime updatedAt, int amountInStock)
         {
             Id = id;
             Name = name;
@@ -23,7 +26,9 @@ namespace WebApp.Models
             RawMaterialNeeded = rawMaterialNeeded;
             CreatedAt = createdAt;
             UpdatedAt = updatedAt;
+            AmountInStock = amountInStock;
         }
+        public Product() { }
 
         public void AddMaterial(RawMaterial rawMaterial, double amount)
         {
@@ -40,7 +45,8 @@ namespace WebApp.Models
             if (RawMaterialNeeded.ContainsKey(rawMaterial) && RawMaterialNeeded[rawMaterial] > amount)
             {
                 throw new Exception("Du kan ikke fjerne antal der er mere end hvad der er tilgængeligt");
-            } else
+            }
+            else
             {
                 RawMaterialNeeded[rawMaterial] -= amount;
             }

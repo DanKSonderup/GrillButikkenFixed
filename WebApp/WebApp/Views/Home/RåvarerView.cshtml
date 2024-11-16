@@ -1,8 +1,8 @@
-﻿@model WebApp.Models.Frontend.InventoryAndProductionOverview
+﻿@model List<WebApp.DTO.RawMaterialDTO>
+
 @{
     ViewBag.Title = "Råvarer";
 }
-
 
 <div class="top-bar">
     <div class="search-container">
@@ -17,7 +17,6 @@
 </div>
 
 <div class="body">
-
     <div class="crud">
         <button class="crud-btn to-do">Slet</button>
         <button class="crud-btn in-progress">Redigér</button>
@@ -25,32 +24,31 @@
         <button class="crud-btn create-new">Opret Ny</button>
     </div>
 
-    <table class="table table-striped">
+    <table class="table">
         <thead>
             <tr>
-                <th>Varenummer</th>
-                <th>Varenavn</th>
+                <th>ID</th>
+                <th>Navn</th>
                 <th>Kategori</th>
-                <th>Enhed</th>
-                <th>Modtagelsesdato</th>
+                <th>Unit</th>
                 <th>Mængde</th>
             </tr>
+            @*        public string UUID { get; private set; }
+        public string MaterialName { get; set; }
+        public string Category { get; set; }
+        public Unit Unit { get; set; }
+        public DateTime ReceivedDate { get; set; }
+        // Possibly expiration date
+        public int Quantity { get; set; }*@
         </thead>
         <tbody>
-            @foreach (var item in Model.RawMaterials)
+            @foreach (var rawmat in Model)
             {
                 <tr>
-                    <td>@item.UUID</td>
-                    <td>@item.MaterialName</td>
-                    <td>@item.Category</td>
-                    <td>@item.Unit</td>
-                    <td>@item.ReceivedDate.ToString("dd-MM-yyyy")</td>
-                    <td>@item.Quantity</td>
+                    <td>@rawmat.Material_id</td>
+                    <td>@rawmat.Name</td>
                 </tr>
             }
         </tbody>
     </table>
-
-
 </div>
-

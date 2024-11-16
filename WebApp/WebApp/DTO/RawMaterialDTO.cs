@@ -19,6 +19,10 @@ namespace WebApp.DTO
         public MeasurementType MeasurementType { get; set; }
         public DateTime ExpirationDate { get; set; }
 
+        public RawMaterialDTO()
+        {
+        }
+
         public RawMaterialDTO(string name, MeasurementType measurementType, double measurementValue)
         {
             Name = name;

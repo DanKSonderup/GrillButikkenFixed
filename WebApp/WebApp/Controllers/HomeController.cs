@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.UI.WebControls;
 using WebApp.BLL;
+using WebApp.DataAccess.Repositories;
 using WebApp.DTO;
 using WebApp.Models;
 using WebApp.Models.Frontend;
@@ -17,32 +18,17 @@ namespace WebApp.Controllers
         private ProductionFactory grillSpydFactory = new ProductionFactory();
         public ActionResult Index()
         {
-            // BilBLL bll = new BilBLL();
-            // BilDTO bildto = bll.getBil(1);
+            //BilBLL bll = new BilBLL();
+            //BilDTO bildto = bll.getBil(1);
             ViewBag.Message = "Your home page.";
             return View();
         }
 
         public ActionResult RåvarerView()
         {
-            List<RawMaterials> items = new List<RawMaterials>
-            {
-                new RawMaterials("Stål", Unit.kg, 20) { Category = "Metal" },
-                new RawMaterials("Træ", Unit.pcs, 20) { Category = "Material" }
-            };
+            List<RawMaterialDTO> rawMaterials = RawMaterialRepository.GetRawMaterials();
 
-            List<Production> productions = new List<Production>
-            {
-                new Production("Grill Spyd", DateTime.Now, 10, items)
-            };
-
-            var model = new InventoryAndProductionOverview
-            {
-                RawMaterials = items,
-                Productions = productions
-            };
-
-            return View(model);
+            return View(rawMaterials);
         }
 
         [HttpPost]
@@ -60,7 +46,7 @@ namespace WebApp.Controllers
 
         private List<RawMaterials> GetItems()
         {
-            
+
             return new List<RawMaterials>
             {
                 new RawMaterials("Steel", Unit.kg, 20) { Category = "Metal" },
@@ -82,9 +68,11 @@ namespace WebApp.Controllers
 
         public ActionResult ProduktView()
         {
-            // Dummydata her
+            List<ProductDTO> products = ProductRepository.GetProducts();
+
+
             ViewBag.Message = "Your products page.";
-            return View();
+            return View(products);
         }
 
         public ActionResult ProduktionView()

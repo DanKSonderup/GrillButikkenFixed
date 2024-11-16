@@ -133,6 +133,7 @@
     <Compile Include="DataAccess\Context\DbInitializer.cs" />
     <Compile Include="DataAccess\Repositories\BilRepository.cs" />
     <Compile Include="DataAccess\Repositories\ProductProductionRepository.cs" />
+    <Compile Include="DataAccess\Repositories\ProductRepository.cs" />
     <Compile Include="DataAccess\Repositories\RawMaterialRepository.cs" />
     <Compile Include="DTO\BilDTO.cs" />
     <Compile Include="DTO\Mappers\BilMapper.cs" />
