@@ -18,17 +18,17 @@ namespace WebApp.Controllers
         private ProductionFactory grillSpydFactory = new ProductionFactory();
         public ActionResult Index()
         {
-            //BilBLL bll = new BilBLL();
-            //BilDTO bildto = bll.getBil(1);
+            BilBLL bll = new BilBLL();
+            BilDTO bildto = bll.getBil(1);
             ViewBag.Message = "Your home page.";
             return View();
         }
 
         public ActionResult RåvarerView()
         {
-            List<RawMaterialDTO> rawMaterials = RawMaterialRepository.GetRawMaterials();
+            List<RawMaterialDTO> råvarer = RawMaterialRepository.GetRawMaterials();
 
-            return View(rawMaterials);
+            return View(råvarer);
         }
 
         [HttpPost]
@@ -36,7 +36,6 @@ namespace WebApp.Controllers
         {
             List<RawMaterials> items = GetItems();
 
-            // Assuming grillSpydFactory is defined elsewhere in your code
             Production production = grillSpydFactory?.CreateProduction(productionName, plannedQuantity, items);
 
             production?.StartProduction();
@@ -69,7 +68,6 @@ namespace WebApp.Controllers
         public ActionResult ProduktView()
         {
             List<ProductDTO> products = ProductRepository.GetProducts();
-
 
             ViewBag.Message = "Your products page.";
             return View(products);

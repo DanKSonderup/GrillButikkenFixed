@@ -159,8 +159,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\ProductProduction.cs" />
     <Compile Include="Service\IProductionProjectService.cs" />
+    <Compile Include="Service\IProductService.cs" />
     <Compile Include="Service\IRawMaterialService.cs" />
     <Compile Include="Service\ProductProductionService.cs" />
+    <Compile Include="Service\ProductService.cs" />
     <Compile Include="Service\RawMaterialService.cs" />
   </ItemGroup>
   <ItemGroup>
