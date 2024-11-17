@@ -1,4 +1,4 @@
-﻿@model WebApp.Models.Frontend.InventoryAndProductionOverview
+﻿@model List<WebApp.DTO.ProductProductionDTO>
 @{
     ViewBag.Title = "Produktion";
 }
@@ -38,16 +38,14 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var production in Model.Productions)
+            @foreach (var production in Model)
             {
                 <tr>
-                    <td>@production.UUID</td>
-                    <td>@production.ProductionName</td>
-                    <td>@production.StartDate.ToString("dd-MM-yyyy")</td>
-                    <td>@(production != null ? production.EndDate?.ToString("dd-MM-yyyy") ?? "Produkt ikke færdigt" : "Fejl. Ingen produktion")</td>
+                    <td>@production.ProjectId</td>
+                    <td>@production.ProjectName</td>
+                    <td>@production.QuantityToProduce</td>
+                    <td>@production CreatedAt </td>
                     <td>@production.Status</td>
-                    <td>@production.PlannedQuantity</td>
-                    <td>@production.CompletedQuantity</td>
                 </tr>
             }
         </tbody>

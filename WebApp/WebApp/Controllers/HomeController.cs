@@ -7,14 +7,12 @@ using System.Web.UI.WebControls;
 using WebApp.BLL;
 using WebApp.DTO;
 using WebApp.Models;
-using WebApp.Models.Frontend;
-using Unit = WebApp.Models.Frontend.Unit;
 
 namespace WebApp.Controllers
 {
     public class HomeController : Controller
     {
-        private ProductionFactory grillSpydFactory = new ProductionFactory();
+        //private ProductionFactory grillSpydFactory = new ProductionFactory();
         public ActionResult Index()
         {
             // BilBLL bll = new BilBLL();
@@ -25,22 +23,18 @@ namespace WebApp.Controllers
 
         public ActionResult RåvarerView()
         {
-            List<RawMaterials> items = new List<RawMaterials>
+            List<RawMaterialDTO> items = new List<RawMaterialDTO>
             {
-                new RawMaterials("Stål", Unit.kg, 20) { Category = "Metal" },
-                new RawMaterials("Træ", Unit.pcs, 20) { Category = "Material" }
+                new RawMaterialDTO("Stål", new MeasurementType("kg"), 50),
+                new RawMaterialDTO("Træ", new MeasurementType("kg"), 24)
             };
 
-            List<Production> productions = new List<Production>
-            {
-                new Production("Grill Spyd", DateTime.Now, 10, items)
-            };
+            //List<Production> productions = new List<Production>
+            //{
 
-            var model = new InventoryAndProductionOverview
-            {
-                RawMaterials = items,
-                Productions = productions
-            };
+            //};
+
+            var model = items;
 
             return View(model);
         }
@@ -48,23 +42,23 @@ namespace WebApp.Controllers
         [HttpPost]
         public ActionResult StartProduction(string productionName, int plannedQuantity)
         {
-            List<RawMaterials> items = GetItems();
+            //List<RawMaterialDTO> items = GetItems();
 
-            // Assuming grillSpydFactory is defined elsewhere in your code
-            Production production = grillSpydFactory?.CreateProduction(productionName, plannedQuantity, items);
+            //// Assuming grillSpydFactory is defined elsewhere in your code
+            //Production production = grillSpydFactory?.CreateProduction(productionName, plannedQuantity, items);
 
-            production?.StartProduction();
+            //production?.StartProduction();
             return RedirectToAction("TestView");
         }
 
 
-        private List<RawMaterials> GetItems()
+        private List<RawMaterialDTO> GetItems()
         {
-            
-            return new List<RawMaterials>
+
+            return new List<RawMaterialDTO>
             {
-                new RawMaterials("Steel", Unit.kg, 20) { Category = "Metal" },
-                new RawMaterials("Wood", Unit.pcs, 20) { Category = "Material" }
+                new RawMaterialDTO("Stål", new MeasurementType("kg"), 50),
+                new RawMaterialDTO("Træ", new MeasurementType("kg"), 24)
             };
         }
 
@@ -89,23 +83,26 @@ namespace WebApp.Controllers
 
         public ActionResult ProduktionView()
         {
+            /*
             List<Production> produktioner = new List<Production>
             {
-                new Production("Grillspyd", DateTime.Now, 10, new List<RawMaterials>
+                new Production("Grillspyd", DateTime.Now, 10, new List<RawMaterialDTO>
                 {
-                    new RawMaterials("Stål", Unit.kg, 20) { Category = "Metal" },
-                    new RawMaterials("Træ", Unit.pcs, 20) { Category = "Material" }
+                    new RawMaterialDTO("Stål", Unit.kg, 20) { Category = "Metal" },
+                    new RawMaterialDTO("Træ", Unit.pcs, 20) { Category = "Material" }
                 }),
-                    new Production("Slaver", DateTime.Now, 10, new List<RawMaterials>
+                    new Production("Slaver", DateTime.Now, 10, new List<RawMaterialDTO>
                     {
-                    new RawMaterials("Pisk", Unit.pcs, 2) { Category = "Metal" },
-                    new RawMaterials("Bomuld", Unit.kg, 200) { Category = "Material" }
+                    new RawMaterialDTO("Pisk", Unit.pcs, 2) { Category = "Metal" },
+                    new RawMaterialDTO("Bomuld", Unit.kg, 200) { Category = "Material" }
                 })
-            };
+            }; 
             var model = new InventoryAndProductionOverview
             {
                 Productions = produktioner
-            };
+            }; */
+
+            var model = new List<ProductProductionDTO>();
 
             ViewBag.Message = "Your production page.";
             return View(model);
