@@ -16,11 +16,14 @@ namespace WebApp.DTO.Mappers
             return new MeasurementTypeDTO(measurementType.Name);
         }
 
-        public static MeasurementType Map(MeasurementTypeDTO measurementTypeDTO)
+        public static MeasurementType Map(MeasurementTypeDTO dto)
         {
-            if (measurementTypeDTO == null) return null;
+            if (dto == null) return null;
 
-            return new MeasurementType(measurementTypeDTO.Name);
+            return new MeasurementType
+            {
+                Name = dto.Name
+            };
         }
     }
 }

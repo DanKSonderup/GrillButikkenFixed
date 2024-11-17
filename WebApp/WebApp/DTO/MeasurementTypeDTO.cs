@@ -8,8 +8,6 @@ namespace WebApp.DTO
 {
     public class MeasurementTypeDTO
     {
-        [Key]
-        public int Id { get; set; }
         public string Name { get; set; }
 
         public MeasurementTypeDTO(string name)

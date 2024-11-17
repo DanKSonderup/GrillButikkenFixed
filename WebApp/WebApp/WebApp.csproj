@@ -240,6 +240,8 @@
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Home\CreateRawMaterialView.cshtml" />
+    <Content Include="Views\Home\CreateMeasurementType.cshtml" />
+    <Content Include="Views\Home\EditRawMaterial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

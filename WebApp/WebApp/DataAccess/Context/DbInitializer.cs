@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
+using WebApp.Models;
+using WebApp.Service;
 
 namespace WebApp.DataAccess.Context
 {
@@ -13,9 +15,12 @@ namespace WebApp.DataAccess.Context
         {
             // Guid projectId, string projectName, int quantityToProduce,DateTime createdAt, DateTime deadline, TimeSpan timeSpent, Status status
             context.Biler.Add(new Models.Bil(1, "Honda", DateTime.Now));
-            context.RawMaterials.Add(new Models.RawMaterial("Grillspyd", new Models.MeasurementType("kg"), 20));
-            context.RawMaterials.Add(new Models.RawMaterial("Jernstang", new Models.MeasurementType("kg"), 20));
-            context.RawMaterials.Add(new Models.RawMaterial("Jernstang3", new Models.MeasurementType("kg"), 20));
+            MeasurementType kg = new Models.MeasurementType("kg");
+            context.MeasurementTypes.Add(kg);
+            context.RawMaterials.Add(new Models.RawMaterial("Grillspyd", kg, 20));
+            context.RawMaterials.Add(new Models.RawMaterial("Jernstang", kg, 20));
+            context.RawMaterials.Add(new Models.RawMaterial("Jernstang3", kg, 20));
+
             context.SaveChanges();
 
             base.Seed(context);

@@ -14,7 +14,20 @@ namespace WebApp.DataAccess.Repositories
         {
             using (DatabaseContext context = new DatabaseContext())
             {
-                return context.MeasurementTypes.Select(r => MeasurementTypeMapper.Map(r)).ToList();
+                // Hent data fra databasen først
+                var measurementTypes = context.MeasurementTypes.ToList();
+
+                // Udfør mapping i hukommelsen
+                return measurementTypes.Select(r => MeasurementTypeMapper.Map(r)).ToList();
+            }
+        }
+
+        public static MeasurementTypeDTO GetMeasurementTypeByName(string name)
+        {
+            using (DatabaseContext context = new DatabaseContext())
+            {
+                var measurementType = context.MeasurementTypes.FirstOrDefault(r => r.Name == name);
+                return MeasurementTypeMapper.Map(measurementType);
             }
         }
 
@@ -22,11 +35,13 @@ namespace WebApp.DataAccess.Repositories
         {
             using (DatabaseContext context = new DatabaseContext())
             {
-                context.MeasurementTypes.Add(MeasurementTypeMapper.Map(measurementTypeDTO));
+                var measurementType = MeasurementTypeMapper.Map(measurementTypeDTO);
+                context.MeasurementTypes.Add(measurementType);
                 context.SaveChanges();
             }
             return measurementTypeDTO;
         }
+
 
         public static MeasurementTypeDTO DeleteMeasurementType(MeasurementTypeDTO measurementTypeDTO)
         {
