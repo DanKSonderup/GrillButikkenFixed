@@ -102,7 +102,7 @@ namespace WebApp.Controllers
                 Productions = produktioner
             }; */
 
-            var model = new List<ProductProductionDTO>();
+            List<ProductProductionDTO> model = new List<ProductProductionDTO>();
 
             ViewBag.Message = "Your production page.";
             return View(model);
