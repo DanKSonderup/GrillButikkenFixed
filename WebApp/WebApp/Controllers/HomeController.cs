@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -7,6 +8,7 @@ using System.Web.UI.WebControls;
 using WebApp.BLL;
 using WebApp.DataAccess.Repositories;
 using WebApp.DTO;
+using WebApp.DTO.Mappers;
 using WebApp.Models;
 
 namespace WebApp.Controllers
@@ -108,6 +110,56 @@ namespace WebApp.Controllers
 
             ViewBag.Message = "Your production page.";
             return View(model);
+        }
+
+
+
+        public ActionResult CreateRawMaterialView()
+        {
+
+            ViewBag.MeasurementTypes = MeasurementTypeService.GetAllMeasurementTypes();
+            return View();
+        }
+
+        [ChildActionOnly]
+        public ActionResult CreateMeasurementType()
+        {
+            return PartialView("CreateMeasurementType");
+        }
+
+        [HttpPost]
+        public ActionResult CreateRawMaterial(string name, string unit, double amount)
+        {
+            // Simuler en service, der opretter råmaterialet
+            RawMaterialService service = new RawMaterialService();
+            service.CreateRawMaterial(name, MeasurementTypeMapper.Map(MeasurementTypeService.GetMeasurementTypeByName(unit)), amount);
+
+            // Redirect til råvareroversigten
+            return RedirectToAction("RåvarerView");
+        }
+
+        [HttpPost]
+        public ActionResult CreateMeasurementType(string measurementType)
+        {
+            if (string.IsNullOrWhiteSpace(measurementType))
+            {
+                ModelState.AddModelError("", "Navn må ikke være tomt.");
+                ViewBag.MeasurementTypes = MeasurementTypeService.GetAllMeasurementTypes();
+                return View("CreateRawMaterialView");
+            }
+
+            MeasurementTypeService.CreateMeasurementType(measurementType);
+            ViewBag.MeasurementTypes = MeasurementTypeService.GetAllMeasurementTypes();
+            ModelState.Remove("measurementType");
+
+            return View("CreateRawMaterialView");
+        }
+
+        public ActionResult EditRawMaterial()
+        {
+
+            ViewBag.MeasurementTypes = MeasurementTypeService.GetAllMeasurementTypes();
+            return View();
         }
     }
 }
