@@ -1,6 +1,7 @@
-﻿
+﻿@model List<WebApp.DTO.ProductDTO>
+
 @{
-    ViewBag.Title = "Produkt";
+    ViewBag.Title = "Produkter";
 }
 
 <div class="top-bar">
@@ -15,10 +16,7 @@
     </div>
 </div>
 
-
-
 <div class="body">
-
     <div class="crud">
         <button class="crud-btn to-do">Slet</button>
         <button class="crud-btn in-progress">Redigér</button>
@@ -26,31 +24,24 @@
         <button class="crud-btn create-new">Opret Ny</button>
     </div>
 
-
     <table class="table">
         <thead>
             <tr>
-                <th>Produkt</th>
-                <th>Noget</th>
-                <th>Noget Andet</th>
-                <th>Noget Trejde</th>
+                <th>ID</th>
+                <th>Navn</th>
+                <th>Estimeret produktionstid</th>
+                <th>Oprettet</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>produktnavn</td>
-                <td>noget info</td>
-                <td>data stuff</td>
-                <td>dato?</td>
-            </tr>
-            <tr>
-                <td>produktnavn</td>
-                <td>noget info</td>
-                <td>data stuff</td>
-                <td>dato?</td>
-            </tr>
+            @foreach (var product in Model)
+            {
+                <tr>
+                    <td>@product.Id</td>
+                    <td>@product.Name</td>
+                    <td>@product.EstimatedProductionTime</td>
+                </tr>
+            }
         </tbody>
     </table>
-
 </div>
-

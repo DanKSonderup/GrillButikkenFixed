@@ -19,7 +19,8 @@ namespace WebApp.DTO.Mappers
                     product.EstimatedProductionTime, 
                     product.RawMaterialNeeded, 
                     product.CreatedAt, 
-                    product.UpdatedAt);
+                    product.UpdatedAt,
+                    product.AmountInStock);
         }
 
         public static Product Map(ProductDTO productDTO)
@@ -32,7 +33,8 @@ namespace WebApp.DTO.Mappers
                     productDTO.EstimatedProductionTime,
                     productDTO.RawMaterialNeeded,
                     productDTO.CreatedAt,
-                    productDTO.UpdatedAt);
+                    productDTO.UpdatedAt,
+                    productDTO.AmountInStock);
         }
 
         internal static void Update(ProductDTO productDTO, Product product)
@@ -44,7 +46,7 @@ namespace WebApp.DTO.Mappers
             product.RawMaterialNeeded = new Dictionary<RawMaterial, double>(productDTO.RawMaterialNeeded); // Undgå referenceændringer
             product.CreatedAt = productDTO.CreatedAt;
             product.UpdatedAt = productDTO.UpdatedAt;
-            
+            product.AmountInStock = productDTO.AmountInStock;
 
         }
 

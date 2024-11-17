@@ -3,7 +3,6 @@
     ViewBag.Title = "Råvarer";
 }
 
-
 <div class="top-bar">
     <div class="search-container">
         <form action="">
@@ -17,7 +16,6 @@
 </div>
 
 <div class="body">
-
     <div class="crud">
         <button class="crud-btn to-do">Slet</button>
         <button class="crud-btn in-progress">Redigér</button>
@@ -30,12 +28,11 @@
             <tr>
                 <th>ID</th>
                 <th>Varenavn</th>
-                <th>Værdi</th>
+                <th>Mængde</th>
                 <th>Måleenhed</th>
                 <th>Udløbsdato</th>
             </tr>
         </thead>
-        <tbody>
             @foreach (var item in Model)
             {
                 <tr>
@@ -48,7 +45,4 @@
             }
         </tbody>
     </table>
-
-
 </div>
-

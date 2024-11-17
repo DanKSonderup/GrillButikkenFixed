@@ -15,6 +15,10 @@ namespace WebApp.Models
         public MeasurementType MeasurementType { get; set; }
         public DateTime ExpirationDate { get; set; }
 
+        public RawMaterial()
+        {
+        }   
+
         public RawMaterial(string name, MeasurementType measurementType, double measurementValue)
         {
             Name = name;
