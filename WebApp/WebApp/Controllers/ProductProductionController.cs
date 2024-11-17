@@ -29,14 +29,15 @@ namespace WebApp.Controllers
         [HttpPost]
         public ActionResult AddProductProduction(FormCollection formData)
         {
+            /*
             // Add new project to the database
             _productionService.CreateProductProduction();
 
             // Retrieve the updated list of projects
             var updatedProjects = _productionService.GetAllProductProductions();
 
-            // Return the updated list to the view
-            return View("Index", updatedProjects);
+            // Return the updated list to the view */
+            return View("Index");
         }
 
         [HttpPut]

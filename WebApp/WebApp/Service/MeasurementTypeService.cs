@@ -16,19 +16,28 @@ namespace WebApp.Service
 
         public static MeasurementTypeDTO GetMeasurementTypeByName(string name)
         {
+            var test = MeasurementTypeRepository.GetMeasurementTypeByName(name);
+            Console.WriteLine(test);
             return MeasurementTypeRepository.GetMeasurementTypeByName(name);
         }
 
         public static MeasurementTypeDTO CreateMeasurementType(string name)
         {
 
-            var measurementTypeDTO = new MeasurementTypeDTO(name);
+            var measurementTypeDTO = new MeasurementTypeDTO
+            {
+                Name = name
+            };
             return MeasurementTypeRepository.AddMeasurementType(measurementTypeDTO);
         }
 
         public static MeasurementTypeDTO DeleteMeasurementType(string name)
         {
-            return MeasurementTypeRepository.DeleteMeasurementType(new MeasurementTypeDTO(name));
+            var measurementTypeDTO = new MeasurementTypeDTO
+            {
+                Name = name
+            };
+            return MeasurementTypeRepository.DeleteMeasurementType(measurementTypeDTO);
         }
 
 

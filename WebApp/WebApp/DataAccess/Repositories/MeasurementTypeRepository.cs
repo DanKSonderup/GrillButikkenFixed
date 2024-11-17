@@ -26,7 +26,8 @@ namespace WebApp.DataAccess.Repositories
         {
             using (DatabaseContext context = new DatabaseContext())
             {
-                var measurementType = context.MeasurementTypes.FirstOrDefault(r => r.Name == name);
+                var measurementType = context.MeasurementTypes.FirstOrDefault(r => r.Name.Equals(name));
+                Console.WriteLine(measurementType);
                 return MeasurementTypeMapper.Map(measurementType);
             }
         }

@@ -12,8 +12,23 @@ namespace WebApp.DTO.Mappers
         public static MeasurementTypeDTO Map(MeasurementType measurementType)
         {
             if (measurementType == null) return null;
+            if (measurementType.Id == 0)
+            {
+                throw new Exception("YOU ARE RETARDED");
+            }
+            var measurementTypeDTO = new MeasurementTypeDTO
+            {
+                Id = measurementType.Id,
+                Name = measurementType.Name
+            };
 
-            return new MeasurementTypeDTO(measurementType.Name);
+            if (measurementTypeDTO.Id == 0)
+            {
+                throw new Exception("YOU ARE RETARDED");
+            }
+
+            Console.WriteLine(measurementTypeDTO);
+            return measurementTypeDTO;
         }
 
         public static MeasurementType Map(MeasurementTypeDTO dto)

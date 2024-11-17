@@ -1,15 +1,18 @@
-﻿using System;
+﻿using Microsoft.Ajax.Utilities;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.UI.WebControls;
+using System.Web.WebPages;
 using WebApp.BLL;
 using WebApp.DataAccess.Repositories;
 using WebApp.DTO;
 using WebApp.DTO.Mappers;
 using WebApp.Models;
+using WebApp.Service;
 
 namespace WebApp.Controllers
 {
@@ -26,20 +29,16 @@ namespace WebApp.Controllers
 
         public ActionResult RåvarerView()
         {
+
             List<RawMaterialDTO> items = new List<RawMaterialDTO>
             {
                 new RawMaterialDTO("Stål", new MeasurementType("kg"), 50),
                 new RawMaterialDTO("Træ", new MeasurementType("kg"), 24)
             };
 
-            //List<Production> productions = new List<Production>
-            //{
+            
 
-            //};
-
-            var model = items;
-
-            return View(model);
+            return View(items);
         }
 
         [HttpPost]
@@ -130,9 +129,17 @@ namespace WebApp.Controllers
         [HttpPost]
         public ActionResult CreateRawMaterial(string name, string unit, double amount)
         {
-            // Simuler en service, der opretter råmaterialet
-            RawMaterialService service = new RawMaterialService();
-            service.CreateRawMaterial(name, MeasurementTypeMapper.Map(MeasurementTypeService.GetMeasurementTypeByName(unit)), amount);
+            if (name == null || unit == null || amount < 0)
+            {
+                ModelState.AddModelError("", "Alle felter skal udfyldes.");
+                ViewBag.MeasurementTypes = MeasurementTypeService.GetAllMeasurementTypes();
+                return View("CreateRawMaterialView");
+            }
+
+            var test = MeasurementTypeMapper.Map(MeasurementTypeService.GetMeasurementTypeByName(unit));
+            Console.WriteLine(test);
+
+            RawMaterialService.CreateRawMaterial(name, MeasurementTypeMapper.Map(MeasurementTypeService.GetMeasurementTypeByName(unit)), amount);
 
             // Redirect til råvareroversigten
             return RedirectToAction("RåvarerView");
@@ -141,7 +148,7 @@ namespace WebApp.Controllers
         [HttpPost]
         public ActionResult CreateMeasurementType(string measurementType)
         {
-            if (string.IsNullOrWhiteSpace(measurementType))
+            if (measurementType.IsEmpty() || measurementType.IsNullOrWhiteSpace())
             {
                 ModelState.AddModelError("", "Navn må ikke være tomt.");
                 ViewBag.MeasurementTypes = MeasurementTypeService.GetAllMeasurementTypes();

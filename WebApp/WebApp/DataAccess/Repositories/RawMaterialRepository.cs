@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using WebApp.DataAccess.Context;
@@ -34,7 +35,25 @@ namespace WebApp.DataAccess.Repositories
         {
             using (DatabaseContext context = new DatabaseContext())
             {
-                context.RawMaterials.Add(RawMaterialMapper.Map(rawDTO));
+                var existingMeasurementType = context.MeasurementTypes
+                                            .SingleOrDefault(mt => mt.Name == rawDTO.MeasurementType.Name);
+
+                if (existingMeasurementType == null)
+                {
+                    throw new Exception("There was an error finding the MeasurementType - Received MeasurementType does not exist");
+                }
+
+                context.Entry(existingMeasurementType).State = EntityState.Unchanged;
+
+                var newRawMaterial = new RawMaterial
+                {
+                    Name = rawDTO.Name,
+                    MeasurementType = existingMeasurementType,
+                    MeasurementValue = rawDTO.MeasurementValue,
+                    ExpirationDate = rawDTO.ExpirationDate
+                };
+
+                context.RawMaterials.Add(newRawMaterial);
                 context.SaveChanges();
             }
             return rawDTO;

@@ -23,10 +23,6 @@ namespace WebApp.DataAccess.Context
             context.RawMaterials.Add(new Models.RawMaterial("Jernstang", kg, 20));
             context.RawMaterials.Add(new Models.RawMaterial("Jernstang3", kg, 20));
 
-            context.RawMaterials.Add(new Models.RawMaterial("Grillspyd", new Models.MeasurementType("kg"), 20));
-            context.RawMaterials.Add(new Models.RawMaterial("Jernstang", new Models.MeasurementType("kg"), 20));
-            context.RawMaterials.Add(new Models.RawMaterial("Jernstang3", new Models.MeasurementType("kg"), 20));
-
             Dictionary<Models.RawMaterial, double> materialsNeeded = new Dictionary<Models.RawMaterial, double>();
             RawMaterial testMaterial = new RawMaterial("Fuglevinger", new MeasurementType("kg"), 20);
             materialsNeeded.Add(testMaterial, 10);
