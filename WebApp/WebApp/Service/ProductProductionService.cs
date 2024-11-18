@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Web;
 using WebApp.DataAccess.Repositories;
 using WebApp.DTO;
@@ -11,12 +10,12 @@ namespace WebApp.Service
 {
     public class ProductProductionService
     {
-        public static List<ProductProductionDTO> GetProductProductionByName(string productionName)
+        public static IEnumerable<ProductProductionDTO> GetProductProductionByName(string productionName)
         {
             return ProductProductionRepository.GetProductProduction(productionName);
         }
 
-        public static List<ProductProductionDTO> GetAllProductProductions()
+        public static IEnumerable<ProductProductionDTO> GetAllProductProductions()
         {
             return ProductProductionRepository.GetProductProductions();
         }
@@ -35,7 +34,6 @@ namespace WebApp.Service
         {
             return ProductProductionRepository.UpdateProductProductionStatus(status, PPDTO);
         }
-
         public static ProductProductionDTO DeleteProductProduction(ProductProductionDTO PPDTO)
         {
             return ProductProductionRepository.DeleteProductProduction(PPDTO);

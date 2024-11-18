@@ -31,6 +31,7 @@ namespace WebApp.DataAccess.Repositories
             using (DatabaseContext context = new DatabaseContext())
             {
                 return context.ProductProductions
+                              .AsEnumerable()
                               .Select(p => ProductProductionMapper.Map(p))
                               .ToList();
             }
@@ -84,12 +85,22 @@ namespace WebApp.DataAccess.Repositories
         // Delete ProductProduction
         public static ProductProductionDTO DeleteProductProduction(ProductProductionDTO productProductionDTO)
         {
+            if (productProductionDTO == null)
+                throw new ArgumentNullException(nameof(productProductionDTO));
+
             using (DatabaseContext context = new DatabaseContext())
             {
-                context.ProductProductions.Remove(ProductProductionMapper.Map(productProductionDTO));
+                var entityToDelete = context.ProductProductions.FirstOrDefault(p => p.ProjectId == productProductionDTO.ProjectId);
+
+                if (entityToDelete == null)
+                    throw new InvalidOperationException($"Production with ID {productProductionDTO.ProjectId} not found.");
+
+                context.ProductProductions.Remove(entityToDelete);
                 context.SaveChanges();
             }
+
             return productProductionDTO;
         }
+
     }
 }

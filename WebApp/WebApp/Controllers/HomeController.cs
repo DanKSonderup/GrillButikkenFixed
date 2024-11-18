@@ -7,6 +7,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.UI.WebControls;
 using System.Web.WebPages;
+using System.Xml.Linq;
 using WebApp.BLL;
 using WebApp.DataAccess.Repositories;
 using WebApp.DTO;
@@ -18,7 +19,6 @@ namespace WebApp.Controllers
 {
     public class HomeController : Controller
     {
-        //private ProductionFactory grillSpydFactory = new ProductionFactory();
         public ActionResult Index()
         {
             BilBLL bll = new BilBLL();
@@ -29,107 +29,83 @@ namespace WebApp.Controllers
 
         public ActionResult RåvarerView()
         {
+            IEnumerable<RawMaterialDTO> rawMaterials = RawMaterialService.GetAllRawMaterials();
 
-            List<RawMaterialDTO> items = new List<RawMaterialDTO>
-            {
-                new RawMaterialDTO("Stål", new MeasurementType("kg"), 50),
-                new RawMaterialDTO("Træ", new MeasurementType("kg"), 24)
-            };
-
-            
-
-            return View(items);
-        }
-
-        [HttpPost]
-        public ActionResult StartProduction(string productionName, int plannedQuantity)
-        {
-            //List<RawMaterialDTO> items = GetItems();
-
-            //// Assuming grillSpydFactory is defined elsewhere in your code
-            //Production production = grillSpydFactory?.CreateProduction(productionName, plannedQuantity, items);
-
-            //production?.StartProduction();
-            return RedirectToAction("TestView");
-        }
-
-
-        private List<RawMaterialDTO> GetItems()
-        {
-
-            return new List<RawMaterialDTO>
-            {
-                new RawMaterialDTO("Stål", new MeasurementType("kg"), 50),
-                new RawMaterialDTO("Træ", new MeasurementType("kg"), 24)
-            };
-        }
-
-        public ActionResult IndstillingerView()
-        {
-            ViewBag.Message = "Your settings page.";
-            return View();
-        }
-
-        public ActionResult StatistikView()
-        {
-            ViewBag.Message = "Your statistics page.";
-            return View();
+            ViewBag.Message = "RawrMaterials";
+            return View(rawMaterials);
         }
 
         public ActionResult ProduktView()
         {
-            List<ProductDTO> products = ProductRepository.GetProducts();
 
+            IEnumerable<ProductDTO> products = ProductService.GetAllProducts();
             ViewBag.Message = "Your products page.";
             return View(products);
         }
 
         public ActionResult ProduktionView()
         {
-            /*
-            List<Production> produktioner = new List<Production>
-            {
-                new Production("Grillspyd", DateTime.Now, 10, new List<RawMaterialDTO>
-                {
-                    new RawMaterialDTO("Stål", Unit.kg, 20) { Category = "Metal" },
-                    new RawMaterialDTO("Træ", Unit.pcs, 20) { Category = "Material" }
-                }),
-                    new Production("Slaver", DateTime.Now, 10, new List<RawMaterialDTO>
-                    {
-                    new RawMaterialDTO("Pisk", Unit.pcs, 2) { Category = "Metal" },
-                    new RawMaterialDTO("Bomuld", Unit.kg, 200) { Category = "Material" }
-                })
-            }; 
-            var model = new InventoryAndProductionOverview
-            {
-                Productions = produktioner
-            }; */
-
-            List<ProductProductionDTO> model = new List<ProductProductionDTO>();
-            // string projectName, Product product, int quantityToProduce, DateTime createdAt, DateTime deadline, Status status
-            model.Add(new ProductProductionDTO("Idk", new Product(), 15, DateTime.Now, DateTime.Now, Status.Waiting));
-
-            ViewBag.Message = "Your production page.";
-            return View(model);
+            IEnumerable<ProductProductionDTO> productProductions = ProductProductionService.GetAllProductProductions();
+            return View(productProductions);
         }
 
-         [HttpPost]
+
+        [HttpPost]
          public ActionResult RegisterSale(string productName, int quantitySold)
          {
              // ProductService.UpdateInventory(productName, -quantitySold);
              return RedirectToAction("ProduktView");
-         } 
+         }
 
         [HttpPost]
-        public ActionResult CompleteProduction(string productionId, int completedQuantity)
+        public ActionResult CreateProduction(string projectName, int plannedQuantity, Product product, DateTime deadline, Status status)
         {
-            // ProductService production = GetProductionById(productionId);
-            // if (production != null)
+            if (projectName == null || plannedQuantity == 0 || product == null)
             {
-               // production.CompleteProduction(completedQuantity);
-                //ProductService.UpdateInventory(productProduction.ProductName, completedQuantity);
+                ModelState.AddModelError("", "Alle felter skal udfyldes.");
+                return View("CreateProductProductionView");
             }
-            return RedirectToAction("ProduktView");
+
+            ProductProductionService.CreateProductProduction(projectName, product, plannedQuantity, DateTime.Now, deadline, status);
+
+            return View("ProduktionView");
+        }
+
+        [HttpPost]
+        public ActionResult CompleteProduction(int Id, int completedQuantity)
+        {
+            ProductProductionDTO production = ProductProductionService.GetAllProductProductions()
+                                            .FirstOrDefault(item => item.ProjectId == Id);
+            Product product = production.Product;
+
+            production.Status = Status.Completed;
+            production.QuantityToProduce = completedQuantity;
+            product.AmountInStock += completedQuantity;
+            ProductProductionService.UpdateProductProduction(production);
+            ProductProductionService.UpdateStatusForProductProduction(Status.Completed, production);
+
+            return View("ProduktionView");
+        }
+
+        [HttpPost]
+        public ActionResult DeleteProduction(int Id)
+        {
+            ProductProductionDTO production = ProductProductionService.GetAllProductProductions()
+                                            .FirstOrDefault(item => item.ProjectId == Id);
+            ProductProductionService.DeleteProductProduction(production);
+
+            return RedirectToAction("ProduktionView");
+        }
+
+        [HttpPost]
+        public ActionResult UpdateProduction(int Id)
+        {
+            ProductProductionDTO production = ProductProductionService.GetAllProductProductions()
+                                            .FirstOrDefault(item => item.ProjectId == Id);
+
+            ProductProductionService.UpdateProductProduction(production);
+
+            return View("ProduktionView");
         }
 
         /*
@@ -143,7 +119,6 @@ namespace WebApp.Controllers
 
         public ActionResult CreateRawMaterialView()
         {
-
             ViewBag.MeasurementTypes = MeasurementTypeService.GetAllMeasurementTypes();
             return View();
         }
@@ -194,6 +169,18 @@ namespace WebApp.Controllers
         {
 
             ViewBag.MeasurementTypes = MeasurementTypeService.GetAllMeasurementTypes();
+            return View();
+        }
+
+        public ActionResult IndstillingerView()
+        {
+            ViewBag.Message = "Your settings page.";
+            return View();
+        }
+
+        public ActionResult StatistikView()
+        {
+            ViewBag.Message = "Your statistics page.";
             return View();
         }
     }

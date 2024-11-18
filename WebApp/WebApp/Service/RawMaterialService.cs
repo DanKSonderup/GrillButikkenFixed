@@ -20,12 +20,12 @@ namespace WebApp.Service
             return RawMaterialRepository.DeleteRawMaterial(rawMaterialDTO);
         }
 
-        public static List<RawMaterialDTO> GetAllRawMaterials()
+        public static IEnumerable<RawMaterialDTO> GetAllRawMaterials()
         {
             return RawMaterialRepository.GetRawMaterials();
         }
 
-        public static List<RawMaterialDTO> GetRawMaterialByName(string name)
+        public static IEnumerable<RawMaterialDTO> GetRawMaterialByName(string name)
         {
             return RawMaterialRepository.GetRawMaterial(name);
         }
