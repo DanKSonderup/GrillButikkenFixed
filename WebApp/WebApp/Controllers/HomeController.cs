@@ -111,6 +111,31 @@ namespace WebApp.Controllers
             return View(model);
         }
 
+         [HttpPost]
+         public ActionResult RegisterSale(string productName, int quantitySold)
+         {
+             // ProductService.UpdateInventory(productName, -quantitySold);
+             return RedirectToAction("ProduktView");
+         } 
+
+        [HttpPost]
+        public ActionResult CompleteProduction(string productionId, int completedQuantity)
+        {
+            // ProductService production = GetProductionById(productionId);
+            // if (production != null)
+            {
+               // production.CompleteProduction(completedQuantity);
+                //ProductService.UpdateInventory(productProduction.ProductName, completedQuantity);
+            }
+            return RedirectToAction("ProduktView");
+        }
+
+        private Production GetProductionById(string productionId)
+        {
+            // Implement logic to retrieve production by ID
+            return new Production("Dummy", DateTime.Now, 0, new List<RawMaterials>());
+        }
+
 
 
         public ActionResult CreateRawMaterialView()
