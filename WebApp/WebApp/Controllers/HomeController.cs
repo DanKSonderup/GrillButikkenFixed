@@ -130,11 +130,12 @@ namespace WebApp.Controllers
             return RedirectToAction("ProduktView");
         }
 
-        private Production GetProductionById(string productionId)
+        /*
+        private ProductProduction GetProductionById(string productionId)
         {
             // Implement logic to retrieve production by ID
-            return new Production("Dummy", DateTime.Now, 0, new List<RawMaterials>());
-        }
+            return new ProductProduction("Dummy", DateTime.Now, 0, new List<RawMaterials>());
+        } */
 
 
 
