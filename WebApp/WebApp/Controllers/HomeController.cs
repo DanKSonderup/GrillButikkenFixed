@@ -11,6 +11,7 @@ using WebApp.BLL;
 using WebApp.DataAccess.Repositories;
 using WebApp.DTO;
 using WebApp.DTO.Mappers;
+using WebApp.Helpers;
 using WebApp.Models;
 using WebApp.Service;
 
@@ -36,7 +37,7 @@ namespace WebApp.Controllers
                 new RawMaterialDTO("Træ", new MeasurementType("kg"), 24)
             };
 
-            
+            items = RawMaterialService.GetAllRawMaterials();
 
             return View(items);
         }
@@ -120,28 +121,82 @@ namespace WebApp.Controllers
             return View();
         }
 
+        public ActionResult EditRawMaterial(int id)
+        {
+
+            var rawMaterial = RawMaterialService.GetRawMaterialById(id);
+            ViewBag.MeasurementTypes = MeasurementTypeService.GetAllMeasurementTypes();
+            return View(rawMaterial);
+        }
+
         [ChildActionOnly]
         public ActionResult CreateMeasurementType()
         {
             return PartialView("CreateMeasurementType");
         }
 
-        [HttpPost]
-        public ActionResult CreateRawMaterial(string name, string unit, double amount)
+        public ActionResult DeleteMeasurementType()
         {
-            if (name == null || unit == null || amount < 0)
+            var measurementTypes = MeasurementTypeService.GetAllMeasurementTypes();
+            Console.WriteLine(measurementTypes.Count);
+            return View(measurementTypes);
+        }
+
+
+        [HttpPost]
+        public ActionResult CreateRawMaterial(string name, string unit, string amount, DateTime? expirationDate = null)
+        {
+            if (name == null || unit == null || amount == null)
             {
                 ModelState.AddModelError("", "Alle felter skal udfyldes.");
                 ViewBag.MeasurementTypes = MeasurementTypeService.GetAllMeasurementTypes();
                 return View("CreateRawMaterialView");
             }
 
-            var test = MeasurementTypeMapper.Map(MeasurementTypeService.GetMeasurementTypeByName(unit));
-            Console.WriteLine(test);
+            string nameCapitalized = Helper.CapitalizeFirstLetter(name);
+            double amountParsed = Double.Parse(amount);
 
-            RawMaterialService.CreateRawMaterial(name, MeasurementTypeMapper.Map(MeasurementTypeService.GetMeasurementTypeByName(unit)), amount);
+
+            if (RawMaterialService.IsDuplicateName(nameCapitalized))
+            {
+                ModelState.AddModelError("", "Råvare med samme navn eksisterer allerede");
+                ViewBag.MeasurementTypes = MeasurementTypeService.GetAllMeasurementTypes();
+                return View("CreateRawMaterialView");
+            }
+
+            RawMaterialService.CreateRawMaterial(nameCapitalized, MeasurementTypeMapper.Map(MeasurementTypeService.GetMeasurementTypeByName(unit)), amountParsed, expirationDate);
 
             // Redirect til råvareroversigten
+            return RedirectToAction("RåvarerView");
+        }
+
+        [HttpPost]
+        public ActionResult EditRawMaterial(int id, string name, string unit, string amount, DateTime? expirationDate = null)
+        {
+
+            string nameCapitalized = Helper.CapitalizeFirstLetter(name);
+            double amountParsed = Double.Parse(amount);
+
+            if (RawMaterialService.IsDuplicateName(nameCapitalized))
+            {
+                ModelState.AddModelError("", "Råvare med samme navn eksisterer allerede");
+                ViewBag.MeasurementTypes = MeasurementTypeService.GetAllMeasurementTypes();
+                return View("CreateRawMaterialView");
+            }
+
+            RawMaterialDTO rawDTO = new RawMaterialDTO
+            {
+                Material_id = id,
+                Name = nameCapitalized,
+                MeasurementType = MeasurementTypeMapper.Map(MeasurementTypeService.GetMeasurementTypeByName(unit)),
+                Stocks = new List<RawMaterialStock>
+                {
+                    new RawMaterialStock(id, amountParsed, expirationDate)
+                }
+            };
+
+            RawMaterialService.UpdateRawMaterial(rawDTO);
+
             return RedirectToAction("RåvarerView");
         }
 
@@ -155,18 +210,30 @@ namespace WebApp.Controllers
                 return View("CreateRawMaterialView");
             }
 
-            MeasurementTypeService.CreateMeasurementType(measurementType);
+            string measurementTypeCapitalized = Helper.CapitalizeFirstLetter(measurementType);
+
+            if (MeasurementTypeService.IsDuplicateName(measurementTypeCapitalized))
+            {
+                ModelState.AddModelError("", "Enhed med samme navn eksisterer allerede");
+                ViewBag.MeasurementTypes = MeasurementTypeService.GetAllMeasurementTypes();
+                return View("CreateRawMaterialView");
+            }
+
+            MeasurementTypeService.CreateMeasurementType(measurementTypeCapitalized);
             ViewBag.MeasurementTypes = MeasurementTypeService.GetAllMeasurementTypes();
             ModelState.Remove("measurementType");
 
             return View("CreateRawMaterialView");
         }
 
-        public ActionResult EditRawMaterial()
-        {
 
-            ViewBag.MeasurementTypes = MeasurementTypeService.GetAllMeasurementTypes();
-            return View();
+        [HttpPost]
+        public ActionResult DeleteMeasurementType(string name)
+        {
+            MeasurementTypeService.DeleteMeasurementType(name);
+
+            var items = RawMaterialService.GetAllRawMaterials();
+            return View("RåvarerView", items);
         }
     }
 }

@@ -18,9 +18,10 @@
 <div class="body">
     <div class="crud">
         <button class="crud-btn to-do">Slet</button>
-        <button class="crud-btn in-progress" onclick="location.href='@Url.Action("EditRawMaterial", "Home")'">Redigér</button>
+        <button class="crud-btn in-progress">Rediger</button>
         <button class="crud-btn create-type">Opret Type</button>
         <button class="crud-btn create-new" onclick="location.href='@Url.Action("CreateRawMaterialView", "Home")'">Opret Ny</button>
+        <button class="crud-btn" onclick="location.href='@Url.Action("DeleteMeasurementType", "Home")'">Slet enhed</button>
 
     </div>
 
@@ -32,6 +33,8 @@
                 <th>Mængde</th>
                 <th>Måleenhed</th>
                 <th>Udløbsdato</th>
+                <th>Rediger</th>
+                <th>Slet</th>
             </tr>
         </thead>
             @foreach (var item in Model)
@@ -42,6 +45,8 @@
                     <td>@item.MeasurementValue</td>
                     <td>@item.MeasurementType</td>
                     <td>@item.ExpirationDate</td>
+                    <td><button onclick="location.href='@Url.Action("EditRawMaterial", "Home", new { id = item.Material_id})'">Rediger</button></td>
+                    <td><button onclick="location.href='@Url.Action("DeleteRawMaterial", "Home", new {id = item.Material_id})'">Slet</button></td>
                 </tr>
             }
         </tbody>

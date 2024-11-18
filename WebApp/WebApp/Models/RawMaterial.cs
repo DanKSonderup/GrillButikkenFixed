@@ -11,35 +11,83 @@ namespace WebApp.Models
     {
         [Key]
         public int Material_id { get; set; } // Key og GUID
-        public String Name { get; set; } // Required og VARCHAR
-        public double MeasurementValue { get; set; } // Required
-        //[ForeignKey("MeasurementType")] Bør den ikke have det?
+        public string Name { get; set; } // Required og VARCHAR
         public MeasurementType MeasurementType { get; set; }
-        public DateTime ExpirationDate { get; set; }
+
+        public virtual List<RawMaterialStock> Stocks { get; set; }
 
         public RawMaterial()
         {
+            Stocks = new List<RawMaterialStock>();
         }   
 
-        public RawMaterial(string name, MeasurementType measurementType, double measurementValue)
+        public RawMaterial(string name, MeasurementType measurementType, double amount, DateTime expirationDate)
         {
             Name = name;
             MeasurementType = measurementType;
-            MeasurementValue = measurementValue;
-            ExpirationDate = DateTime.Now.AddYears(30);
+            Stocks = new List<RawMaterialStock>
+            {
+                new RawMaterialStock(Material_id, amount, expirationDate)
+            };
         }
 
-        public RawMaterial(string name, MeasurementType measurementType, double measurementValue, DateTime expirationDate)
+        public RawMaterial(string name, MeasurementType measurementType, double amount)
         {
             Name = name;
             MeasurementType = measurementType;
-            MeasurementValue = measurementValue;
+            Stocks = new List<RawMaterialStock>
+            {
+                new RawMaterialStock(Material_id, amount)
+            };
+        }
+
+        public RawMaterial(string name, MeasurementType measurementType, List<RawMaterialStock> stocks)
+        {
+            Name = name;
+            MeasurementType = measurementType;
+            Stocks = stocks;
+        }
+
+        public void AddStock(double amount, DateTime expirationDate)
+        {
+            Stocks.Add(new RawMaterialStock(Material_id, amount, expirationDate));
+        }
+
+        public void AddStock(double amount)
+        {
+            Stocks.Add(new RawMaterialStock(Material_id, amount));
+        }
+
+        public void RemoveStock(double amount, int id)
+        {
+            var rawMatStock = Stocks.Find(rm => rm.Id == id);
+
+            if (rawMatStock != null)
+            {
+                rawMatStock.Amount -= amount;
+                if (rawMatStock.Amount < 0)
+                {
+                    Stocks.Remove(rawMatStock);
+                }
+            }
+        }
+    }
+
+    public class  RawMaterialStock
+    {
+        [Key]
+        public int Id { get; set; }
+        public double Amount { get; set; }
+        public DateTime? ExpirationDate { get; set; }
+
+        public int RawMaterialId { get; set; }
+
+        public RawMaterialStock() { }
+        public RawMaterialStock(int rawMaterialId, double amount, DateTime? expirationDate = null)
+        {
+            RawMaterialId = rawMaterialId;
+            Amount = amount;
             ExpirationDate = expirationDate;
-        }
-
-        public override string ToString()
-        {
-            return Name + ": " + MeasurementValue + MeasurementType + ". Expiration: " + ExpirationDate;
         }
     }
 }

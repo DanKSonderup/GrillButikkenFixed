@@ -10,9 +10,9 @@ namespace WebApp.Service
 {
     public class RawMaterialService
     {
-        public static RawMaterialDTO CreateRawMaterial(string name, MeasurementType measurementType, double measurementValue)
+        public static RawMaterialDTO CreateRawMaterial(string name, MeasurementType measurementType, double amount, DateTime? expirationDate)
         {
-            return RawMaterialRepository.AddRawMaterial(new RawMaterialDTO(name, measurementType, measurementValue));
+            return RawMaterialRepository.AddRawMaterial(new RawMaterialDTO(name, measurementType, amount, expirationDate));
         }
 
         public static RawMaterialDTO DeleteRawMaterial(RawMaterialDTO rawMaterialDTO)
@@ -30,9 +30,24 @@ namespace WebApp.Service
             return RawMaterialRepository.GetRawMaterial(name);
         }
 
+        public static RawMaterialDTO GetRawMaterialById(int id)
+        {
+            return RawMaterialRepository.GetRawMaterialById(id);
+        }
+
         public static RawMaterialDTO UpdateRawMaterial(RawMaterialDTO rawMaterialDTO)
         {
             return RawMaterialRepository.EditRawMaterial(rawMaterialDTO);
+        }
+
+
+        /// Other methods
+        
+        public static bool IsDuplicateName(string name)
+        {
+            List<RawMaterialDTO> raws = GetAllRawMaterials();
+
+            return raws.Any(raw => raw.Name.Equals(name));
         }
     }
 }

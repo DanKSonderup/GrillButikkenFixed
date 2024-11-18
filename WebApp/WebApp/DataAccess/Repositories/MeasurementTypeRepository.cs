@@ -48,7 +48,19 @@ namespace WebApp.DataAccess.Repositories
         {
             using (DatabaseContext context = new DatabaseContext())
             {
-                context.MeasurementTypes.Remove(MeasurementTypeMapper.Map(measurementTypeDTO));
+                // Find entiteten baseret på en condition
+                var measurementType = context.MeasurementTypes
+                                             .SingleOrDefault(r => r.Name == measurementTypeDTO.Name);
+
+                if (measurementType == null)
+                {
+                    throw new Exception("MeasurementType ikke fundet.");
+                }
+
+                // Slet entiteten fra konteksten
+                context.MeasurementTypes.Remove(measurementType);
+
+                // Gem ændringer
                 context.SaveChanges();
             }
             return measurementTypeDTO;

@@ -1,0 +1,33 @@
+﻿@model List<WebApp.DTO.MeasurementTypeDTO>
+@{
+    ViewBag.Title = "DeleteMeasurementType";
+}
+
+<h2>DeleteMeasurementType</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var type in Model)
+        {
+            <tr>
+                <td>@type.Id</td>
+                <td>@type.Name</td>
+                <td>
+                    <!-- Slet-knap -->
+                    @using (Html.BeginForm("DeleteMeasurementType", "Home", FormMethod.Post))
+                    {
+                        @Html.Hidden("name", type.Name)
+                        <button type="submit" class="btn btn-danger">Slet</button>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

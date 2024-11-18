@@ -1,11 +1,35 @@
-﻿
+﻿@model WebApp.DTO.RawMaterialDTO
 @{
     ViewBag.Title = "EditRawMaterial";
 }
 
 <h2>EditRawMaterial</h2>
 
-<!-- Man skal her have et RawMaterial med fra RåvarerView'et, man skal så kunne ændre dens felter.
-    Der er ingen logik til at man kan tilføje materialer lige nu andet end det der kommer herinde.
-    Der kunne være en knap hvor man indtaster at man har "bestilt" varer hjem, som så opdaterer lagerbeholdningen.
-    Denne edit-side er primært tiltænkt til at kunne ændre name eller measurementType'-->
+@using (Html.BeginForm("EditRawMaterial", "Home", FormMethod.Post))
+{
+    @Html.HiddenFor(m => m.Material_id)
+
+    <div class="form-group mb-3">
+        <label for="name">Navn</label>
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+    </div>
+
+    <div class="form-group mb-3">
+        <label for="unit" class="form-label">Enhed</label>
+        <select class="form-control" id="unit" name="unit" required>
+            @foreach (var type in ViewBag.MeasurementTypes)
+            {
+                <option value="@type.Name" @(type.Name.Equals(Model.MeasurementType) ? "selected" : "")>@type.Name</option>
+            }
+        </select>
+    </div>
+
+    <div class="form-group mb-3">
+        <label for="amount" class="form-label">Lagerbeholdning</label>
+        <input type="number" class="form-control" id="amount" name="amount" placeholder="Indtast mængde" min="0" step="0.5" value="@Model.MeasurementValue" required />
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-success btn-lg w-25 mb-5">Bekræft</button>
+    </div>
+}

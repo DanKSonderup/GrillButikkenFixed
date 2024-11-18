@@ -11,17 +11,19 @@ namespace WebApp.DTO.Mappers
         public static RawMaterialDTO Map(RawMaterial rawMaterial)
         {
             if (rawMaterial != null)
-                return new RawMaterialDTO(rawMaterial.Name, rawMaterial.MeasurementType, rawMaterial.MeasurementValue);
+                return new RawMaterialDTO(rawMaterial.Name, rawMaterial.MeasurementType, rawMaterial.Stocks);
             else
                 return null;
         }
-        public static RawMaterial Map(RawMaterialDTO rawDTO)
+
+        public static RawMaterial Map(RawMaterialDTO rawMaterial)
         {
-            if (rawDTO != null)
-                return new RawMaterial(rawDTO.Name, rawDTO.MeasurementType, rawDTO.MeasurementValue);
+            if (rawMaterial != null)
+                return new RawMaterial(rawMaterial.Name, rawMaterial.MeasurementType, rawMaterial.Stocks);
             else
                 return null;
         }
+
 
         internal static void Update(RawMaterialDTO rawDTO, RawMaterial rawMaterial)
         {
@@ -29,7 +31,7 @@ namespace WebApp.DTO.Mappers
             {
                 rawMaterial.Name = rawDTO.Name;
                 rawMaterial.MeasurementType = rawDTO.MeasurementType;
-                rawMaterial.MeasurementValue = rawDTO.MeasurementValue;
+                rawMaterial.Stocks = rawDTO.Stocks;
             }
             else
                 rawMaterial = null;

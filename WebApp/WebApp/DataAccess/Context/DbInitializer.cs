@@ -17,7 +17,7 @@ namespace WebApp.DataAccess.Context
         {
             // Guid projectId, string projectName, int quantityToProduce,DateTime createdAt, DateTime deadline, TimeSpan timeSpent, Status status
             context.Biler.Add(new Models.Bil(1, "Honda", DateTime.Now));
-            MeasurementType kg = new Models.MeasurementType("kg");
+            MeasurementType kg = new Models.MeasurementType("Kg");
             context.MeasurementTypes.Add(kg);
             context.RawMaterials.Add(new Models.RawMaterial("Grillspyd", kg, 20));
             context.RawMaterials.Add(new Models.RawMaterial("Jernstang", kg, 20));
@@ -27,6 +27,9 @@ namespace WebApp.DataAccess.Context
             RawMaterial testMaterial = new RawMaterial("Fuglevinger", new MeasurementType("kg"), 20);
             materialsNeeded.Add(testMaterial, 10);
             context.Products.Add(new Models.Product(1, "Grillspyd", new TimeSpan(0, 0, 0), materialsNeeded, DateTime.Now, DateTime.Now, 20));
+
+            context.RawMaterialsStock.Add(new Models.RawMaterialStock(1, 50));
+
 
             context.SaveChanges();
 

@@ -18,15 +18,32 @@ namespace WebApp.DataAccess.Repositories
         {
             using (DatabaseContext context = new DatabaseContext())
             {
-                return context.RawMaterials.Where(r => r.Name == name).Select(r => RawMaterialMapper.Map(r)).ToList();
+                var rawMaterials = context.RawMaterials.ToList();
+
+                return rawMaterials.Where(r => r.Name == name).Select(r => RawMaterialMapper.Map(r)).ToList();
             }
         }
+
+        public static RawMaterialDTO GetRawMaterialById(int id)
+        {
+            using (DatabaseContext context = new DatabaseContext())
+            {
+                var rawMaterials = context.RawMaterials.ToList();
+
+                var rawMat = rawMaterials.Where(r => r.Material_id == id).First();
+
+                return RawMaterialMapper.Map(rawMat);
+            }
+        }
+
 
         public static List<RawMaterialDTO> GetRawMaterials()
         {
             using (DatabaseContext context = new DatabaseContext())
             {
-                return context.RawMaterials.Select(r => RawMaterialMapper.Map(r)).ToList();
+                var rawMaterials = context.RawMaterials.ToList();
+
+                return rawMaterials.Select(r => RawMaterialMapper.Map(r)).ToList();
             }
         }
 
@@ -49,8 +66,7 @@ namespace WebApp.DataAccess.Repositories
                 {
                     Name = rawDTO.Name,
                     MeasurementType = existingMeasurementType,
-                    MeasurementValue = rawDTO.MeasurementValue,
-                    ExpirationDate = rawDTO.ExpirationDate
+                    Stocks = rawDTO.Stocks
                 };
 
                 context.RawMaterials.Add(newRawMaterial);
@@ -64,13 +80,42 @@ namespace WebApp.DataAccess.Repositories
         {
             using (DatabaseContext context = new DatabaseContext())
             {
-                RawMaterial dataRawMaterial = context.RawMaterials.Find(rawDTO.Material_id);
-                RawMaterialMapper.Update(rawDTO, dataRawMaterial);
+                // Find det eksisterende RawMaterial
+                RawMaterial dataRawMaterial = context.RawMaterials
+                                                     .Include(r => r.MeasurementType) // Sørg for at hente MeasurementType med
+                                                     .FirstOrDefault(r => r.Material_id == rawDTO.Material_id);
 
+                if (dataRawMaterial == null)
+                {
+                    throw new Exception("RawMaterial not found.");
+                }
+
+                // Find det eksisterende MeasurementType i databasen
+                var existingMeasurementType = context.MeasurementTypes
+                                                     .FirstOrDefault(mt => mt.Name == rawDTO.MeasurementType.Name);
+
+                if (existingMeasurementType == null)
+                {
+                    throw new Exception("MeasurementType does not exist.");
+                }
+
+                // Opdater RawMaterial med de nye værdier
+                dataRawMaterial.Name = rawDTO.Name;
+                dataRawMaterial.MeasurementType = existingMeasurementType; // Brug det eksisterende MeasurementType
+                dataRawMaterial.Stocks = rawDTO.Stocks;
+
+                // Markér RawMaterial som ændret, hvis det er nødvendigt (efter opdateringen)
+                context.Entry(dataRawMaterial).State = EntityState.Modified;
+
+
+                // Gem ændringerne i databasen
                 context.SaveChanges();
             }
+
+            // Returnér DTO'en efter ændringerne er blevet gemt
             return rawDTO;
         }
+
 
         public static RawMaterialDTO DeleteRawMaterial(RawMaterialDTO rawDTO)
         {
