@@ -1,0 +1,29 @@
+﻿@model WebApp.DTO.RawMaterialDTO
+@{
+    ViewBag.Title = "ShowRawMaterial";
+}
+
+<h2>Oversigt @Model.Name</h2>
+
+<div class="body">
+    <p><strong>Total Mængde:</strong> @Model.FullAmount() @Model.MeasurementType</p>
+
+    
+    <table class="table table-striped w-25">
+        <thead>
+            <tr>
+                <th>Mængde</th>
+                <th>Udløbsdato</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Stocks)
+            {
+                <tr>
+                    <td>@item.Amount</td>
+                    <td>@item.ExpirationDate</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

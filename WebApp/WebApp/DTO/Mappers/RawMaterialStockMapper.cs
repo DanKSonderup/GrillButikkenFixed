@@ -22,6 +22,29 @@ namespace WebApp.DTO.Mappers
             else return null;
         }
 
+        public static List<RawMaterialStock> Map(List<RawMaterialStockDTO> stockDTOs)
+        {
+            return stockDTOs.Select(dto => new RawMaterialStock
+            {
+                Id = dto.Id,
+                Amount = dto.Amount,
+                ExpirationDate = dto.ExpirationDate,
+                RawMaterialId = dto.RawMaterialId
+            }).ToList();
+        }
+
+        public static List<RawMaterialStockDTO> Map(List<RawMaterialStock> stocks)
+        {
+            return stocks.Select(model => new RawMaterialStockDTO
+            {
+                Id = model.Id,
+                Amount = model.Amount,
+                ExpirationDate = model.ExpirationDate,
+                RawMaterialId = model.RawMaterialId
+            }).ToList();
+        }
+
+
         public static void Update(RawMaterialStockDTO dto, RawMaterialStock model)
         {
             if (dto != null)

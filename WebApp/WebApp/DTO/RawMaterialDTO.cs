@@ -16,46 +16,41 @@ namespace WebApp.DTO
 
         [Required]
         public MeasurementType MeasurementType { get; set; }
-        public virtual List<RawMaterialStock> Stocks { get; set; }
+        public virtual List<RawMaterialStockDTO> Stocks { get; set; }
         public RawMaterialDTO()
         {
-            Stocks = new List<RawMaterialStock>();
+            Stocks = new List<RawMaterialStockDTO>();
         }
 
         public RawMaterialDTO(string name, MeasurementType measurementType, double amount, DateTime? expirationDate = null)
         {
             Name = name;
             MeasurementType = measurementType;
-            Stocks = new List<RawMaterialStock>
+            Stocks = new List<RawMaterialStockDTO>
             {
-                new RawMaterialStock(Material_id, amount, expirationDate)
+                new RawMaterialStockDTO(Material_id, amount, expirationDate)
             }; ;
         }
         public RawMaterialDTO(string name, MeasurementType measurementType, double amount)
         {
             Name = name;
             MeasurementType = measurementType;
-            Stocks = new List<RawMaterialStock>
+            Stocks = new List<RawMaterialStockDTO>
             {
-                new RawMaterialStock(Material_id, amount)
+                new RawMaterialStockDTO(Material_id, amount)
             };
         }
 
-        public RawMaterialDTO(string name, MeasurementType measurementType, List<RawMaterialStock> stocks)
+        public RawMaterialDTO(string name, MeasurementType measurementType, List<RawMaterialStockDTO> stocks)
         {
             Name = name;
             MeasurementType = measurementType;
             Stocks = stocks;
         }
 
-        public void AddStock(double amount, DateTime expirationDate)
+        public void AddStock(double amount, DateTime? expirationDate = null)
         {
-            Stocks.Add(new RawMaterialStock(Material_id, amount, expirationDate));
-        }
-
-        public void AddStock(double amount)
-        {
-            Stocks.Add(new RawMaterialStock(Material_id, amount));
+            Stocks.Add(new RawMaterialStockDTO(Material_id, amount, expirationDate));
         }
 
         public void RemoveStock(double amount, int id)
@@ -70,6 +65,20 @@ namespace WebApp.DTO
                     Stocks.Remove(rawMatStock);
                 }
             }
+        }
+
+        public double FullAmount()
+        {
+            return Stocks.Sum(rm => rm.Amount);
+        }
+
+        public DateTime? GetClosestExpirationDate()
+        {
+            return Stocks
+                .Where(stock => stock.ExpirationDate.HasValue)
+                .OrderBy(stock => stock.ExpirationDate)
+                .Select(stock => stock.ExpirationDate)
+                .FirstOrDefault();
         }
     }
 

@@ -18,7 +18,9 @@ namespace WebApp.DataAccess.Repositories
         {
             using (DatabaseContext context = new DatabaseContext())
             {
-                var rawMaterials = context.RawMaterials.ToList();
+                var rawMaterials = context.RawMaterials
+                    .Include(rm => rm.MeasurementType)
+                    .ToList();
 
                 return rawMaterials.Where(r => r.Name == name).Select(r => RawMaterialMapper.Map(r)).ToList();
             }
@@ -28,7 +30,10 @@ namespace WebApp.DataAccess.Repositories
         {
             using (DatabaseContext context = new DatabaseContext())
             {
-                var rawMaterials = context.RawMaterials.ToList();
+                var rawMaterials = context.RawMaterials
+                    .Include(rm => rm.MeasurementType)
+                    .ToList();
+
 
                 var rawMat = rawMaterials.Where(r => r.Material_id == id).First();
 
@@ -41,7 +46,9 @@ namespace WebApp.DataAccess.Repositories
         {
             using (DatabaseContext context = new DatabaseContext())
             {
-                var rawMaterials = context.RawMaterials.ToList();
+                var rawMaterials = context.RawMaterials
+                    .Include(rm => rm.MeasurementType)
+                    .ToList();
 
                 return rawMaterials.Select(r => RawMaterialMapper.Map(r)).ToList();
             }
@@ -66,7 +73,7 @@ namespace WebApp.DataAccess.Repositories
                 {
                     Name = rawDTO.Name,
                     MeasurementType = existingMeasurementType,
-                    Stocks = rawDTO.Stocks
+                    Stocks = RawMaterialStockMapper.Map(rawDTO.Stocks)
                 };
 
                 context.RawMaterials.Add(newRawMaterial);
@@ -82,8 +89,8 @@ namespace WebApp.DataAccess.Repositories
             {
                 // Find det eksisterende RawMaterial
                 RawMaterial dataRawMaterial = context.RawMaterials
-                                                     .Include(r => r.MeasurementType) // Sørg for at hente MeasurementType med
-                                                     .FirstOrDefault(r => r.Material_id == rawDTO.Material_id);
+                    .Include(r => r.MeasurementType) // Sørg for at hente MeasurementType med
+                    .FirstOrDefault(r => r.Material_id == rawDTO.Material_id);
 
                 if (dataRawMaterial == null)
                 {
@@ -92,7 +99,7 @@ namespace WebApp.DataAccess.Repositories
 
                 // Find det eksisterende MeasurementType i databasen
                 var existingMeasurementType = context.MeasurementTypes
-                                                     .FirstOrDefault(mt => mt.Name == rawDTO.MeasurementType.Name);
+                    .FirstOrDefault(mt => mt.Name == rawDTO.MeasurementType.Name);
 
                 if (existingMeasurementType == null)
                 {
@@ -102,7 +109,8 @@ namespace WebApp.DataAccess.Repositories
                 // Opdater RawMaterial med de nye værdier
                 dataRawMaterial.Name = rawDTO.Name;
                 dataRawMaterial.MeasurementType = existingMeasurementType; // Brug det eksisterende MeasurementType
-                dataRawMaterial.Stocks = rawDTO.Stocks;
+                dataRawMaterial.Stocks.Add(RawMaterialStockMapper.Map(rawDTO.Stocks.Last()));
+
 
                 // Markér RawMaterial som ændret, hvis det er nødvendigt (efter opdateringen)
                 context.Entry(dataRawMaterial).State = EntityState.Modified;

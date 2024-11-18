@@ -30,14 +30,9 @@ namespace WebApp.Controllers
 
         public ActionResult RåvarerView()
         {
+            var items = RawMaterialService.GetAllRawMaterials();
 
-            List<RawMaterialDTO> items = new List<RawMaterialDTO>
-            {
-                new RawMaterialDTO("Stål", new MeasurementType("kg"), 50),
-                new RawMaterialDTO("Træ", new MeasurementType("kg"), 24)
-            };
-
-            items = RawMaterialService.GetAllRawMaterials();
+            Console.WriteLine(items);
 
             return View(items);
         }
@@ -129,6 +124,30 @@ namespace WebApp.Controllers
             return View(rawMaterial);
         }
 
+        public ActionResult ShowRawMaterial(int id)
+        {
+            var rawMaterial = RawMaterialService.GetRawMaterialById(id);
+
+            rawMaterial.Stocks = rawMaterial.Stocks
+                .OrderBy(stock => stock.ExpirationDate)
+                .ToList();
+
+            return View(rawMaterial);
+        }
+
+        [HttpPost]
+        public ActionResult RecordPurchase(int materialId, double amount, DateTime? expirationDate)
+        {
+            var rawMaterial = RawMaterialService.GetRawMaterialById(materialId);
+
+            rawMaterial.AddStock(amount, expirationDate);
+
+            RawMaterialService.UpdateRawMaterial(rawMaterial);
+
+            return RedirectToAction("RåvarerView");
+        }
+
+
         [ChildActionOnly]
         public ActionResult CreateMeasurementType()
         {
@@ -189,9 +208,9 @@ namespace WebApp.Controllers
                 Material_id = id,
                 Name = nameCapitalized,
                 MeasurementType = MeasurementTypeMapper.Map(MeasurementTypeService.GetMeasurementTypeByName(unit)),
-                Stocks = new List<RawMaterialStock>
+                Stocks = new List<RawMaterialStockDTO>
                 {
-                    new RawMaterialStock(id, amountParsed, expirationDate)
+                    new RawMaterialStockDTO(id, amountParsed, expirationDate)
                 }
             };
 
@@ -230,10 +249,18 @@ namespace WebApp.Controllers
         [HttpPost]
         public ActionResult DeleteMeasurementType(string name)
         {
+            var rawMats = RawMaterialService.GetAllRawMaterials();
+
+            if(rawMats.Any(rm => rm.MeasurementType.Name.Equals(name)))
+            {
+                ModelState.AddModelError("", "Kan ikke slette en måleenhed, som bruges aktivt af en eller flere råvare(r)");
+                return View(MeasurementTypeService.GetAllMeasurementTypes());
+
+            }
+
             MeasurementTypeService.DeleteMeasurementType(name);
 
-            var items = RawMaterialService.GetAllRawMaterials();
-            return View("RåvarerView", items);
+            return RedirectToAction("RåvarerView", rawMats);
         }
     }
 }
