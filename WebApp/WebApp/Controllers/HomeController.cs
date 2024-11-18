@@ -139,7 +139,35 @@ namespace WebApp.Controllers
             return new ProductProduction("Dummy", DateTime.Now, 0, new List<RawMaterials>());
         } */
 
+        public ActionResult CreateProductView()
+        {
+            ViewBag.Products = ProductRepository.GetProducts();
+            return View();
+        }
 
+        [HttpPost]
+        public ActionResult CreateProduct(string name, int EstimatedProductionTime, int amount)
+        {
+            if (ModelState.IsValid)
+            {
+                var product = new ProductDTO
+                {
+                    Id = 0,
+                    Name = name,
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now,
+                    RawMaterialNeeded = new Dictionary<RawMaterial, Double>(),
+                    EstimatedProductionTime = TimeSpan.FromHours(EstimatedProductionTime),
+                    AmountInStock = +amount
+                };
+                 ProductRepository.AddProduct(product);
+
+                // Redirect to a confirmation page or another action
+                return RedirectToAction("ProduktView");
+            }
+
+            return View();
+        }
 
         public ActionResult CreateRawMaterialView()
         {
