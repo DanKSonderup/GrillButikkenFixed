@@ -18,6 +18,7 @@ namespace WebApp.Controllers
 {
     public class HomeController : Controller
     {
+        private static Dictionary<string, int> productInventory = new Dictionary<string, int>();
         //private ProductionFactory grillSpydFactory = new ProductionFactory();
         public ActionResult Index()
         {
@@ -36,8 +37,6 @@ namespace WebApp.Controllers
                 new RawMaterialDTO("Træ", new MeasurementType("kg"), 24)
             };
 
-            
-
             return View(items);
         }
 
@@ -46,7 +45,7 @@ namespace WebApp.Controllers
         {
             //List<RawMaterialDTO> items = GetItems();
 
-            //// Assuming grillSpydFactory is defined elsewhere in your code
+            // Assuming grillSpydFactory is defined elsewhere in your code
             //Production production = grillSpydFactory?.CreateProduction(productionName, plannedQuantity, items);
 
             //production?.StartProduction();
@@ -86,7 +85,7 @@ namespace WebApp.Controllers
 
         public ActionResult ProduktionView()
         {
-            /*
+       /*
             List<Production> produktioner = new List<Production>
             {
                 new Production("Grillspyd", DateTime.Now, 10, new List<RawMaterialDTO>
@@ -111,32 +110,39 @@ namespace WebApp.Controllers
             return View(model);
         }
 
-         [HttpPost]
-         public ActionResult RegisterSale(string productName, int quantitySold)
-         {
-             // ProductService.UpdateInventory(productName, -quantitySold);
-             return RedirectToAction("ProduktView");
-         } 
-
         [HttpPost]
-        public ActionResult CompleteProduction(string productionId, int completedQuantity)
+        public ActionResult RegisterSale(string productName, int quantitySold)
         {
-            // ProductService production = GetProductionById(productionId);
-            // if (production != null)
+            if (productInventory.ContainsKey(productName))
             {
-               // production.CompleteProduction(completedQuantity);
-                //ProductService.UpdateInventory(productProduction.ProductName, completedQuantity);
+                productInventory[productName] -= quantitySold;
+                var productService = new ProductService();
+                productService.UpdateProduct(new ProductDTO { Name = productName, AmountInStock = -quantitySold });
             }
             return RedirectToAction("ProduktView");
         }
 
-        /*
-        private ProductProduction GetProductionById(string productionId)
+        [HttpPost]
+        public ActionResult CompleteProduction(string productionId, int completedQuantity)
         {
-            // Implement logic to retrieve production by ID
-            return new ProductProduction("Dummy", DateTime.Now, 0, new List<RawMaterials>());
-        } */
+            var production = GetProductionById(productionId);
+            if (production != null)
+            {
+                production.Status = Status.Completed;
+                production.QuantityToProduce = completedQuantity;
 
+                if (productInventory.ContainsKey(production.Product.Name))
+                {
+                    productInventory[production.Product.Name] += completedQuantity;
+                }
+                else
+                {
+                    var productService = new ProductService();
+                    productService.CreateProduct(0, production.Product.Name, production.Product.EstimatedProductionTime, production.Product.RawMaterialNeeded, DateTime.Now, DateTime.Now, completedQuantity);
+                }
+            }
+            return RedirectToAction("ProduktView");
+        }
 
 
         public ActionResult CreateRawMaterialView()
@@ -193,6 +199,20 @@ namespace WebApp.Controllers
 
             ViewBag.MeasurementTypes = MeasurementTypeService.GetAllMeasurementTypes();
             return View();
+        }
+
+        private ProductProduction GetProductionById(string productionId)
+        {
+            // Implement logic to retrieve production by ID
+            return new ProductProduction
+            {
+                ProjectName = "Dummy",
+                CreatedAt = DateTime.Now,
+                Deadline = DateTime.Now.AddDays(3),
+                QuantityToProduce = 0,
+                Product = new Product { Name = "Dummy Product" },
+                Status = Status.NotStarted
+            };
         }
     }
 }
