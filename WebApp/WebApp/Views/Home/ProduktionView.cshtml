@@ -34,7 +34,7 @@
                 <th>Slutdato</th>
                 <th>Status</th>
                 <th>Planlagt Antal</th>
-                <th>Fuldført Antal</th>
+                <!-- <th>Fuldført Antal</th> -->
             </tr>
         </thead>
         <tbody>
@@ -43,9 +43,10 @@
                 <tr>
                     <td>@production.ProjectId</td>
                     <td>@production.ProjectName</td>
-                    <td>@production.QuantityToProduce</td>
-                    <td>@production CreatedAt </td>
+                    <td>@production.CreatedAt</td>
+                    <td>@production.Deadline </td>
                     <td>@production.Status</td>
+                    <td>@production.QuantityToProduce</td>
                 </tr>
             }
         </tbody>

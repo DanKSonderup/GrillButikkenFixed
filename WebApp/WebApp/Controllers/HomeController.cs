@@ -106,6 +106,8 @@ namespace WebApp.Controllers
             }; */
 
             List<ProductProductionDTO> model = new List<ProductProductionDTO>();
+            // string projectName, Product product, int quantityToProduce, DateTime createdAt, DateTime deadline, Status status
+            model.Add(new ProductProductionDTO("Idk", new Product(), 15, DateTime.Now, DateTime.Now, Status.Waiting));
 
             ViewBag.Message = "Your production page.";
             return View(model);
