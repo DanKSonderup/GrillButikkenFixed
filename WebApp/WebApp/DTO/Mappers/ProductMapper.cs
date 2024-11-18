@@ -14,7 +14,6 @@ namespace WebApp.DTO.Mappers
             if (product == null) return null;
             else
                 return new ProductDTO(
-                    product.Id, 
                     product.Name, 
                     product.EstimatedProductionTime, 
                     product.RawMaterialNeeded, 
@@ -28,7 +27,6 @@ namespace WebApp.DTO.Mappers
             if (productDTO == null) return null;
             else
                 return new Product(
-                    productDTO.Id,
                     productDTO.Name,
                     productDTO.EstimatedProductionTime,
                     productDTO.RawMaterialNeeded,

@@ -11,7 +11,16 @@ namespace WebApp.DTO.Mappers
         public static ProductProductionDTO Map(ProductProduction productProduction)
         {
             if (productProduction != null)
-                return new ProductProductionDTO(productProduction.ProjectName, productProduction.Product, productProduction.QuantityToProduce, productProduction.CreatedAt, productProduction.Deadline, productProduction.Status);
+                return new ProductProductionDTO
+                {
+                    ProjectId = productProduction.ProjectId,
+                    ProjectName = productProduction.ProjectName,
+                    Product = productProduction.Product,
+                    QuantityToProduce = productProduction.QuantityToProduce,
+                    TimeSpent = productProduction.TimeSpent,
+                    CreatedAt = productProduction.CreatedAt,
+                    Deadline = productProduction.Deadline,
+                };
             else
                 return null;
         }

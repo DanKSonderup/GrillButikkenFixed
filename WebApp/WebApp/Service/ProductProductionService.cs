@@ -11,7 +11,7 @@ namespace WebApp.Service
 {
     public class ProductProductionService
     {
-        public static List<ProductProductionDTO> GetProductProductionByName(string productionName)
+        public static ProductProductionDTO GetProductProductionByName(string productionName)
         {
             return ProductProductionRepository.GetProductProduction(productionName);
         }
@@ -36,9 +36,9 @@ namespace WebApp.Service
             return ProductProductionRepository.UpdateProductProductionStatus(status, PPDTO);
         }
 
-        public static ProductProductionDTO DeleteProductProduction(ProductProductionDTO PPDTO)
+        public static void DeleteProductProduction(ProductProductionDTO PPDTO)
         {
-            return ProductProductionRepository.DeleteProductProduction(PPDTO);
+            ProductProductionRepository.DeleteProductProduction(PPDTO);
         }
     }
 }

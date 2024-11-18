@@ -86,28 +86,9 @@ namespace WebApp.Controllers
 
         public ActionResult ProduktionView()
         {
-            /*
-            List<Production> produktioner = new List<Production>
-            {
-                new Production("Grillspyd", DateTime.Now, 10, new List<RawMaterialDTO>
-                {
-                    new RawMaterialDTO("Stål", Unit.kg, 20) { Category = "Metal" },
-                    new RawMaterialDTO("Træ", Unit.pcs, 20) { Category = "Material" }
-                }),
-                    new Production("Slaver", DateTime.Now, 10, new List<RawMaterialDTO>
-                    {
-                    new RawMaterialDTO("Pisk", Unit.pcs, 2) { Category = "Metal" },
-                    new RawMaterialDTO("Bomuld", Unit.kg, 200) { Category = "Material" }
-                })
-            }; 
-            var model = new InventoryAndProductionOverview
-            {
-                Productions = produktioner
-            }; */
+           
 
-            List<ProductProductionDTO> model = new List<ProductProductionDTO>();
-            // string projectName, Product product, int quantityToProduce, DateTime createdAt, DateTime deadline, Status status
-            model.Add(new ProductProductionDTO("Idk", new Product(), 15, DateTime.Now, DateTime.Now, Status.Waiting));
+            List<ProductProductionDTO> model = ProductProductionService.GetAllProductProductions();
 
             ViewBag.Message = "Your production page.";
             return View(model);
@@ -161,6 +142,38 @@ namespace WebApp.Controllers
         {
             return PartialView("CreateMeasurementType");
         }
+
+        public ActionResult CreateProductProductionView()
+        {
+            ViewBag.StatusType = Enum.GetValues(typeof(Status)).Cast<Status>();
+            ViewBag.Products = ProductService.GetAllProducts();
+
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult CreateProductProduction(string name, string product, DateTime startDato, DateTime endDato, string status, int amount)
+        {
+            if (string.IsNullOrEmpty(name) || string.IsNullOrEmpty(product) || string.IsNullOrEmpty(status) || amount < 0)
+            {
+                ModelState.AddModelError("", "Alle felter skal udfyldes.");
+                ViewBag.StatusType = Enum.GetValues(typeof(Status)).Cast<Status>();
+                ViewBag.Products = ProductService.GetAllProducts();
+                return View("CreateProductProduction");
+            }
+
+
+            ProductProductionService.CreateProductProduction(name, ProductMapper.Map(ProductService.GetProductByName(product)), amount, startDato, endDato, (Status)Enum.Parse(typeof(Status), status));
+            return RedirectToAction("ProduktionView");
+        }
+
+        [HttpGet]
+        public ActionResult DeleteProductProduction(string name)
+        {
+            ProductProductionService.DeleteProductProduction(ProductProductionService.GetProductProductionByName(name));
+            return RedirectToAction("ProduktionView");
+        }
+
 
         [HttpPost]
         public ActionResult CreateRawMaterial(string name, string unit, double amount)

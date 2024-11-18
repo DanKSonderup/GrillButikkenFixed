@@ -26,9 +26,10 @@ namespace WebApp.DataAccess.Context
             Dictionary<Models.RawMaterial, double> materialsNeeded = new Dictionary<Models.RawMaterial, double>();
             RawMaterial testMaterial = new RawMaterial("Fuglevinger", new MeasurementType("kg"), 20);
             materialsNeeded.Add(testMaterial, 10);
-            context.Products.Add(new Models.Product(1, "Grillspyd", new TimeSpan(0, 0, 0), materialsNeeded, DateTime.Now, DateTime.Now, 20));
-            context.Products.Add(new Models.Product(2, "BageEnzym", new TimeSpan(0, 0, 0), materialsNeeded, DateTime.Now, DateTime.Now, 20));
-            context.Products.Add(new Models.Product(3, "Grillrist", new TimeSpan(0, 0, 0), materialsNeeded, DateTime.Now, DateTime.Now, 20));
+            context.Products.Add(new Models.Product("Grillspyd", new TimeSpan(0, 0, 0), materialsNeeded, DateTime.Now, DateTime.Now, 20));
+            context.Products.Add(new Models.Product("Grillspyd", new TimeSpan(0, 0, 0), materialsNeeded, DateTime.Now, DateTime.Now, 20));
+            context.Products.Add(new Models.Product("BageEnzym", new TimeSpan(0, 0, 0), materialsNeeded, DateTime.Now, DateTime.Now, 20));
+            context.Products.Add(new Models.Product("Grillrist", new TimeSpan(0, 0, 0), materialsNeeded, DateTime.Now, DateTime.Now, 20));
 
             context.SaveChanges();
 

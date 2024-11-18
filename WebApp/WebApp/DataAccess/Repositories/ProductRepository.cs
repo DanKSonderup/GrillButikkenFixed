@@ -12,11 +12,15 @@ namespace WebApp.DataAccess.Repositories
     public class ProductRepository
     {
         // Create, Delete, Edit, Get, GetAll, Add
-        public static List<ProductDTO> GetProduct(string name)
+        public static ProductDTO GetProduct(string name)
         {
             using (DatabaseContext context = new DatabaseContext())
             {
-                return context.Products.Where(r => r.Name == name).Select(r => ProductMapper.Map(r)).ToList();
+                var product = context.Products
+                                      .Where(r => r.Name == name)
+                                      .FirstOrDefault(); 
+
+                return product == null ? null : ProductMapper.Map(product);
             }
         }
 
@@ -24,7 +28,7 @@ namespace WebApp.DataAccess.Repositories
         {
             using (DatabaseContext context = new DatabaseContext())
             {
-                var products = context.Products.ToList();
+                var products = context.Products.AsEnumerable();
 
                 return products.Select(r => ProductMapper.Map(r)).ToList();
             }

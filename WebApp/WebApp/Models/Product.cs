@@ -19,9 +19,8 @@ namespace WebApp.Models
         public DateTime UpdatedAt { get; set; }
         public int AmountInStock { get; set; }
 
-        public Product(int id, string name, TimeSpan estimatedProductionTime, Dictionary<RawMaterial, double> rawMaterialNeeded, DateTime createdAt, DateTime updatedAt, int amountInStock)
+        public Product(string name, TimeSpan estimatedProductionTime, Dictionary<RawMaterial, double> rawMaterialNeeded, DateTime createdAt, DateTime updatedAt, int amountInStock)
         {
-            Id = id;
             Name = name;
             EstimatedProductionTime = estimatedProductionTime;
             RawMaterialNeeded = rawMaterialNeeded;
