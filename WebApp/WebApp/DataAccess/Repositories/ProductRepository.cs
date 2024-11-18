@@ -30,6 +30,17 @@ namespace WebApp.DataAccess.Repositories
             }
         }
 
+        public static List<ProductDTO> GetAllProductsWithNameContaining(string input)
+        {
+            using (DatabaseContext context = new DatabaseContext())
+            {
+                return context.Products.AsEnumerable()
+                              .Where(r => r.Name.Contains(input))
+                              .Select(r => ProductMapper.Map(r))
+                              .ToList();
+            }
+        }
+
 
         // Add
         public static ProductDTO AddProduct(ProductDTO productDTO)

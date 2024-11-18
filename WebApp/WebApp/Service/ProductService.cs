@@ -35,5 +35,10 @@ namespace WebApp.Service
         {
             return ProductRepository.EditProduct(productDTO);
         }
+
+        public IEnumerable<ProductDTO> GetAllProductsWithNameContaining(string input)
+        {
+            return ProductRepository.GetAllProductsWithNameContaining(input);
+        }
     }
 }

@@ -148,6 +148,14 @@ namespace WebApp.Controllers
             return View();
         }
 
+        public ActionResult SearchForProductsContaining(string name)
+        {
+            ProductService productService = new ProductService();
+            var products = productService.GetAllProductsWithNameContaining(name);
+
+            return View("ProduktView", products);
+        }
+
         [ChildActionOnly]
         public ActionResult CreateMeasurementType()
         {
