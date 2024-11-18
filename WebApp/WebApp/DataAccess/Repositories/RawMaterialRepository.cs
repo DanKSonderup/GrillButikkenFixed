@@ -26,12 +26,15 @@ namespace WebApp.DataAccess.Repositories
         {
             using (DatabaseContext context = new DatabaseContext())
             {
-                return context.RawMaterials.Select(r => RawMaterialMapper.Map(r)).ToList();
+                return context.RawMaterials
+                              .AsEnumerable() // Load data into memory first
+                              .Select(r => RawMaterialMapper.Map(r))
+                              .ToList();
             }
         }
 
-        // Add
-        public static RawMaterialDTO AddRawMaterial(RawMaterialDTO rawDTO)
+            // Add
+            public static RawMaterialDTO AddRawMaterial(RawMaterialDTO rawDTO)
         {
             using (DatabaseContext context = new DatabaseContext())
             {
