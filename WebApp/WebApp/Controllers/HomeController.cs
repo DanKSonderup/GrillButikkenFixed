@@ -18,7 +18,6 @@ namespace WebApp.Controllers
 {
     public class HomeController : Controller
     {
-        private static Dictionary<string, int> productInventory = new Dictionary<string, int>();
         //private ProductionFactory grillSpydFactory = new ProductionFactory();
         public ActionResult Index()
         {
@@ -113,36 +112,15 @@ namespace WebApp.Controllers
         [HttpPost]
         public ActionResult RegisterSale(string productName, int quantitySold)
         {
-            if (productInventory.ContainsKey(productName))
+            var productService = new ProductService();
+            if (productService.GetProductByName(productName) != null)
             {
-                productInventory[productName] -= quantitySold;
-                var productService = new ProductService();
                 productService.UpdateProduct(new ProductDTO { Name = productName, AmountInStock = -quantitySold });
             }
             return RedirectToAction("ProduktView");
         }
 
-        [HttpPost]
-        public ActionResult CompleteProduction(string productionId, int completedQuantity)
-        {
-            var production = GetProductionById(productionId);
-            if (production != null)
-            {
-                production.Status = Status.Completed;
-                production.QuantityToProduce = completedQuantity;
-
-                if (productInventory.ContainsKey(production.Product.Name))
-                {
-                    productInventory[production.Product.Name] += completedQuantity;
-                }
-                else
-                {
-                    var productService = new ProductService();
-                    productService.CreateProduct(0, production.Product.Name, production.Product.EstimatedProductionTime, production.Product.RawMaterialNeeded, DateTime.Now, DateTime.Now, completedQuantity);
-                }
-            }
-            return RedirectToAction("ProduktView");
-        }
+        // her skulle være CompletedProduction men den ligger hvorend Davide har en branch.
 
 
         public ActionResult CreateRawMaterialView()
@@ -201,6 +179,8 @@ namespace WebApp.Controllers
             return View();
         }
 
+
+        // Dummy
         private ProductProduction GetProductionById(string productionId)
         {
             // Implement logic to retrieve production by ID
