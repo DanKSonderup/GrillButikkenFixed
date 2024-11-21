@@ -17,6 +17,12 @@
 
 <div class="body">
     <div class="crud">
+        <button class="crud-btn create-new"
+                data-bs-toggle="modal"
+                data-bs-target="#createRawMaterialModal"
+                id="loadCreateRawMaterial">
+            Opret råvare
+        </button>
         <button class="crud-btn create-new" onclick="location.href='@Url.Action("CreateRawMaterialView", "Home")'">Opret ny råvare</button>
         <button class="crud-btn in-progress" onclick="location.href='@Url.Action("DeleteMeasurementType", "Home")'">Slet måleenhed</button>
     </div>
@@ -29,6 +35,7 @@
                 <th>Mængde</th>
                 <th>Måleenhed</th>
                 <th>Udløbsdato</th>
+                <th>Registrer indkøb</th>
                 <th>Vis</th>
                 <th>Rediger</th>
                 <th>Slet</th>
@@ -61,6 +68,52 @@
     </table>
 </div>
 
+<!--Opret Råvarer-->
+<div class="modal fade" id="createRawMaterialModal" tabindex="-1" aria-labelledby="createRawMaterialModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="createRawMaterialModalLabel">Opret Nyt Råmateriale</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                @Html.Partial("CreateRawMaterialView")
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var createRawMaterialModal = document.getElementById('createRawMaterialModal');
+        var modalBody = createRawMaterialModal.querySelector('.modal-body');
+
+        createRawMaterialModal.addEventListener('show.bs.modal', function () {
+            // Hent indholdet fra serveren og indsæt det i modal-body
+            fetch('@Url.Action("CreateRawMaterialView", "Home")')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Failed to load the modal content');
+                    }
+                    return response.text();
+                })
+                .then(html => {
+                    modalBody.innerHTML = html;
+                })
+                .catch(error => {
+                    modalBody.innerHTML = `<p class="text-danger">${error.message}</p>`;
+                });
+        });
+
+        // Ryd modalens indhold, når den lukkes
+        createRawMaterialModal.addEventListener('hidden.bs.modal', function () {
+            modalBody.innerHTML = '';
+        });
+    });
+</script>
+
+
+<!-- Registrer Indkøb-->
 <div class="modal fade" id="purchaseModal" tabindex="-1" aria-labelledby="purchaseModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">

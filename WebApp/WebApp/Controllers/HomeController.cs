@@ -31,6 +31,7 @@ namespace WebApp.Controllers
         public ActionResult RåvarerView()
         {
             var items = RawMaterialService.GetAllRawMaterials();
+            ViewBag.MeasurementTypes = MeasurementTypeService.GetAllMeasurementTypes(); // Used when creating a raw material
 
             Console.WriteLine(items);
 
@@ -113,7 +114,7 @@ namespace WebApp.Controllers
         {
 
             ViewBag.MeasurementTypes = MeasurementTypeService.GetAllMeasurementTypes();
-            return View();
+            return PartialView("CreateRawMaterialView");
         }
 
         public ActionResult EditRawMaterial(int id)
@@ -222,11 +223,13 @@ namespace WebApp.Controllers
         [HttpPost]
         public ActionResult CreateMeasurementType(string measurementType)
         {
+            var items = RawMaterialService.GetAllRawMaterials();
             if (measurementType.IsEmpty() || measurementType.IsNullOrWhiteSpace())
             {
                 ModelState.AddModelError("", "Navn må ikke være tomt.");
+
                 ViewBag.MeasurementTypes = MeasurementTypeService.GetAllMeasurementTypes();
-                return View("CreateRawMaterialView");
+                return View("RåvarerView", items);
             }
 
             string measurementTypeCapitalized = Helper.CapitalizeFirstLetter(measurementType);
@@ -235,14 +238,14 @@ namespace WebApp.Controllers
             {
                 ModelState.AddModelError("", "Enhed med samme navn eksisterer allerede");
                 ViewBag.MeasurementTypes = MeasurementTypeService.GetAllMeasurementTypes();
-                return View("CreateRawMaterialView");
+                return View("RåvarerView", items);
             }
 
             MeasurementTypeService.CreateMeasurementType(measurementTypeCapitalized);
             ViewBag.MeasurementTypes = MeasurementTypeService.GetAllMeasurementTypes();
             ModelState.Remove("measurementType");
 
-            return View("CreateRawMaterialView");
+            return View("RåvarerView", items);
         }
 
 
