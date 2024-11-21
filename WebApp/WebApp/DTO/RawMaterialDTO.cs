@@ -40,6 +40,12 @@ namespace WebApp.DTO
                 new RawMaterialStockDTO(Material_id, amount)
             };
         }
+        public RawMaterialDTO(string name, MeasurementType measurementType)
+        {
+            Name = name;
+            MeasurementType = measurementType;
+            Stocks = new List<RawMaterialStockDTO>();
+        }
 
         public RawMaterialDTO(string name, MeasurementType measurementType, List<RawMaterialStockDTO> stocks)
         {

@@ -23,7 +23,6 @@
                 id="loadCreateRawMaterial">
             Opret råvare
         </button>
-        <button class="crud-btn create-new" onclick="location.href='@Url.Action("CreateRawMaterialView", "Home")'">Opret ny råvare</button>
         <button class="crud-btn in-progress" onclick="location.href='@Url.Action("DeleteMeasurementType", "Home")'">Slet måleenhed</button>
     </div>
 
@@ -34,7 +33,7 @@
                 <th>Varenavn</th>
                 <th>Mængde</th>
                 <th>Måleenhed</th>
-                <th>Udløbsdato</th>
+                <th>Næste udløbsdato</th>
                 <th>Registrer indkøb</th>
                 <th>Vis</th>
                 <th>Rediger</th>
@@ -59,9 +58,17 @@
                             Registrer indkøb
                         </button>
                     </td>
+
                     <td><button class="crud-btn create-new" onclick="location.href='@Url.Action("ShowRawMaterial", "Home", new { id = item.Material_id})'">Vis</button></td>
                     <td><button class="crud-btn create-new" onclick="location.href='@Url.Action("EditRawMaterial", "Home", new { id = item.Material_id})'">Rediger</button></td>
-                    <td><button class="crud-btn create-new" onclick="location.href='@Url.Action("DeleteRawMaterial", "Home", new {id = item.Material_id})'">Slet</button></td>
+                    <td>
+                        <form action="@Url.Action("DeleteRawMaterial", "Home")" method="post" style="display:inline;">
+                            <input type="hidden" name="id" value="@item.Material_id" />
+                            <button type="submit" class="btn btn-danger">Slet</button>
+                        </form>
+                    </td>
+
+
                 </tr>
             }
         </tbody>
@@ -76,7 +83,7 @@
                 <h5 class="modal-title" id="createRawMaterialModalLabel">Opret Nyt Råmateriale</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">
+            <div class="modal-body" id="createRawMaterialContainer">
                 @Html.Partial("CreateRawMaterialView")
             </div>
         </div>
@@ -110,6 +117,32 @@
             modalBody.innerHTML = '';
         });
     });
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const form = document.getElementById('createRawMaterialForm');
+        form.addEventListener('submit', function (e) {
+            e.preventDefault(); // Forhindrer standardformularindsendelse
+
+            const formData = new FormData(form);
+            const container = document.getElementById('createRawMaterialContainer');
+
+            fetch(form.action, {
+                method: 'POST',
+                body: formData
+            })
+                .then(response => response.text())
+                .then(html => {
+                    container.innerHTML = html; // Opdaterer modalens indhold med AJAX-svar
+                    const success = document.querySelector('[data-success]');
+                    if (success) {
+                        // Luk modal eller opdater siden, hvis oprettelsen var succesfuld
+                        $('#createRawMaterialModal').modal('hide');
+                        location.reload(); // Eller opdater listen
+                    }
+                });
+        });
+    });
+
 </script>
 
 

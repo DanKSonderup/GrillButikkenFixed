@@ -1,6 +1,13 @@
 ﻿@model WebApp.DTO.RawMaterialDTO
 @{
     ViewBag.Title = "EditRawMaterial";
+
+    if (!ViewData.ModelState.IsValid)
+            {
+                <div class="alert alert-danger">
+                    @Html.ValidationSummary(false, "", new {@class = "text-danger" })
+                </div>
+            }
 }
 
 <h2>EditRawMaterial</h2>
@@ -19,17 +26,10 @@
         <select class="form-control" id="unit" name="unit" required>
             @foreach (var type in ViewBag.MeasurementTypes)
             {
-                <option value="@type.Name" @(type.Name.Equals(Model.MeasurementType) ? "selected" : "")>@type.Name</option>
+                <option value="@type.Name" @(type.Name.Equals(Model.MeasurementType.Name) ? "selected" : "")>@type.Name</option>
             }
         </select>
     </div>
-
-    <div class="form-group mb-3">
-        <label for="amount" class="form-label">Lagerbeholdning</label>
-        <input type="number" class="form-control" id="amount" name="amount" placeholder="Indtast mængde" min="0" step="0.5" value="@Model.FullAmount" required />
-    </div>
-
-
 
     <div class="form-group">
         <button type="submit" class="btn btn-success btn-lg w-25 mb-5">Bekræft</button>

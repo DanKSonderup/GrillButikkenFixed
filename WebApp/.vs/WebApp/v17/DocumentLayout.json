@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "C:\\Users\\Ollie\\Documents\\GitHub\\GrillButikkenFixed\\WebApp\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{3E2158A1-4CC5-411E-9703-330A14B042A6}|WebApp\\WebApp.csproj|C:\\Users\\Ollie\\Documents\\GitHub\\GrillButikkenFixed\\WebApp\\webapp\\dataaccess\\repositories\\rawmaterialrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3E2158A1-4CC5-411E-9703-330A14B042A6}|WebApp\\WebApp.csproj|solutionrelative:webapp\\dataaccess\\repositories\\rawmaterialrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3E2158A1-4CC5-411E-9703-330A14B042A6}|WebApp\\WebApp.csproj|C:\\Users\\Ollie\\Documents\\GitHub\\GrillButikkenFixed\\WebApp\\webapp\\service\\rawmaterialservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3E2158A1-4CC5-411E-9703-330A14B042A6}|WebApp\\WebApp.csproj|solutionrelative:webapp\\service\\rawmaterialservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{3E2158A1-4CC5-411E-9703-330A14B042A6}|WebApp\\WebApp.csproj|C:\\Users\\Ollie\\Documents\\GitHub\\GrillButikkenFixed\\WebApp\\webapp\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3E2158A1-4CC5-411E-9703-330A14B042A6}|WebApp\\WebApp.csproj|solutionrelative:webapp\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -11,44 +19,24 @@
       "RelativeMoniker": "D:0:0:{3E2158A1-4CC5-411E-9703-330A14B042A6}|WebApp\\WebApp.csproj|solutionrelative:webapp\\views\\home\\r\u00E5varerview.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3E2158A1-4CC5-411E-9703-330A14B042A6}|WebApp\\WebApp.csproj|c:\\users\\ollie\\documents\\github\\grillbutikkenfixed\\webapp\\webapp\\views\\home\\createmeasurementtype.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{3E2158A1-4CC5-411E-9703-330A14B042A6}|WebApp\\WebApp.csproj|solutionrelative:webapp\\views\\home\\createmeasurementtype.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{3E2158A1-4CC5-411E-9703-330A14B042A6}|WebApp\\WebApp.csproj|c:\\users\\ollie\\documents\\github\\grillbutikkenfixed\\webapp\\webapp\\views\\home\\createrawmaterialview.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{3E2158A1-4CC5-411E-9703-330A14B042A6}|WebApp\\WebApp.csproj|solutionrelative:webapp\\views\\home\\createrawmaterialview.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3E2158A1-4CC5-411E-9703-330A14B042A6}|WebApp\\WebApp.csproj|C:\\Users\\Ollie\\Documents\\GitHub\\GrillButikkenFixed\\WebApp\\webapp\\dataaccess\\repositories\\rawmaterialrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3E2158A1-4CC5-411E-9703-330A14B042A6}|WebApp\\WebApp.csproj|solutionrelative:webapp\\dataaccess\\repositories\\rawmaterialrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3E2158A1-4CC5-411E-9703-330A14B042A6}|WebApp\\WebApp.csproj|C:\\Users\\Ollie\\Documents\\GitHub\\GrillButikkenFixed\\WebApp\\webapp\\views\\home\\editrawmaterial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{3E2158A1-4CC5-411E-9703-330A14B042A6}|WebApp\\WebApp.csproj|solutionrelative:webapp\\views\\home\\editrawmaterial.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3E2158A1-4CC5-411E-9703-330A14B042A6}|WebApp\\WebApp.csproj|C:\\Users\\Ollie\\Documents\\GitHub\\GrillButikkenFixed\\WebApp\\webapp\\models\\rawmaterial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3E2158A1-4CC5-411E-9703-330A14B042A6}|WebApp\\WebApp.csproj|solutionrelative:webapp\\models\\rawmaterial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3E2158A1-4CC5-411E-9703-330A14B042A6}|WebApp\\WebApp.csproj|C:\\Users\\Ollie\\Documents\\GitHub\\GrillButikkenFixed\\WebApp\\webapp\\service\\rawmaterialservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3E2158A1-4CC5-411E-9703-330A14B042A6}|WebApp\\WebApp.csproj|solutionrelative:webapp\\service\\rawmaterialservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3E2158A1-4CC5-411E-9703-330A14B042A6}|WebApp\\WebApp.csproj|C:\\Users\\Ollie\\Documents\\GitHub\\GrillButikkenFixed\\WebApp\\webapp\\dto\\rawmaterialdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3E2158A1-4CC5-411E-9703-330A14B042A6}|WebApp\\WebApp.csproj|solutionrelative:webapp\\dto\\rawmaterialdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3E2158A1-4CC5-411E-9703-330A14B042A6}|WebApp\\WebApp.csproj|C:\\Users\\Ollie\\Documents\\GitHub\\GrillButikkenFixed\\WebApp\\webapp\\dataaccess\\repositories\\rawmaterialstockrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3E2158A1-4CC5-411E-9703-330A14B042A6}|WebApp\\WebApp.csproj|solutionrelative:webapp\\dataaccess\\repositories\\rawmaterialstockrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3E2158A1-4CC5-411E-9703-330A14B042A6}|WebApp\\WebApp.csproj|C:\\Users\\Ollie\\Documents\\GitHub\\GrillButikkenFixed\\WebApp\\webapp\\dataaccess\\context\\databasecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3E2158A1-4CC5-411E-9703-330A14B042A6}|WebApp\\WebApp.csproj|solutionrelative:webapp\\dataaccess\\context\\databasecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3E2158A1-4CC5-411E-9703-330A14B042A6}|WebApp\\WebApp.csproj|C:\\Users\\Ollie\\Documents\\GitHub\\GrillButikkenFixed\\WebApp\\webapp\\dto\\mappers\\rawmaterialstockmapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3E2158A1-4CC5-411E-9703-330A14B042A6}|WebApp\\WebApp.csproj|solutionrelative:webapp\\dto\\mappers\\rawmaterialstockmapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3E2158A1-4CC5-411E-9703-330A14B042A6}|WebApp\\WebApp.csproj|C:\\Users\\Ollie\\Documents\\GitHub\\GrillButikkenFixed\\WebApp\\webapp\\dataaccess\\context\\databasecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3E2158A1-4CC5-411E-9703-330A14B042A6}|WebApp\\WebApp.csproj|solutionrelative:webapp\\dataaccess\\context\\databasecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3E2158A1-4CC5-411E-9703-330A14B042A6}|WebApp\\WebApp.csproj|C:\\Users\\Ollie\\Documents\\GitHub\\GrillButikkenFixed\\WebApp\\webapp\\dataaccess\\repositories\\rawmaterialstockrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3E2158A1-4CC5-411E-9703-330A14B042A6}|WebApp\\WebApp.csproj|solutionrelative:webapp\\dataaccess\\repositories\\rawmaterialstockrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3E2158A1-4CC5-411E-9703-330A14B042A6}|WebApp\\WebApp.csproj|C:\\Users\\Ollie\\Documents\\GitHub\\GrillButikkenFixed\\WebApp\\webapp\\models\\rawmaterial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3E2158A1-4CC5-411E-9703-330A14B042A6}|WebApp\\WebApp.csproj|solutionrelative:webapp\\models\\rawmaterial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -58,7 +46,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 188,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -71,71 +59,45 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "CreateMeasurementType.cshtml",
-              "DocumentMoniker": "C:\\Users\\Ollie\\Documents\\GitHub\\GrillButikkenFixed\\WebApp\\WebApp\\Views\\Home\\CreateMeasurementType.cshtml",
-              "RelativeDocumentMoniker": "WebApp\\Views\\Home\\CreateMeasurementType.cshtml",
-              "ToolTip": "C:\\Users\\Ollie\\Documents\\GitHub\\GrillButikkenFixed\\WebApp\\WebApp\\Views\\Home\\CreateMeasurementType.cshtml",
-              "RelativeToolTip": "WebApp\\Views\\Home\\CreateMeasurementType.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-21T15:08:43.886Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
               "Title": "HomeController.cs",
               "DocumentMoniker": "C:\\Users\\Ollie\\Documents\\GitHub\\GrillButikkenFixed\\WebApp\\WebApp\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "WebApp\\Controllers\\HomeController.cs",
               "ToolTip": "C:\\Users\\Ollie\\Documents\\GitHub\\GrillButikkenFixed\\WebApp\\WebApp\\Controllers\\HomeController.cs*",
               "RelativeToolTip": "WebApp\\Controllers\\HomeController.cs*",
-              "ViewState": "AgIAAN0AAAAAAAAAAAAqwAkBAAA6AAAAAAAAAA==",
+              "ViewState": "AgIAAH0AAAAAAAAAAAD4v5QAAABAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-18T15:19:11.524Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "RawMaterialRepository.cs",
               "DocumentMoniker": "C:\\Users\\Ollie\\Documents\\GitHub\\GrillButikkenFixed\\WebApp\\WebApp\\DataAccess\\Repositories\\RawMaterialRepository.cs",
               "RelativeDocumentMoniker": "WebApp\\DataAccess\\Repositories\\RawMaterialRepository.cs",
-              "ToolTip": "C:\\Users\\Ollie\\Documents\\GitHub\\GrillButikkenFixed\\WebApp\\WebApp\\DataAccess\\Repositories\\RawMaterialRepository.cs",
-              "RelativeToolTip": "WebApp\\DataAccess\\Repositories\\RawMaterialRepository.cs",
-              "ViewState": "AgIAAFEAAAAAAAAAAAAAAG8AAAAmAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\Ollie\\Documents\\GitHub\\GrillButikkenFixed\\WebApp\\WebApp\\DataAccess\\Repositories\\RawMaterialRepository.cs*",
+              "RelativeToolTip": "WebApp\\DataAccess\\Repositories\\RawMaterialRepository.cs*",
+              "ViewState": "AgIAAGYAAAAAAAAAAAAswI4AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-18T15:03:09.192Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "EditRawMaterial.cshtml",
-              "DocumentMoniker": "C:\\Users\\Ollie\\Documents\\GitHub\\GrillButikkenFixed\\WebApp\\WebApp\\Views\\Home\\EditRawMaterial.cshtml",
-              "RelativeDocumentMoniker": "WebApp\\Views\\Home\\EditRawMaterial.cshtml",
-              "ToolTip": "C:\\Users\\Ollie\\Documents\\GitHub\\GrillButikkenFixed\\WebApp\\WebApp\\Views\\Home\\EditRawMaterial.cshtml",
-              "RelativeToolTip": "WebApp\\Views\\Home\\EditRawMaterial.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-18T12:47:13.986Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "R\u00E5varerView.cshtml",
               "DocumentMoniker": "C:\\Users\\Ollie\\Documents\\GitHub\\GrillButikkenFixed\\WebApp\\WebApp\\Views\\Home\\R\u00E5varerView.cshtml",
               "RelativeDocumentMoniker": "WebApp\\Views\\Home\\R\u00E5varerView.cshtml",
               "ToolTip": "C:\\Users\\Ollie\\Documents\\GitHub\\GrillButikkenFixed\\WebApp\\WebApp\\Views\\Home\\R\u00E5varerView.cshtml",
               "RelativeToolTip": "WebApp\\Views\\Home\\R\u00E5varerView.cshtml",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAACwAAAAiAAAAAAAAAA==",
+              "ViewState": "AgIAAJkAAAAAAAAAAAAAAMMAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-11-18T12:19:39.21Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 5,
               "Title": "DatabaseContext.cs",
               "DocumentMoniker": "C:\\Users\\Ollie\\Documents\\GitHub\\GrillButikkenFixed\\WebApp\\WebApp\\DataAccess\\Context\\DatabaseContext.cs",
               "RelativeDocumentMoniker": "WebApp\\DataAccess\\Context\\DatabaseContext.cs",
@@ -143,11 +105,12 @@
               "RelativeToolTip": "WebApp\\DataAccess\\Context\\DatabaseContext.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAABGAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-18T11:05:40.792Z"
+              "WhenOpened": "2024-11-18T11:05:40.792Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 7,
               "Title": "RawMaterialStockRepository.cs",
               "DocumentMoniker": "C:\\Users\\Ollie\\Documents\\GitHub\\GrillButikkenFixed\\WebApp\\WebApp\\DataAccess\\Repositories\\RawMaterialStockRepository.cs",
               "RelativeDocumentMoniker": "WebApp\\DataAccess\\Repositories\\RawMaterialStockRepository.cs",
@@ -155,11 +118,25 @@
               "RelativeToolTip": "WebApp\\DataAccess\\Repositories\\RawMaterialStockRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAA1AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-18T11:05:33.527Z"
+              "WhenOpened": "2024-11-18T11:05:33.527Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 4,
+              "Title": "CreateRawMaterialView.cshtml",
+              "DocumentMoniker": "C:\\Users\\Ollie\\Documents\\GitHub\\GrillButikkenFixed\\WebApp\\WebApp\\Views\\Home\\CreateRawMaterialView.cshtml",
+              "RelativeDocumentMoniker": "WebApp\\Views\\Home\\CreateRawMaterialView.cshtml",
+              "ToolTip": "C:\\Users\\Ollie\\Documents\\GitHub\\GrillButikkenFixed\\WebApp\\WebApp\\Views\\Home\\CreateRawMaterialView.cshtml",
+              "RelativeToolTip": "WebApp\\Views\\Home\\CreateRawMaterialView.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAABEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-21T14:28:10.984Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "RawMaterial.cs",
               "DocumentMoniker": "C:\\Users\\Ollie\\Documents\\GitHub\\GrillButikkenFixed\\WebApp\\WebApp\\Models\\RawMaterial.cs",
               "RelativeDocumentMoniker": "WebApp\\Models\\RawMaterial.cs",
@@ -167,76 +144,33 @@
               "RelativeToolTip": "WebApp\\Models\\RawMaterial.cs",
               "ViewState": "AgIAAEcAAAAAAAAAAAAAAFoAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-18T10:51:28.303Z"
+              "WhenOpened": "2024-11-18T10:51:28.303Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 6,
               "Title": "RawMaterialStockMapper.cs",
               "DocumentMoniker": "C:\\Users\\Ollie\\Documents\\GitHub\\GrillButikkenFixed\\WebApp\\WebApp\\DTO\\Mappers\\RawMaterialStockMapper.cs",
               "RelativeDocumentMoniker": "WebApp\\DTO\\Mappers\\RawMaterialStockMapper.cs",
               "ToolTip": "C:\\Users\\Ollie\\Documents\\GitHub\\GrillButikkenFixed\\WebApp\\WebApp\\DTO\\Mappers\\RawMaterialStockMapper.cs",
               "RelativeToolTip": "WebApp\\DTO\\Mappers\\RawMaterialStockMapper.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAAACUAAABBAAAAAAAAAA==",
+              "ViewState": "AgIAABEAAAAAAAAAAAAiwCsAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-18T10:59:32.384Z"
+              "WhenOpened": "2024-11-18T10:59:32.384Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 1,
               "Title": "RawMaterialService.cs",
               "DocumentMoniker": "C:\\Users\\Ollie\\Documents\\GitHub\\GrillButikkenFixed\\WebApp\\WebApp\\Service\\RawMaterialService.cs",
               "RelativeDocumentMoniker": "WebApp\\Service\\RawMaterialService.cs",
-              "ToolTip": "C:\\Users\\Ollie\\Documents\\GitHub\\GrillButikkenFixed\\WebApp\\WebApp\\Service\\RawMaterialService.cs",
-              "RelativeToolTip": "WebApp\\Service\\RawMaterialService.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAawCcAAAA4AAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\Ollie\\Documents\\GitHub\\GrillButikkenFixed\\WebApp\\WebApp\\Service\\RawMaterialService.cs*",
+              "RelativeToolTip": "WebApp\\Service\\RawMaterialService.cs*",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAqwCwAAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-18T10:46:17.758Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "RawMaterialDTO.cs",
-              "DocumentMoniker": "C:\\Users\\Ollie\\Documents\\GitHub\\GrillButikkenFixed\\WebApp\\WebApp\\DTO\\RawMaterialDTO.cs",
-              "RelativeDocumentMoniker": "WebApp\\DTO\\RawMaterialDTO.cs",
-              "ToolTip": "C:\\Users\\Ollie\\Documents\\GitHub\\GrillButikkenFixed\\WebApp\\WebApp\\DTO\\RawMaterialDTO.cs",
-              "RelativeToolTip": "WebApp\\DTO\\RawMaterialDTO.cs",
-              "ViewState": "AgIAACwAAAAAAAAAAAAAAEUAAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-18T10:46:41.99Z"
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "Orientation": 0,
-      "VerticalTabListWidth": 256,
-      "FloatingWindowState": {
-        "Id": "21e257fa-fa34-474e-a47e-7c319f900c17",
-        "Display": 1,
-        "X": 1,
-        "Y": 1,
-        "Width": 1918,
-        "Height": 1030,
-        "WindowState": 2
-      },
-      "DocumentGroups": [
-        {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 0,
-          "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "CreateRawMaterialView.cshtml",
-              "DocumentMoniker": "C:\\Users\\Ollie\\Documents\\GitHub\\GrillButikkenFixed\\WebApp\\WebApp\\Views\\Home\\CreateRawMaterialView.cshtml",
-              "RelativeDocumentMoniker": "WebApp\\Views\\Home\\CreateRawMaterialView.cshtml",
-              "ToolTip": "C:\\Users\\Ollie\\Documents\\GitHub\\GrillButikkenFixed\\WebApp\\WebApp\\Views\\Home\\CreateRawMaterialView.cshtml",
-              "RelativeToolTip": "WebApp\\Views\\Home\\CreateRawMaterialView.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACMAAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-21T14:28:10.984Z",
+              "WhenOpened": "2024-11-18T10:46:17.758Z",
               "EditorCaption": ""
             }
           ]

@@ -73,8 +73,8 @@ namespace WebApp.DataAccess.Repositories
                 {
                     Name = rawDTO.Name,
                     MeasurementType = existingMeasurementType,
-                    Stocks = RawMaterialStockMapper.Map(rawDTO.Stocks)
                 };
+
 
                 context.RawMaterials.Add(newRawMaterial);
                 context.SaveChanges();
@@ -109,7 +109,6 @@ namespace WebApp.DataAccess.Repositories
                 // Opdater RawMaterial med de nye værdier
                 dataRawMaterial.Name = rawDTO.Name;
                 dataRawMaterial.MeasurementType = existingMeasurementType; // Brug det eksisterende MeasurementType
-                dataRawMaterial.Stocks.Add(RawMaterialStockMapper.Map(rawDTO.Stocks.Last()));
 
 
                 // Markér RawMaterial som ændret, hvis det er nødvendigt (efter opdateringen)
@@ -124,14 +123,42 @@ namespace WebApp.DataAccess.Repositories
             return rawDTO;
         }
 
-
-        public static RawMaterialDTO DeleteRawMaterial(RawMaterialDTO rawDTO)
+        public static void AddStockToRawMaterial(RawMaterialDTO rawDTO)
         {
             using (DatabaseContext context = new DatabaseContext())
             {
-                context.RawMaterials.Remove(RawMaterialMapper.Map(rawDTO));
+                // Find det eksisterende RawMaterial
+                RawMaterial dataRawMaterial = context.RawMaterials
+                    .Include(r => r.Stocks) // Sørg for at hente Stocks med
+                    .FirstOrDefault(r => r.Material_id == rawDTO.Material_id);
+
+                if (dataRawMaterial == null)
+                {
+                    throw new Exception("RawMaterial not found.");
+                }
+
+                // Tilføj det nye Stock-element
+                var newStock = RawMaterialStockMapper.Map(rawDTO.Stocks.Last()); // Map det sidste Stock fra DTO'en
+                dataRawMaterial.Stocks.Add(newStock);
+
+                // Gem ændringerne i databasen
+                context.SaveChanges();
             }
-            return rawDTO;
+        }
+
+
+
+        public static void DeleteRawMaterial(int id)
+        {
+            using (DatabaseContext context = new DatabaseContext())
+            {
+                var rawMaterial = context.RawMaterials.Find(id);
+                if (rawMaterial != null)
+                {
+                    context.RawMaterials.Remove(rawMaterial);
+                    context.SaveChanges();
+                }
+            }
         }
 
     }

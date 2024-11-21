@@ -15,6 +15,7 @@ using WebApp.Helpers;
 using WebApp.Models;
 using WebApp.Service;
 
+
 namespace WebApp.Controllers
 {
     public class HomeController : Controller
@@ -125,6 +126,8 @@ namespace WebApp.Controllers
             return View(rawMaterial);
         }
 
+
+
         public ActionResult ShowRawMaterial(int id)
         {
             var rawMaterial = RawMaterialService.GetRawMaterialById(id);
@@ -143,7 +146,7 @@ namespace WebApp.Controllers
 
             rawMaterial.AddStock(amount, expirationDate);
 
-            RawMaterialService.UpdateRawMaterial(rawMaterial);
+            RawMaterialService.AddStockToRawMaterial(rawMaterial);
 
             return RedirectToAction("RåvarerView");
         }
@@ -164,9 +167,9 @@ namespace WebApp.Controllers
 
 
         [HttpPost]
-        public ActionResult CreateRawMaterial(string name, string unit, string amount, DateTime? expirationDate = null)
+        public ActionResult CreateRawMaterial(string name, string unit)
         {
-            if (name == null || unit == null || amount == null)
+            if (name == null || unit == null)
             {
                 ModelState.AddModelError("", "Alle felter skal udfyldes.");
                 ViewBag.MeasurementTypes = MeasurementTypeService.GetAllMeasurementTypes();
@@ -174,8 +177,6 @@ namespace WebApp.Controllers
             }
 
             string nameCapitalized = Helper.CapitalizeFirstLetter(name);
-            double amountParsed = Double.Parse(amount);
-
 
             if (RawMaterialService.IsDuplicateName(nameCapitalized))
             {
@@ -184,24 +185,32 @@ namespace WebApp.Controllers
                 return View("CreateRawMaterialView");
             }
 
-            RawMaterialService.CreateRawMaterial(nameCapitalized, MeasurementTypeMapper.Map(MeasurementTypeService.GetMeasurementTypeByName(unit)), amountParsed, expirationDate);
+            RawMaterialService.CreateRawMaterial(nameCapitalized, MeasurementTypeMapper.Map(MeasurementTypeService.GetMeasurementTypeByName(unit)));
 
             // Redirect til råvareroversigten
             return RedirectToAction("RåvarerView");
         }
 
         [HttpPost]
-        public ActionResult EditRawMaterial(int id, string name, string unit, string amount, DateTime? expirationDate = null)
+        public ActionResult EditRawMaterial(int id, string name, string unit)
         {
 
             string nameCapitalized = Helper.CapitalizeFirstLetter(name);
-            double amountParsed = Double.Parse(amount);
+            var existingRawMaterial = RawMaterialService.GetRawMaterialById(id);
 
-            if (RawMaterialService.IsDuplicateName(nameCapitalized))
+            if (existingRawMaterial == null)
             {
-                ModelState.AddModelError("", "Råvare med samme navn eksisterer allerede");
+                ModelState.AddModelError("", "Råvaren blev ikke fundet.");
                 ViewBag.MeasurementTypes = MeasurementTypeService.GetAllMeasurementTypes();
-                return View("CreateRawMaterialView");
+                return View(RawMaterialService.GetRawMaterialById(id));
+            }
+
+            if(!existingRawMaterial.Name.Equals(nameCapitalized, StringComparison.OrdinalIgnoreCase)
+                && RawMaterialService.IsDuplicateName(nameCapitalized))
+            {
+                ModelState.AddModelError("", "Råvare med samme navn eksisterer allerede.");
+                ViewBag.MeasurementTypes = MeasurementTypeService.GetAllMeasurementTypes();
+                return View(RawMaterialService.GetRawMaterialById(id));
             }
 
             RawMaterialDTO rawDTO = new RawMaterialDTO
@@ -209,16 +218,29 @@ namespace WebApp.Controllers
                 Material_id = id,
                 Name = nameCapitalized,
                 MeasurementType = MeasurementTypeMapper.Map(MeasurementTypeService.GetMeasurementTypeByName(unit)),
-                Stocks = new List<RawMaterialStockDTO>
-                {
-                    new RawMaterialStockDTO(id, amountParsed, expirationDate)
-                }
             };
 
             RawMaterialService.UpdateRawMaterial(rawDTO);
 
             return RedirectToAction("RåvarerView");
         }
+
+        [HttpPost]
+        public ActionResult DeleteRawMaterial(int id)
+        {
+            // Hent råvaren ved ID
+            var rawMaterial = RawMaterialService.GetRawMaterialById(id);
+            if (rawMaterial != null)
+            {
+                // Slet råvaren via service
+                RawMaterialService.DeleteRawMaterial(id);
+            }
+
+            // Omdiriger tilbage til Råvarer oversigt (hvis du har en RåvarerView)
+            return RedirectToAction("RåvarerView");
+        }
+
+
 
         [HttpPost]
         public ActionResult CreateMeasurementType(string measurementType)
