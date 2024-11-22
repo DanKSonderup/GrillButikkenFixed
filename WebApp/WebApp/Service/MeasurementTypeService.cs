@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Dynamic;
 using System.Linq;
 using System.Web;
 using WebApp.DataAccess.Repositories;
@@ -16,8 +17,6 @@ namespace WebApp.Service
 
         public static MeasurementTypeDTO GetMeasurementTypeByName(string name)
         {
-            var test = MeasurementTypeRepository.GetMeasurementTypeByName(name);
-            Console.WriteLine(test);
             return MeasurementTypeRepository.GetMeasurementTypeByName(name);
         }
 
@@ -33,6 +32,7 @@ namespace WebApp.Service
 
         public static MeasurementTypeDTO DeleteMeasurementType(string name)
         {
+            
             var measurementTypeDTO = new MeasurementTypeDTO
             {
                 Name = name
@@ -40,6 +40,14 @@ namespace WebApp.Service
             return MeasurementTypeRepository.DeleteMeasurementType(measurementTypeDTO);
         }
 
+
+        /// Other methods
+        public static bool IsDuplicateName(string name)
+        {
+            List<MeasurementTypeDTO> raws = GetAllMeasurementTypes();
+
+            return raws.Any(raw => raw.Name.Equals(name));
+        }
 
     }
 }

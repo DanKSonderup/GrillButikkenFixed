@@ -17,6 +17,7 @@ namespace WebApp.DataAccess.Context
         public DbSet<ProductProduction> ProductProductions { get; set; }
         public DbSet<MeasurementType> MeasurementTypes { get; set; }
         public DbSet<Product> Products { get; set; }
+        public DbSet<RawMaterialStock> RawMaterialsStock { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

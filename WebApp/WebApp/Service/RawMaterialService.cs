@@ -10,14 +10,14 @@ namespace WebApp.Service
 {
     public class RawMaterialService
     {
-        public static RawMaterialDTO CreateRawMaterial(string name, MeasurementType measurementType, double measurementValue)
+        public static RawMaterialDTO CreateRawMaterial(string name, MeasurementType measurementType)
         {
-            return RawMaterialRepository.AddRawMaterial(new RawMaterialDTO(name, measurementType, measurementValue));
+            return RawMaterialRepository.AddRawMaterial(new RawMaterialDTO(name, measurementType));
         }
 
-        public static RawMaterialDTO DeleteRawMaterial(RawMaterialDTO rawMaterialDTO)
+        public static void DeleteRawMaterial(int id)
         {
-            return RawMaterialRepository.DeleteRawMaterial(rawMaterialDTO);
+            RawMaterialRepository.DeleteRawMaterial(id);
         }
 
         public static List<RawMaterialDTO> GetAllRawMaterials()
@@ -30,9 +30,29 @@ namespace WebApp.Service
             return RawMaterialRepository.GetRawMaterial(name);
         }
 
+        public static RawMaterialDTO GetRawMaterialById(int id)
+        {
+            return RawMaterialRepository.GetRawMaterialById(id);
+        }
+
         public static RawMaterialDTO UpdateRawMaterial(RawMaterialDTO rawMaterialDTO)
         {
             return RawMaterialRepository.EditRawMaterial(rawMaterialDTO);
+        }
+
+        public static void AddStockToRawMaterial(RawMaterialDTO rawMaterialDTO)
+        {
+            RawMaterialRepository.AddStockToRawMaterial(rawMaterialDTO);
+        }
+
+
+        /// Other methods
+        
+        public static bool IsDuplicateName(string name)
+        {
+            List<RawMaterialDTO> raws = GetAllRawMaterials();
+
+            return raws.Any(raw => raw.Name.Equals(name));
         }
     }
 }

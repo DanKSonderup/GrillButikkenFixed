@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\a\\source\\repos\\GrillButikkenFixed\\WebApp\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{3E2158A1-4CC5-411E-9703-330A14B042A6}|WebApp\\WebApp.csproj|C:\\Users\\a\\source\\repos\\GrillButikkenFixed\\WebApp\\WebApp\\Views\\Home\\ProduktionView.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{3E2158A1-4CC5-411E-9703-330A14B042A6}|WebApp\\WebApp.csproj|solutionrelative:WebApp\\Views\\Home\\ProduktionView.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{3E2158A1-4CC5-411E-9703-330A14B042A6}|WebApp\\WebApp.csproj|C:\\Users\\a\\source\\repos\\GrillButikkenFixed\\WebApp\\WebApp\\Controllers\\HomeController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3E2158A1-4CC5-411E-9703-330A14B042A6}|WebApp\\WebApp.csproj|solutionrelative:WebApp\\Controllers\\HomeController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -33,10 +37,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{3E2158A1-4CC5-411E-9703-330A14B042A6}|WebApp\\WebApp.csproj|C:\\Users\\a\\source\\repos\\GrillButikkenFixed\\WebApp\\webapp\\dto\\productdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{3E2158A1-4CC5-411E-9703-330A14B042A6}|WebApp\\WebApp.csproj|solutionrelative:webapp\\dto\\productdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3E2158A1-4CC5-411E-9703-330A14B042A6}|WebApp\\WebApp.csproj|C:\\Users\\a\\source\\repos\\GrillButikkenFixed\\WebApp\\WebApp\\Views\\Home\\ProduktionView.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{3E2158A1-4CC5-411E-9703-330A14B042A6}|WebApp\\WebApp.csproj|solutionrelative:WebApp\\Views\\Home\\ProduktionView.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3E2158A1-4CC5-411E-9703-330A14B042A6}|WebApp\\WebApp.csproj|C:\\Users\\a\\source\\repos\\GrillButikkenFixed\\WebApp\\WebApp\\Controllers\\ProductProductionController.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -142,7 +142,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 132,
-          "SelectedChildIndex": 16,
+          "SelectedChildIndex": 17,
           "Children": [
             {
               "$type": "Bookmark",
@@ -174,7 +174,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "ProduktView.cshtml",
               "DocumentMoniker": "C:\\Users\\a\\source\\repos\\GrillButikkenFixed\\WebApp\\WebApp\\Views\\Home\\ProduktView.cshtml",
               "RelativeDocumentMoniker": "WebApp\\Views\\Home\\ProduktView.cshtml",
@@ -199,7 +199,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "DbInitializer.cs",
               "DocumentMoniker": "C:\\Users\\a\\source\\repos\\GrillButikkenFixed\\WebApp\\WebApp\\DataAccess\\Context\\DbInitializer.cs",
               "RelativeDocumentMoniker": "WebApp\\DataAccess\\Context\\DbInitializer.cs",
@@ -212,19 +212,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ProductRepository.cs",
-              "DocumentMoniker": "C:\\Users\\a\\source\\repos\\GrillButikkenFixed\\WebApp\\WebApp\\DataAccess\\Repositories\\ProductRepository.cs",
-              "RelativeDocumentMoniker": "WebApp\\DataAccess\\Repositories\\ProductRepository.cs",
-              "ToolTip": "C:\\Users\\a\\source\\repos\\GrillButikkenFixed\\WebApp\\WebApp\\DataAccess\\Repositories\\ProductRepository.cs",
-              "RelativeToolTip": "WebApp\\DataAccess\\Repositories\\ProductRepository.cs",
-              "ViewState": "AgIAAAoAAAAAAAAAAAAqwCcAAAAoAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-17T15:16:56.084Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "ProductService.cs",
               "DocumentMoniker": "C:\\Users\\a\\source\\repos\\GrillButikkenFixed\\WebApp\\WebApp\\Service\\ProductService.cs",
               "RelativeDocumentMoniker": "WebApp\\Service\\ProductService.cs",
@@ -248,7 +236,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "RawMaterialRepository.cs",
               "DocumentMoniker": "C:\\Users\\a\\source\\repos\\GrillButikkenFixed\\WebApp\\WebApp\\DataAccess\\Repositories\\RawMaterialRepository.cs",
               "RelativeDocumentMoniker": "WebApp\\DataAccess\\Repositories\\RawMaterialRepository.cs",
@@ -260,7 +248,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "HomeController.cs",
               "DocumentMoniker": "C:\\Users\\a\\source\\repos\\GrillButikkenFixed\\WebApp\\WebApp\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "WebApp\\Controllers\\HomeController.cs",
@@ -273,7 +261,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "ProductProduction.cs",
               "DocumentMoniker": "C:\\Users\\a\\source\\repos\\GrillButikkenFixed\\WebApp\\WebApp\\Models\\ProductProduction.cs",
               "RelativeDocumentMoniker": "WebApp\\Models\\ProductProduction.cs",
@@ -282,6 +270,31 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-15T10:30:51.01Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ProduktionView.cshtml",
+              "DocumentMoniker": "C:\\Users\\a\\source\\repos\\GrillButikkenFixed\\WebApp\\WebApp\\Views\\Home\\ProduktionView.cshtml",
+              "RelativeDocumentMoniker": "WebApp\\Views\\Home\\ProduktionView.cshtml",
+              "ToolTip": "C:\\Users\\a\\source\\repos\\GrillButikkenFixed\\WebApp\\WebApp\\Views\\Home\\ProduktionView.cshtml",
+              "RelativeToolTip": "WebApp\\Views\\Home\\ProduktionView.cshtml",
+              "ViewState": "AgIAABIAAAAAAAAAAAAowCwAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-11-17T10:41:56.454Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ProductRepository.cs",
+              "DocumentMoniker": "C:\\Users\\a\\source\\repos\\GrillButikkenFixed\\WebApp\\WebApp\\DataAccess\\Repositories\\ProductRepository.cs",
+              "RelativeDocumentMoniker": "WebApp\\DataAccess\\Repositories\\ProductRepository.cs",
+              "ToolTip": "C:\\Users\\a\\source\\repos\\GrillButikkenFixed\\WebApp\\WebApp\\DataAccess\\Repositories\\ProductRepository.cs",
+              "RelativeToolTip": "WebApp\\DataAccess\\Repositories\\ProductRepository.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAqwCcAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-17T15:16:56.084Z"
             },
             {
               "$type": "Document",
@@ -298,18 +311,6 @@
             {
               "$type": "Document",
               "DocumentIndex": 8,
-              "Title": "ProduktionView.cshtml",
-              "DocumentMoniker": "C:\\Users\\a\\source\\repos\\GrillButikkenFixed\\WebApp\\WebApp\\Views\\Home\\ProduktionView.cshtml",
-              "RelativeDocumentMoniker": "WebApp\\Views\\Home\\ProduktionView.cshtml",
-              "ToolTip": "C:\\Users\\a\\source\\repos\\GrillButikkenFixed\\WebApp\\WebApp\\Views\\Home\\ProduktionView.cshtml",
-              "RelativeToolTip": "WebApp\\Views\\Home\\ProduktionView.cshtml",
-              "ViewState": "AgIAABIAAAAAAAAAAAAowCcAAAAPAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-17T10:41:56.454Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
               "Title": "ProductDTO.cs",
               "DocumentMoniker": "C:\\Users\\a\\source\\repos\\GrillButikkenFixed\\WebApp\\WebApp\\DTO\\ProductDTO.cs",
               "RelativeDocumentMoniker": "WebApp\\DTO\\ProductDTO.cs",
