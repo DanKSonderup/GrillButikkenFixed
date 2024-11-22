@@ -43,7 +43,7 @@
                     <td>@production.CreatedAt</td>
                     <td>@production.Deadline </td>
                     <td>@production.Status</td>
-                    <td><button class="crud-btn in-progress" onclick="location.href='@Url.Action("EditProductProductionView", "Home")'">Redigér</button></td>
+                    <td><button class="crud-btn create-new" onclick="location.href='@Url.Action("EditProductProduction", "Home", new { name = production.ProjectName})'">Rediger</button></td>
                     <td>
                         <button class="crud-btn in-progress" onclick="confirmDelete('@Url.Action("DeleteProductProduction", "Home", new { name = production.ProjectName })')">Slet</button>
                     </td>

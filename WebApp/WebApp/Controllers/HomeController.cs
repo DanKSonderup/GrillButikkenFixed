@@ -85,7 +85,6 @@ namespace WebApp.Controllers
         public ActionResult ProduktionView()
         {
            
-
             List<ProductProductionDTO> model = ProductProductionService.GetAllProductProductions();
 
             ViewBag.Message = "Your production page.";
@@ -222,6 +221,50 @@ namespace WebApp.Controllers
             return RedirectToAction("ProduktionView");
         }
 
+        [HttpPost]
+        public ActionResult EditProductProduction(int id, string name, int amount, string status, DateTime endDate)
+        {
+            List<ProductProductionDTO> model = ProductProductionService.GetAllProductProductions();
+
+            string nameCapitalized = Helper.CapitalizeFirstLetter(name);
+            var existingProductProduction = ProductProductionService.GetProductProductionById(id);
+
+            if (existingProductProduction == null)
+            {
+                ModelState.AddModelError("", "Produktionen blev ikke fundet.");
+                ViewBag.StatusType = Enum.GetValues(typeof(Status)).Cast<Status>();
+                return View(model);
+            }
+
+            if (!existingProductProduction.ProjectName.Equals(nameCapitalized, StringComparison.OrdinalIgnoreCase)
+                && ProductProductionService.IsDuplicateName(nameCapitalized))
+            {
+                ModelState.AddModelError("", "Produktion med samme navn eksisterer allerede.");
+                ViewBag.StatusType = Enum.GetValues(typeof(Status)).Cast<Status>();
+                return View("ProduktionView", model);
+            }
+
+
+
+            existingProductProduction.QuantityToProduce = amount;
+            existingProductProduction.ProjectName = nameCapitalized;
+            existingProductProduction.Status = (Status)Enum.Parse(typeof(Status), status);
+            existingProductProduction.Deadline = endDate;
+
+            ProductProductionService.UpdateProductProduction(existingProductProduction);
+
+
+
+            return RedirectToAction("ProduktionView", model);
+        }
+
+        public ActionResult EditProductProduction(string name)
+        {
+            var productProduction = ProductProductionService.GetProductProductionByName(name);
+            ViewBag.StatusType = Enum.GetValues(typeof(Status)).Cast<Status>();
+
+            return View(productProduction);
+        }
 
         [HttpPost]
         public ActionResult CreateRawMaterial(string name, string unit)
