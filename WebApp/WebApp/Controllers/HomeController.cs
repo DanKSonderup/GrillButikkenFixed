@@ -142,6 +142,7 @@ namespace WebApp.Controllers
         public ActionResult CreateProductView()
         {
             ViewBag.Products = ProductRepository.GetProducts();
+            ViewBag.RawMaterials = RawMaterialRepository.GetRawMaterials();
             return View();
         }
 
@@ -160,13 +161,12 @@ namespace WebApp.Controllers
                     EstimatedProductionTime = TimeSpan.FromHours(EstimatedProductionTime),
                     AmountInStock = +amount
                 };
-                 ProductRepository.AddProduct(product);
+                ProductRepository.AddProduct(product);
 
                 // Redirect to a confirmation page or another action
                 return RedirectToAction("ProduktView");
             }
-
-            return View();
+            return View("CreateProductView");
         }
 
         public ActionResult CreateRawMaterialView()
