@@ -132,10 +132,16 @@
     <Compile Include="DataAccess\Context\DatabaseContext.cs" />
     <Compile Include="DataAccess\Context\DbInitializer.cs" />
     <Compile Include="DataAccess\Repositories\BilRepository.cs" />
+    <Compile Include="DataAccess\Repositories\ItemDeliveryRepositry.cs" />
+    <Compile Include="DataAccess\Repositories\ItemRepository.cs" />
     <Compile Include="DataAccess\Repositories\ProductProductionRepository.cs" />
     <Compile Include="DataAccess\Repositories\RawMaterialRepository.cs" />
     <Compile Include="DTO\BilDTO.cs" />
+    <Compile Include="DTO\ItemDeliveryDTO.cs" />
+    <Compile Include="DTO\ItemDTO.cs" />
     <Compile Include="DTO\Mappers\BilMapper.cs" />
+    <Compile Include="DTO\Mappers\ItemDeliveryMapper.cs" />
+    <Compile Include="DTO\Mappers\ItemMapper.cs" />
     <Compile Include="DTO\Mappers\ProductMapper.cs" />
     <Compile Include="DTO\Mappers\ProductProductionMapper.cs" />
     <Compile Include="DTO\Mappers\RawMaterialMapper.cs" />
@@ -151,14 +157,20 @@
     <Compile Include="Models\Frontend\Production.cs" />
     <Compile Include="Models\Frontend\ProductionFactory.cs" />
     <Compile Include="Models\Frontend\RawMaterials.cs" />
+    <Compile Include="Models\Item.cs" />
+    <Compile Include="Models\ItemDelivery.cs" />
     <Compile Include="Models\MeasurementType.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\RawMaterial.cs" />
     <Compile Include="Models\Status.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\ProductProduction.cs" />
+    <Compile Include="Service\IItemDeliveryService.cs" />
+    <Compile Include="Service\IItemService.cs" />
     <Compile Include="Service\IProductionProjectService.cs" />
     <Compile Include="Service\IRawMaterialService.cs" />
+    <Compile Include="Service\ItemDeliveryService.cs" />
+    <Compile Include="Service\ItemService.cs" />
     <Compile Include="Service\ProductProductionService.cs" />
     <Compile Include="Service\RawMaterialService.cs" />
   </ItemGroup>

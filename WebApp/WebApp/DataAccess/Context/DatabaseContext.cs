@@ -15,6 +15,8 @@ namespace WebApp.DataAccess.Context
         public DbSet<Bil> Biler { get; set; }
         public DbSet<RawMaterial> RawMaterials { get; set; }
         public DbSet<ProductProduction> ProductProductions { get; set; }
+        public DbSet<Item> Items { get; set; }
+        public DbSet<ItemDelivery> ItemDeliveries { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

@@ -1,38 +1,42 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\marti\\source\\repos\\GrillButikkenFixed\\WebApp\\",
+  "WorkspaceRootPath": "C:\\Users\\Elias\\source\\repos\\GrillButikkenFixed\\WebApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{3E2158A1-4CC5-411E-9703-330A14B042A6}|WebApp\\WebApp.csproj|c:\\users\\marti\\source\\repos\\grillbutikkenfixed\\webapp\\webapp\\dto\\mappers\\productproductionmapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3E2158A1-4CC5-411E-9703-330A14B042A6}|WebApp\\WebApp.csproj|solutionrelative:webapp\\dto\\mappers\\productproductionmapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3E2158A1-4CC5-411E-9703-330A14B042A6}|WebApp\\WebApp.csproj|c:\\users\\elias\\source\\repos\\grillbutikkenfixed\\webapp\\webapp\\service\\iitemdeliveryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3E2158A1-4CC5-411E-9703-330A14B042A6}|WebApp\\WebApp.csproj|solutionrelative:webapp\\service\\iitemdeliveryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3E2158A1-4CC5-411E-9703-330A14B042A6}|WebApp\\WebApp.csproj|c:\\users\\marti\\source\\repos\\grillbutikkenfixed\\webapp\\webapp\\dto\\productproductiondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3E2158A1-4CC5-411E-9703-330A14B042A6}|WebApp\\WebApp.csproj|solutionrelative:webapp\\dto\\productproductiondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3E2158A1-4CC5-411E-9703-330A14B042A6}|WebApp\\WebApp.csproj|c:\\users\\elias\\source\\repos\\grillbutikkenfixed\\webapp\\webapp\\dataaccess\\repositories\\itemdeliveryrepositry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3E2158A1-4CC5-411E-9703-330A14B042A6}|WebApp\\WebApp.csproj|solutionrelative:webapp\\dataaccess\\repositories\\itemdeliveryrepositry.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3E2158A1-4CC5-411E-9703-330A14B042A6}|WebApp\\WebApp.csproj|c:\\users\\marti\\source\\repos\\grillbutikkenfixed\\webapp\\webapp\\models\\productproduction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3E2158A1-4CC5-411E-9703-330A14B042A6}|WebApp\\WebApp.csproj|solutionrelative:webapp\\models\\productproduction.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3E2158A1-4CC5-411E-9703-330A14B042A6}|WebApp\\WebApp.csproj|c:\\users\\elias\\source\\repos\\grillbutikkenfixed\\webapp\\webapp\\service\\itemdeliveryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3E2158A1-4CC5-411E-9703-330A14B042A6}|WebApp\\WebApp.csproj|solutionrelative:webapp\\service\\itemdeliveryservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3E2158A1-4CC5-411E-9703-330A14B042A6}|WebApp\\WebApp.csproj|c:\\users\\marti\\source\\repos\\grillbutikkenfixed\\webapp\\webapp\\service\\productproductionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3E2158A1-4CC5-411E-9703-330A14B042A6}|WebApp\\WebApp.csproj|solutionrelative:webapp\\service\\productproductionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3E2158A1-4CC5-411E-9703-330A14B042A6}|WebApp\\WebApp.csproj|c:\\users\\elias\\source\\repos\\grillbutikkenfixed\\webapp\\webapp\\service\\itemservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3E2158A1-4CC5-411E-9703-330A14B042A6}|WebApp\\WebApp.csproj|solutionrelative:webapp\\service\\itemservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3E2158A1-4CC5-411E-9703-330A14B042A6}|WebApp\\WebApp.csproj|c:\\users\\marti\\source\\repos\\grillbutikkenfixed\\webapp\\webapp\\service\\rawmaterialservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3E2158A1-4CC5-411E-9703-330A14B042A6}|WebApp\\WebApp.csproj|solutionrelative:webapp\\service\\rawmaterialservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3E2158A1-4CC5-411E-9703-330A14B042A6}|WebApp\\WebApp.csproj|c:\\users\\elias\\source\\repos\\grillbutikkenfixed\\webapp\\webapp\\service\\iitemservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3E2158A1-4CC5-411E-9703-330A14B042A6}|WebApp\\WebApp.csproj|solutionrelative:webapp\\service\\iitemservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3E2158A1-4CC5-411E-9703-330A14B042A6}|WebApp\\WebApp.csproj|c:\\users\\marti\\source\\repos\\grillbutikkenfixed\\webapp\\webapp\\dto\\mappers\\productmapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3E2158A1-4CC5-411E-9703-330A14B042A6}|WebApp\\WebApp.csproj|solutionrelative:webapp\\dto\\mappers\\productmapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3E2158A1-4CC5-411E-9703-330A14B042A6}|WebApp\\WebApp.csproj|c:\\users\\elias\\source\\repos\\grillbutikkenfixed\\webapp\\webapp\\dto\\mappers\\itemdeliverymapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3E2158A1-4CC5-411E-9703-330A14B042A6}|WebApp\\WebApp.csproj|solutionrelative:webapp\\dto\\mappers\\itemdeliverymapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3E2158A1-4CC5-411E-9703-330A14B042A6}|WebApp\\WebApp.csproj|c:\\users\\marti\\source\\repos\\grillbutikkenfixed\\webapp\\webapp\\dataaccess\\repositories\\rawmaterialrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3E2158A1-4CC5-411E-9703-330A14B042A6}|WebApp\\WebApp.csproj|solutionrelative:webapp\\dataaccess\\repositories\\rawmaterialrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3E2158A1-4CC5-411E-9703-330A14B042A6}|WebApp\\WebApp.csproj|c:\\users\\elias\\source\\repos\\grillbutikkenfixed\\webapp\\webapp\\dataaccess\\context\\databasecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3E2158A1-4CC5-411E-9703-330A14B042A6}|WebApp\\WebApp.csproj|solutionrelative:webapp\\dataaccess\\context\\databasecontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3E2158A1-4CC5-411E-9703-330A14B042A6}|WebApp\\WebApp.csproj|c:\\users\\marti\\source\\repos\\grillbutikkenfixed\\webapp\\webapp\\dataaccess\\repositories\\productproductionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{3E2158A1-4CC5-411E-9703-330A14B042A6}|WebApp\\WebApp.csproj|solutionrelative:webapp\\dataaccess\\repositories\\productproductionrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{3E2158A1-4CC5-411E-9703-330A14B042A6}|WebApp\\WebApp.csproj|c:\\users\\elias\\source\\repos\\grillbutikkenfixed\\webapp\\webapp\\dataaccess\\repositories\\itemrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3E2158A1-4CC5-411E-9703-330A14B042A6}|WebApp\\WebApp.csproj|solutionrelative:webapp\\dataaccess\\repositories\\itemrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3E2158A1-4CC5-411E-9703-330A14B042A6}|WebApp\\WebApp.csproj|c:\\users\\elias\\source\\repos\\grillbutikkenfixed\\webapp\\webapp\\dto\\mappers\\itemmapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3E2158A1-4CC5-411E-9703-330A14B042A6}|WebApp\\WebApp.csproj|solutionrelative:webapp\\dto\\mappers\\itemmapper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -41,143 +45,134 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "DockedWidth": 213,
+          "SelectedChildIndex": 1,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "RawMaterialService.cs",
-              "DocumentMoniker": "C:\\Users\\marti\\source\\repos\\GrillButikkenFixed\\WebApp\\WebApp\\Service\\RawMaterialService.cs",
-              "RelativeDocumentMoniker": "WebApp\\Service\\RawMaterialService.cs",
-              "ToolTip": "C:\\Users\\marti\\source\\repos\\GrillButikkenFixed\\WebApp\\WebApp\\Service\\RawMaterialService.cs",
-              "RelativeToolTip": "WebApp\\Service\\RawMaterialService.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAQwCUAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-15T10:31:08.69Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "ProductProductionService.cs",
-              "DocumentMoniker": "C:\\Users\\marti\\source\\repos\\GrillButikkenFixed\\WebApp\\WebApp\\Service\\ProductProductionService.cs",
-              "RelativeDocumentMoniker": "WebApp\\Service\\ProductProductionService.cs",
-              "ToolTip": "C:\\Users\\marti\\source\\repos\\GrillButikkenFixed\\WebApp\\WebApp\\Service\\ProductProductionService.cs",
-              "RelativeToolTip": "WebApp\\Service\\ProductProductionService.cs",
-              "ViewState": "AgIAAAUAAAAAAAAAAAAwwCsAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-15T10:31:03.293Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "ProductProduction.cs",
-              "DocumentMoniker": "C:\\Users\\marti\\source\\repos\\GrillButikkenFixed\\WebApp\\WebApp\\Models\\ProductProduction.cs",
-              "RelativeDocumentMoniker": "WebApp\\Models\\ProductProduction.cs",
-              "ToolTip": "C:\\Users\\marti\\source\\repos\\GrillButikkenFixed\\WebApp\\WebApp\\Models\\ProductProduction.cs",
-              "RelativeToolTip": "WebApp\\Models\\ProductProduction.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-15T10:30:51.01Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "ProductProductionMapper.cs",
-              "DocumentMoniker": "C:\\Users\\marti\\source\\repos\\GrillButikkenFixed\\WebApp\\WebApp\\DTO\\Mappers\\ProductProductionMapper.cs",
-              "RelativeDocumentMoniker": "WebApp\\DTO\\Mappers\\ProductProductionMapper.cs",
-              "ToolTip": "C:\\Users\\marti\\source\\repos\\GrillButikkenFixed\\WebApp\\WebApp\\DTO\\Mappers\\ProductProductionMapper.cs",
-              "RelativeToolTip": "WebApp\\DTO\\Mappers\\ProductProductionMapper.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-15T10:30:19.094Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "ProductMapper.cs",
-              "DocumentMoniker": "C:\\Users\\marti\\source\\repos\\GrillButikkenFixed\\WebApp\\WebApp\\DTO\\Mappers\\ProductMapper.cs",
-              "RelativeDocumentMoniker": "WebApp\\DTO\\Mappers\\ProductMapper.cs",
-              "ToolTip": "C:\\Users\\marti\\source\\repos\\GrillButikkenFixed\\WebApp\\WebApp\\DTO\\Mappers\\ProductMapper.cs",
-              "RelativeToolTip": "WebApp\\DTO\\Mappers\\ProductMapper.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAwwCMAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-15T10:29:59.376Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ProductProductionDTO.cs",
-              "DocumentMoniker": "C:\\Users\\marti\\source\\repos\\GrillButikkenFixed\\WebApp\\WebApp\\DTO\\ProductProductionDTO.cs",
-              "RelativeDocumentMoniker": "WebApp\\DTO\\ProductProductionDTO.cs",
-              "ToolTip": "C:\\Users\\marti\\source\\repos\\GrillButikkenFixed\\WebApp\\WebApp\\DTO\\ProductProductionDTO.cs",
-              "RelativeToolTip": "WebApp\\DTO\\ProductProductionDTO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-15T10:29:35.83Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{2d7728c2-de0a-45b5-99aa-89b609dfde73}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{34e76e81-ee4a-11d0-ae2e-00a0c90fffc3}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "RawMaterialRepository.cs",
-              "DocumentMoniker": "C:\\Users\\marti\\source\\repos\\GrillButikkenFixed\\WebApp\\WebApp\\DataAccess\\Repositories\\RawMaterialRepository.cs",
-              "RelativeDocumentMoniker": "WebApp\\DataAccess\\Repositories\\RawMaterialRepository.cs",
-              "ToolTip": "C:\\Users\\marti\\source\\repos\\GrillButikkenFixed\\WebApp\\WebApp\\DataAccess\\Repositories\\RawMaterialRepository.cs",
-              "RelativeToolTip": "WebApp\\DataAccess\\Repositories\\RawMaterialRepository.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEIAAAABAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "ItemDeliveryRepositry.cs",
+              "DocumentMoniker": "C:\\Users\\Elias\\source\\repos\\GrillButikkenFixed\\WebApp\\WebApp\\DataAccess\\Repositories\\ItemDeliveryRepositry.cs",
+              "RelativeDocumentMoniker": "WebApp\\DataAccess\\Repositories\\ItemDeliveryRepositry.cs",
+              "ToolTip": "C:\\Users\\Elias\\source\\repos\\GrillButikkenFixed\\WebApp\\WebApp\\DataAccess\\Repositories\\ItemDeliveryRepositry.cs",
+              "RelativeToolTip": "WebApp\\DataAccess\\Repositories\\ItemDeliveryRepositry.cs",
+              "ViewState": "AgIAAAcAAADAfzMzMzP7vyIAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-15T10:28:55.018Z",
+              "WhenOpened": "2024-11-22T09:06:00.176Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ItemService.cs",
+              "DocumentMoniker": "C:\\Users\\Elias\\source\\repos\\GrillButikkenFixed\\WebApp\\WebApp\\Service\\ItemService.cs",
+              "RelativeDocumentMoniker": "WebApp\\Service\\ItemService.cs",
+              "ToolTip": "C:\\Users\\Elias\\source\\repos\\GrillButikkenFixed\\WebApp\\WebApp\\Service\\ItemService.cs",
+              "RelativeToolTip": "WebApp\\Service\\ItemService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-22T08:58:31.059Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ItemDeliveryService.cs",
+              "DocumentMoniker": "C:\\Users\\Elias\\source\\repos\\GrillButikkenFixed\\WebApp\\WebApp\\Service\\ItemDeliveryService.cs",
+              "RelativeDocumentMoniker": "WebApp\\Service\\ItemDeliveryService.cs",
+              "ToolTip": "C:\\Users\\Elias\\source\\repos\\GrillButikkenFixed\\WebApp\\WebApp\\Service\\ItemDeliveryService.cs",
+              "RelativeToolTip": "WebApp\\Service\\ItemDeliveryService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-22T08:58:27.61Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "IItemService.cs",
+              "DocumentMoniker": "C:\\Users\\Elias\\source\\repos\\GrillButikkenFixed\\WebApp\\WebApp\\Service\\IItemService.cs",
+              "RelativeDocumentMoniker": "WebApp\\Service\\IItemService.cs",
+              "ToolTip": "C:\\Users\\Elias\\source\\repos\\GrillButikkenFixed\\WebApp\\WebApp\\Service\\IItemService.cs",
+              "RelativeToolTip": "WebApp\\Service\\IItemService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-22T08:55:26.394Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ItemDeliveryMapper.cs",
+              "DocumentMoniker": "C:\\Users\\Elias\\source\\repos\\GrillButikkenFixed\\WebApp\\WebApp\\DTO\\Mappers\\ItemDeliveryMapper.cs",
+              "RelativeDocumentMoniker": "WebApp\\DTO\\Mappers\\ItemDeliveryMapper.cs",
+              "ToolTip": "C:\\Users\\Elias\\source\\repos\\GrillButikkenFixed\\WebApp\\WebApp\\DTO\\Mappers\\ItemDeliveryMapper.cs",
+              "RelativeToolTip": "WebApp\\DTO\\Mappers\\ItemDeliveryMapper.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-22T08:48:20.288Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 138,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "IItemDeliveryService.cs",
+              "DocumentMoniker": "C:\\Users\\Elias\\source\\repos\\GrillButikkenFixed\\WebApp\\WebApp\\Service\\IItemDeliveryService.cs",
+              "RelativeDocumentMoniker": "WebApp\\Service\\IItemDeliveryService.cs",
+              "ToolTip": "C:\\Users\\Elias\\source\\repos\\GrillButikkenFixed\\WebApp\\WebApp\\Service\\IItemDeliveryService.cs",
+              "RelativeToolTip": "WebApp\\Service\\IItemDeliveryService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-22T08:55:19.611Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "DatabaseContext.cs",
+              "DocumentMoniker": "C:\\Users\\Elias\\source\\repos\\GrillButikkenFixed\\WebApp\\WebApp\\DataAccess\\Context\\DatabaseContext.cs",
+              "RelativeDocumentMoniker": "WebApp\\DataAccess\\Context\\DatabaseContext.cs",
+              "ToolTip": "C:\\Users\\Elias\\source\\repos\\GrillButikkenFixed\\WebApp\\WebApp\\DataAccess\\Context\\DatabaseContext.cs",
+              "RelativeToolTip": "WebApp\\DataAccess\\Context\\DatabaseContext.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-22T08:53:41.605Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "ProductProductionRepository.cs",
-              "DocumentMoniker": "C:\\Users\\marti\\source\\repos\\GrillButikkenFixed\\WebApp\\WebApp\\DataAccess\\Repositories\\ProductProductionRepository.cs",
-              "RelativeDocumentMoniker": "WebApp\\DataAccess\\Repositories\\ProductProductionRepository.cs",
-              "ToolTip": "C:\\Users\\marti\\source\\repos\\GrillButikkenFixed\\WebApp\\WebApp\\DataAccess\\Repositories\\ProductProductionRepository.cs",
-              "RelativeToolTip": "WebApp\\DataAccess\\Repositories\\ProductProductionRepository.cs",
-              "ViewState": "AgIAADgAAAAAAAAAAAAwwF4AAAABAAAAAAAAAA==",
+              "Title": "ItemRepository.cs",
+              "DocumentMoniker": "C:\\Users\\Elias\\source\\repos\\GrillButikkenFixed\\WebApp\\WebApp\\DataAccess\\Repositories\\ItemRepository.cs",
+              "RelativeDocumentMoniker": "WebApp\\DataAccess\\Repositories\\ItemRepository.cs",
+              "ToolTip": "C:\\Users\\Elias\\source\\repos\\GrillButikkenFixed\\WebApp\\WebApp\\DataAccess\\Repositories\\ItemRepository.cs",
+              "RelativeToolTip": "WebApp\\DataAccess\\Repositories\\ItemRepository.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAwwD0AAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-15T10:27:54.994Z",
+              "WhenOpened": "2024-11-22T08:52:32.693Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "ItemMapper.cs",
+              "DocumentMoniker": "C:\\Users\\Elias\\source\\repos\\GrillButikkenFixed\\WebApp\\WebApp\\DTO\\Mappers\\ItemMapper.cs",
+              "RelativeDocumentMoniker": "WebApp\\DTO\\Mappers\\ItemMapper.cs",
+              "ToolTip": "C:\\Users\\Elias\\source\\repos\\GrillButikkenFixed\\WebApp\\WebApp\\DTO\\Mappers\\ItemMapper.cs",
+              "RelativeToolTip": "WebApp\\DTO\\Mappers\\ItemMapper.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-22T08:48:24.396Z",
               "EditorCaption": ""
             }
           ]

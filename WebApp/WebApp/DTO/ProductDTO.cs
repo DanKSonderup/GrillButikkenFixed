@@ -24,7 +24,5 @@ namespace WebApp.DTO
             CreatedAt = createdAt;
             UpdatedAt = updatedAt;
         }
-
-
     }
 }
