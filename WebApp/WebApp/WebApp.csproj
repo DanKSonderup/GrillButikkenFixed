@@ -141,6 +141,7 @@
     <Compile Include="DTO\Mappers\ProductMapper.cs" />
     <Compile Include="DTO\Mappers\ProductProductionMapper.cs" />
     <Compile Include="DTO\Mappers\RawMaterialMapper.cs" />
+    <Compile Include="DTO\Mappers\RawMaterialStockMapper.cs" />
     <Compile Include="DTO\MeasurementTypeDTO.cs" />
     <Compile Include="DTO\ProductDTO.cs" />
     <Compile Include="DTO\ProductProductionDTO.cs" />
@@ -148,6 +149,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helper.cs" />
     <Compile Include="Models\Bil.cs" />
     <Compile Include="Models\MeasurementType.cs" />
     <Compile Include="Models\Product.cs" />

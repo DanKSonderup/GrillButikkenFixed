@@ -3,6 +3,14 @@
   "WorkspaceRootPath": "C:\\Users\\olive\\Documents\\Github\\GrillButikkenFixed\\WebApp\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{3E2158A1-4CC5-411E-9703-330A14B042A6}|WebApp\\WebApp.csproj|c:\\users\\olive\\documents\\github\\grillbutikkenfixed\\webapp\\webapp\\dataaccess\\repositories\\rawmaterialrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3E2158A1-4CC5-411E-9703-330A14B042A6}|WebApp\\WebApp.csproj|solutionrelative:webapp\\dataaccess\\repositories\\rawmaterialrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3E2158A1-4CC5-411E-9703-330A14B042A6}|WebApp\\WebApp.csproj|c:\\users\\olive\\documents\\github\\grillbutikkenfixed\\webapp\\webapp\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{3E2158A1-4CC5-411E-9703-330A14B042A6}|WebApp\\WebApp.csproj|solutionrelative:webapp\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\olive\\Documents\\Github\\GrillButikkenFixed\\WebApp\\WebApp\\DataAccess\\Repositories\\RawMaterialStockRepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:WebApp\\DataAccess\\Repositories\\RawMaterialStockRepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -63,6 +71,32 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "RawMaterialRepository.cs",
+              "DocumentMoniker": "C:\\Users\\olive\\Documents\\Github\\GrillButikkenFixed\\WebApp\\WebApp\\DataAccess\\Repositories\\RawMaterialRepository.cs",
+              "RelativeDocumentMoniker": "WebApp\\DataAccess\\Repositories\\RawMaterialRepository.cs",
+              "ToolTip": "C:\\Users\\olive\\Documents\\Github\\GrillButikkenFixed\\WebApp\\WebApp\\DataAccess\\Repositories\\RawMaterialRepository.cs",
+              "RelativeToolTip": "WebApp\\DataAccess\\Repositories\\RawMaterialRepository.cs",
+              "ViewState": "AgIAAHYAAAAAAAAAAAAewIwAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-22T08:08:21.41Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\Users\\olive\\Documents\\Github\\GrillButikkenFixed\\WebApp\\WebApp\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "WebApp\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\Users\\olive\\Documents\\Github\\GrillButikkenFixed\\WebApp\\WebApp\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "WebApp\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-22T08:05:36.713Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "RawMaterialStockRepository.cs",
               "DocumentMoniker": "C:\\Users\\olive\\Documents\\Github\\GrillButikkenFixed\\WebApp\\WebApp\\DataAccess\\Repositories\\RawMaterialStockRepository.cs",
               "RelativeDocumentMoniker": "WebApp\\DataAccess\\Repositories\\RawMaterialStockRepository.cs",
