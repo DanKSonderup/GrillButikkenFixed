@@ -152,7 +152,15 @@ namespace WebApp.DataAccess.Repositories
         {
             using (DatabaseContext context = new DatabaseContext())
             {
+
                 var rawMaterial = context.RawMaterials.Find(id);
+
+                var stock = context.RawMaterialsStock
+                    .Where(s => s.RawMaterialId == id)
+                    .ToList();
+
+                stock.ForEach(s => context.RawMaterialsStock.Remove(s));
+
                 if (rawMaterial != null)
                 {
                     context.RawMaterials.Remove(rawMaterial);

@@ -160,6 +160,16 @@ namespace WebApp.Controllers
             return RedirectToAction("RåvarerView");
         }
 
+        [HttpPost]
+        public ActionResult DeleteRawMaterialStock(int id, int rawMaterialId, double amount)
+        {
+            RawMaterialStockService.RemoveRawMaterialStock(id, amount);
+            
+            return RedirectToAction("ShowRawMaterial", new { id = rawMaterialId });
+        }
+
+
+
         public ActionResult SearchForProductsContaining(string name)
         {
             ProductService productService = new ProductService();

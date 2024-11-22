@@ -14,6 +14,7 @@
             <tr>
                 <th>Mængde</th>
                 <th>Udløbsdato</th>
+                <th>Fjern</th>
             </tr>
         </thead>
         <tbody>
@@ -22,6 +23,14 @@
                 <tr>
                     <td>@item.Amount</td>
                     <td>@item.ExpirationDate</td>
+                    <td>
+                        <form action="@Url.Action("DeleteRawMaterialStock", "Home")" method="post" style="display:inline;">
+                            <input type="hidden" name="id" value="@item.Id" />
+                            <input type="hidden" name="rawMaterialId" value="@Model.Material_id"/>
+                            <input type="hidden" name="amount" value="@item.Amount"/>
+                            <button type="submit" class="btn btn-danger">Slet</button>
+                        </form>
+                    </td>
                 </tr>
             }
         </tbody>
