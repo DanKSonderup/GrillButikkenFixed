@@ -136,13 +136,12 @@ namespace WebApp.Controllers
                     Name = name,
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
-                    RawMaterialNeeded = new Dictionary<RawMaterial, Double>(),
+                    ProductRawMaterialNeeded = new List<ProductRawMaterialNeeded> (),
                     EstimatedProductionTime = TimeSpan.FromHours(EstimatedProductionTime),
                     AmountInStock = +amount
                 };
                 ProductRepository.AddProduct(product);
 
-                // Redirect to a confirmation page or another action
                 return RedirectToAction("ProduktView");
             }
 

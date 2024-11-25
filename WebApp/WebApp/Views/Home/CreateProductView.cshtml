@@ -20,8 +20,8 @@
                     <li>
                         <input type="checkbox" name="RawMaterialsNeeded" value="@item.Name" />
                         <label>@item.Name</label>
-                        <label>@item.MeasurementValue</label>
-                        <input type="number" class="form-control" id="@item.MeasurementValue" name="@item.MeasurementValue" />
+                        <label>@item.FullAmount()</label>
+                        <input type="number" class="form-control" id="@item.FullAmount()" name="@item.FullAmount()" />
                     </li>
                 }
             }

@@ -243,7 +243,7 @@
     <Content Include="Views\Home\CreateMeasurementType.cshtml" />
     <Content Include="Views\Home\CreateRawMaterialView.cshtml" />
     <Content Include="Views\Home\EditRawMaterial.cshtml" />
-
+    <Content Include="Views\Home\CreateProductView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
