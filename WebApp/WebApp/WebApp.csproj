@@ -133,6 +133,7 @@
     <Compile Include="DataAccess\Repositories\BilRepository.cs" />
     <Compile Include="DataAccess\Repositories\MeasurementTypeRepository.cs" />
     <Compile Include="DataAccess\Repositories\ProductProductionRepository.cs" />
+    <Compile Include="DataAccess\Repositories\ProductRawMaterialNeededRepository.cs" />
     <Compile Include="DataAccess\Repositories\ProductRepository.cs" />
     <Compile Include="DataAccess\Repositories\RawMaterialRepository.cs" />
     <Compile Include="DataAccess\Repositories\RawMaterialStockRepository.cs" />
@@ -141,11 +142,13 @@
     <Compile Include="DTO\Mappers\MeasurementTypeMapper.cs" />
     <Compile Include="DTO\Mappers\ProductMapper.cs" />
     <Compile Include="DTO\Mappers\ProductProductionMapper.cs" />
+    <Compile Include="DTO\Mappers\ProductRawMaterialNeededMapper.cs" />
     <Compile Include="DTO\Mappers\RawMaterialMapper.cs" />
     <Compile Include="DTO\Mappers\RawMaterialStockMapper.cs" />
     <Compile Include="DTO\MeasurementTypeDTO.cs" />
     <Compile Include="DTO\ProductDTO.cs" />
     <Compile Include="DTO\ProductProductionDTO.cs" />
+    <Compile Include="DTO\ProductRawMaterialNeededDTO.cs" />
     <Compile Include="DTO\RawMaterialDTO.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -154,6 +157,7 @@
     <Compile Include="Models\Bil.cs" />
     <Compile Include="Models\MeasurementType.cs" />
     <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\ProductRawMaterialNeeded.cs" />
     <Compile Include="Models\RawMaterial.cs" />
     <Compile Include="Models\Status.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

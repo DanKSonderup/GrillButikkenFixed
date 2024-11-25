@@ -14,16 +14,15 @@ namespace WebApp.Models
         public int Id { get; set; }
         public string Name { get; set; }
         public TimeSpan EstimatedProductionTime { get; set; }
-        public Dictionary<RawMaterial, double> RawMaterialNeeded { get; set; }
+        public virtual List<ProductRawMaterialNeeded> ProductRawMaterialNeeded { get; set; } = new List<ProductRawMaterialNeeded>();
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
         public int AmountInStock { get; set; }
 
-        public Product(string name, TimeSpan estimatedProductionTime, Dictionary<RawMaterial, double> rawMaterialNeeded, DateTime createdAt, DateTime updatedAt, int amountInStock)
+        public Product(string name, TimeSpan estimatedProductionTime, DateTime createdAt, DateTime updatedAt, int amountInStock)
         {
             Name = name;
             EstimatedProductionTime = estimatedProductionTime;
-            RawMaterialNeeded = rawMaterialNeeded;
             CreatedAt = createdAt;
             UpdatedAt = updatedAt;
             AmountInStock = amountInStock;
@@ -32,24 +31,12 @@ namespace WebApp.Models
 
         public void AddMaterial(RawMaterial rawMaterial, double amount)
         {
-            RawMaterialNeeded.Add(rawMaterial, amount);
+            ProductRawMaterialNeeded.Add(new Models.ProductRawMaterialNeeded(rawMaterial, amount));
         }
 
-        public void RemoveMaterial(RawMaterial rawMaterial)
+        public void RemoveMaterial(ProductRawMaterialNeeded rawMaterial)
         {
-            RawMaterialNeeded.Remove(rawMaterial);
-        }
-
-        public void RemoveAmountFromMaterial(RawMaterial rawMaterial, double amount)
-        {
-            if (RawMaterialNeeded.ContainsKey(rawMaterial) && RawMaterialNeeded[rawMaterial] > amount)
-            {
-                throw new Exception("Du kan ikke fjerne antal der er mere end hvad der er tilgængeligt");
-            }
-            else
-            {
-                RawMaterialNeeded[rawMaterial] -= amount;
-            }
+            ProductRawMaterialNeeded.Remove(rawMaterial);
         }
 
 

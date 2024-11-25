@@ -11,9 +11,9 @@ namespace WebApp.Service
     public class ProductService
     {
 
-        public static ProductDTO CreateProduct(string name, TimeSpan estimatedProductionTime, Dictionary<RawMaterial, double> rawMaterialNeeded, DateTime createdAt, DateTime updatedAt, int amountInStock)
+        public static ProductDTO CreateProduct(string name, TimeSpan estimatedProductionTime, DateTime createdAt, DateTime updatedAt, int amountInStock)
         {
-            return ProductRepository.AddProduct(new ProductDTO(name, estimatedProductionTime, rawMaterialNeeded, createdAt, updatedAt, amountInStock));
+            return ProductRepository.AddProduct(new ProductDTO(name, estimatedProductionTime, createdAt, updatedAt, amountInStock));
         }
 
         public static ProductDTO DeleteProduct(ProductDTO productDTO)

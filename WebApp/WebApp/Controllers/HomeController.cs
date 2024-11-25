@@ -77,6 +77,7 @@ namespace WebApp.Controllers
         public ActionResult ProduktView()
         {
             List<ProductDTO> products = ProductRepository.GetProducts();
+            List<ProductRawMaterialNeededDTO> productRawMaterialNeededDTOs = ProductRawMaterialNeededRepository.GetProductRawMaterialNeededFromProduct(products[0]);
 
             ViewBag.Message = "Your products page.";
             return View(products);
