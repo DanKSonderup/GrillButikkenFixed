@@ -17,13 +17,14 @@ namespace WebApp.DTO.Mappers
                     ProjectName = productProduction.ProjectName,
                     Product = productProduction.Product,
                     QuantityToProduce = productProduction.QuantityToProduce,
-                    TimeSpent = productProduction.TimeSpent,
                     CreatedAt = productProduction.CreatedAt,
                     Deadline = productProduction.Deadline,
+                    Status = productProduction.Status,
                 };
             else
                 return null;
         }
+
         public static ProductProduction Map(ProductProductionDTO productProductionDTO)
         {
             if (productProductionDTO != null)
@@ -42,7 +43,6 @@ namespace WebApp.DTO.Mappers
                 productProduction.QuantityToProduce = productProductionDTO.QuantityToProduce;
                 productProduction.CreatedAt = productProductionDTO.CreatedAt;
                 productProduction.Deadline = productProductionDTO.Deadline;
-                productProduction.TimeSpent = productProductionDTO.TimeSpent;
                 productProduction.Status = productProductionDTO.Status;
             }
             else

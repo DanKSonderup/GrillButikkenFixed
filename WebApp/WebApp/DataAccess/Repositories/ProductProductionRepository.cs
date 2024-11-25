@@ -78,13 +78,7 @@ namespace WebApp.DataAccess.Repositories
                     throw new Exception("Produktion not found");
                 }
 
-                // Find eksisterende 
-                var existingProduct = context.Products.FirstOrDefault(p => p.Name == productProductionDTO.Product.Name);
-
-                if (existingProduct == null)
-                {
-                    throw new Exception("Name does not exist");
-                }
+                
 
                 // Opdater RawMaterial med de nye værdier
                 dataProduction.ProjectName = productProductionDTO.ProjectName;
