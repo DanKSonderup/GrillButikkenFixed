@@ -8,20 +8,37 @@ using WebApp.DataAccess;
 using WebApp.Models;
 using WebApp.DataAccess.Context;
 using WebApp.DTO.Mappers;
+using System.Data.Entity;
 
 namespace WebApp.DataAccess.Repositories
 {
     public class ProductProductionRepository
     {
-        // Get ProductProduction by name
-        public static List<ProductProductionDTO> GetProductProduction(string projectName)
+        public static ProductProductionDTO GetProductProduction(string projectName)
         {
             using (DatabaseContext context = new DatabaseContext())
             {
-                return context.ProductProductions
-                              .Where(p => p.ProjectName == projectName)
-                              .Select(p => ProductProductionMapper.Map(p))
-                              .ToList();
+                var productProduction = context.ProductProductions
+                                               .FirstOrDefault(p => p.ProjectName == projectName);
+
+                if (productProduction == null)
+                    return null;
+
+                return ProductProductionMapper.Map(productProduction);
+            }
+        }
+
+        public static ProductProductionDTO GetProductProduction(int id)
+        {
+            using (DatabaseContext context = new DatabaseContext())
+            {
+                var productProduction = context.ProductProductions
+                                               .FirstOrDefault(p => p.ProjectId == id);
+
+                if (productProduction == null)
+                    return null;
+
+                return ProductProductionMapper.Map(productProduction);
             }
         }
 
@@ -30,9 +47,9 @@ namespace WebApp.DataAccess.Repositories
         {
             using (DatabaseContext context = new DatabaseContext())
             {
-                return context.ProductProductions
-                              .Select(p => ProductProductionMapper.Map(p))
-                              .ToList();
+                var productProductions = context.ProductProductions.ToList();
+
+                return productProductions.Select(p => ProductProductionMapper.Map(p)).ToList();
             }
         }
 
@@ -52,9 +69,31 @@ namespace WebApp.DataAccess.Repositories
         {
             using (DatabaseContext context = new DatabaseContext())
             {
-                ProductProduction productProduction = context.ProductProductions
-                                                             .Find(productProductionDTO.ProjectId);
-                ProductProductionMapper.Update(productProductionDTO, productProduction);
+                // Find den eksisterende produktion
+                ProductProduction dataProduction = context.ProductProductions
+                    .FirstOrDefault(p => p.ProjectId == productProductionDTO.ProjectId);
+
+                if (dataProduction == null)
+                {
+                    throw new Exception("Produktion not found");
+                }
+
+                // Find eksisterende 
+                var existingProduct = context.Products.FirstOrDefault(p => p.Name == productProductionDTO.Product.Name);
+
+                if (existingProduct == null)
+                {
+                    throw new Exception("Name does not exist");
+                }
+
+                // Opdater RawMaterial med de nye værdier
+                dataProduction.ProjectName = productProductionDTO.ProjectName;
+                dataProduction.QuantityToProduce = productProductionDTO.QuantityToProduce;
+                dataProduction.Deadline = productProductionDTO.Deadline;
+                dataProduction.Status = productProductionDTO.Status;
+
+                // Markér ProductProduction som ændret, hvis det er nødvendigt (efter opdateringen)
+                context.Entry(dataProduction).State = EntityState.Modified;
 
                 context.SaveChanges();
             }
@@ -82,14 +121,24 @@ namespace WebApp.DataAccess.Repositories
 
 
         // Delete ProductProduction
-        public static ProductProductionDTO DeleteProductProduction(ProductProductionDTO productProductionDTO)
+        public static void DeleteProductProduction(ProductProductionDTO productProductionDTO)
         {
             using (DatabaseContext context = new DatabaseContext())
             {
-                context.ProductProductions.Remove(ProductProductionMapper.Map(productProductionDTO));
-                context.SaveChanges();
+                var productProduction = context.ProductProductions
+                                               .FirstOrDefault(p => p.ProjectId == productProductionDTO.ProjectId);
+
+                if (productProduction != null)
+                {
+                    context.ProductProductions.Remove(productProduction);
+                    context.SaveChanges();
+                }
+                else
+                {
+                    Console.WriteLine("Product production not found.");
+                }
             }
-            return productProductionDTO;
         }
+
     }
 }

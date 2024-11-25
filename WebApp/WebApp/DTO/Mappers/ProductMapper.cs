@@ -11,16 +11,26 @@ namespace WebApp.DTO.Mappers
 
         public static ProductDTO Map(Product product)
         {
-            if (product == null) return null;
-            else
-                return new ProductDTO(
-                    product.Id, 
-                    product.Name, 
-                    product.EstimatedProductionTime, 
-                    product.RawMaterialNeeded, 
-                    product.CreatedAt, 
-                    product.UpdatedAt,
-                    product.AmountInStock);
+            if (product == null)
+            {
+                return null;
+            } else
+            {
+                var dto = new ProductDTO
+                {
+                    Id = product.Id,
+                    Name = product.Name,
+                    EstimatedProductionTime = product.EstimatedProductionTime,
+                    CreatedAt = product.CreatedAt,
+                    UpdatedAt = product.UpdatedAt,
+                    AmountInStock = product.AmountInStock
+                };
+
+                dto.Id = product.Id;
+
+                return dto;
+            }
+              
         }
 
         public static Product Map(ProductDTO productDTO)
@@ -28,10 +38,9 @@ namespace WebApp.DTO.Mappers
             if (productDTO == null) return null;
             else
                 return new Product(
-                    productDTO.Id,
                     productDTO.Name,
                     productDTO.EstimatedProductionTime,
-                    productDTO.RawMaterialNeeded,
+                  //  productDTO.ProductRawMaterialNeeded,
                     productDTO.CreatedAt,
                     productDTO.UpdatedAt,
                     productDTO.AmountInStock);
@@ -43,7 +52,6 @@ namespace WebApp.DTO.Mappers
             product.Id = productDTO.Id;
             product.Name = productDTO.Name;
             product.EstimatedProductionTime = productDTO.EstimatedProductionTime;
-            product.RawMaterialNeeded = new Dictionary<RawMaterial, double>(productDTO.RawMaterialNeeded); // Undgå referenceændringer
             product.CreatedAt = productDTO.CreatedAt;
             product.UpdatedAt = productDTO.UpdatedAt;
             product.AmountInStock = productDTO.AmountInStock;

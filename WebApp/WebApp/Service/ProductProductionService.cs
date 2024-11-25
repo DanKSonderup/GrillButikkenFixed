@@ -11,9 +11,14 @@ namespace WebApp.Service
 {
     public class ProductProductionService
     {
-        public static List<ProductProductionDTO> GetProductProductionByName(string productionName)
+        public static ProductProductionDTO GetProductProductionByName(string productionName)
         {
             return ProductProductionRepository.GetProductProduction(productionName);
+        }
+
+        public static ProductProductionDTO GetProductProductionById(int id)
+        {
+            return ProductProductionRepository.GetProductProduction(id);
         }
 
         public static List<ProductProductionDTO> GetAllProductProductions()
@@ -36,9 +41,16 @@ namespace WebApp.Service
             return ProductProductionRepository.UpdateProductProductionStatus(status, PPDTO);
         }
 
-        public static ProductProductionDTO DeleteProductProduction(ProductProductionDTO PPDTO)
+        public static void DeleteProductProduction(ProductProductionDTO PPDTO)
         {
-            return ProductProductionRepository.DeleteProductProduction(PPDTO);
+            ProductProductionRepository.DeleteProductProduction(PPDTO);
+        }
+
+        public static bool IsDuplicateName(string name)
+        {
+            List<ProductProductionDTO> pp = GetAllProductProductions();
+
+            return pp.Any(p => p.ProjectName.Equals(name));
         }
     }
 }

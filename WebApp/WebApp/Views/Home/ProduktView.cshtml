@@ -6,12 +6,15 @@
 
 <div class="top-bar">
     <div class="search-container">
-        <form action="">
+        <form method="get" action="/Home/SearchForProductsContaining">
             <button type="submit">
                 <i class="bi-box-fill"></i>
                 <i class="bi bi-search"></i>
             </button>
-            <input type="text" placeholder="Search..." name="Search">
+            <input type="text" placeholder="Search..." name="name">
+            <a href="@Url.Action("ProduktView", "Home")">
+                <i class="bi bi-arrow-clockwise"></i>
+            </a>
         </form>
     </div>
 </div>
@@ -31,6 +34,7 @@
                 <th>Navn</th>
                 <th>Estimeret produktionstid</th>
                 <th>Oprettet</th>
+                <th>På lager</th>
             </tr>
         </thead>
         <tbody>
@@ -40,8 +44,11 @@
                     <td>@product.Id</td>
                     <td>@product.Name</td>
                     <td>@product.EstimatedProductionTime</td>
+                    <td>@product.CreatedAt</td>
+                    <td>@product.AmountInStock</td>
                 </tr>
             }
         </tbody>
+        <p>@ViewBag.Test</p>
     </table>
 </div>

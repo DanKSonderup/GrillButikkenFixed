@@ -17,20 +17,46 @@ namespace WebApp.DataAccess.Context
         {
             // Guid projectId, string projectName, int quantityToProduce,DateTime createdAt, DateTime deadline, TimeSpan timeSpent, Status status
             context.Biler.Add(new Models.Bil(1, "Honda", DateTime.Now));
-            MeasurementType kg = new Models.MeasurementType("kg");
+
+            // Add MeasurementType
+            MeasurementType kg = new MeasurementType("Kg");
             context.MeasurementTypes.Add(kg);
-            context.RawMaterials.Add(new Models.RawMaterial("Grillspyd", kg, 20));
-            context.RawMaterials.Add(new Models.RawMaterial("Jernstang", kg, 20));
-            context.RawMaterials.Add(new Models.RawMaterial("Jernstang3", kg, 20));
 
-            Dictionary<Models.RawMaterial, double> materialsNeeded = new Dictionary<Models.RawMaterial, double>();
-            RawMaterial testMaterial = new RawMaterial("Fuglevinger", new MeasurementType("kg"), 20);
-            materialsNeeded.Add(testMaterial, 10);
-            context.Products.Add(new Models.Product(1, "Grillspyd", new TimeSpan(0, 0, 0), materialsNeeded, DateTime.Now, DateTime.Now, 20));
+            // Add RawMaterials
+            RawMaterial jernstang = new RawMaterial("Jernstang", kg, 20);
+            RawMaterial jernstang2 = new RawMaterial("Jernstang2", kg, 20);
 
+            context.RawMaterials.Add(jernstang);
+            context.RawMaterials.Add(jernstang2);
+
+            // Create Products and their associated ProductRawMaterialNeeded
+            var product1 = new Product("Grillspyd", TimeSpan.Zero, DateTime.Now, DateTime.Now, 20);
+            var product2 = new Product("BageEnzym", TimeSpan.Zero, DateTime.Now, DateTime.Now, 20);
+            var product3 = new Product("Grillrist", TimeSpan.Zero, DateTime.Now, DateTime.Now, 20);
+
+            // Add ProductRawMaterialNeeded for each Product
+            product1.ProductRawMaterialNeeded = new List<ProductRawMaterialNeeded>
+            {
+                new ProductRawMaterialNeeded { RawMaterial = jernstang, Quantity = 2 }
+            };
+
+            product2.ProductRawMaterialNeeded = new List<ProductRawMaterialNeeded>
+            {
+                new ProductRawMaterialNeeded { RawMaterial = jernstang, Quantity = 3 }
+            };
+
+            product3.ProductRawMaterialNeeded = new List<ProductRawMaterialNeeded>
+            {
+                new ProductRawMaterialNeeded { RawMaterial = jernstang2, Quantity = 5 }
+            };
+
+            // Add Products to DbContext
+            context.Products.Add(product1);
+            context.Products.Add(product2);
+            context.Products.Add(product3);
+
+            // Save Changes
             context.SaveChanges();
-
-            base.Seed(context);
         }
 
         private void dummy()
