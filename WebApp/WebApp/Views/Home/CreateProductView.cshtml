@@ -20,6 +20,8 @@
                     <li>
                         <input type="checkbox" name="RawMaterialsNeeded" value="@item.Name" />
                         <label>@item.Name</label>
+                        <label>@item.MeasurementValue</label>
+                        <input type="number" class="form-control" id="@item.MeasurementValue" name="@item.MeasurementValue" />
                     </li>
                 }
             }
@@ -41,7 +43,3 @@
         <button type="submit" class="btn btn-success btn-lg w-25 mb-5">Opret Produkt</button>
     </div>
 }
-
-
-// Navn, estimeret produktionstid og amountinstock
-// senere rawmaterial

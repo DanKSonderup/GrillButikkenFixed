@@ -142,7 +142,7 @@ namespace WebApp.Controllers
         public ActionResult CreateProductView()
         {
             ViewBag.Products = ProductRepository.GetProducts();
-            ViewBag.RawMaterials = RawMaterialRepository.GetRawMaterials();
+            ViewBag.RawMaterials = RawMaterialService.GetAllRawMaterials();
             return View();
         }
 
@@ -166,6 +166,8 @@ namespace WebApp.Controllers
                 // Redirect to a confirmation page or another action
                 return RedirectToAction("ProduktView");
             }
+
+            ViewBag.RawMaterials = RawMaterialService.GetAllRawMaterials();
             return View("CreateProductView");
         }
 
