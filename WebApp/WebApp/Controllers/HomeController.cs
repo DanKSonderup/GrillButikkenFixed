@@ -125,21 +125,52 @@ namespace WebApp.Controllers
             return View();
         }
 
+        // string name, int EstimatedProductionTime, int amount
         [HttpPost]
-        public ActionResult CreateProduct(string name, int EstimatedProductionTime, int amount)
+        public ActionResult CreateProduct(FormCollection formdata)
         {
             if (ModelState.IsValid)
             {
+                var materialName = formdata["SelectedMaterials"]; // Access value from the input field with name="MaterialName"
+                var materialAmountString = formdata["Amounts"];
+                
+                List<ProductRawMaterialNeeded> rawMaterialNeededList = new List<ProductRawMaterialNeeded>();
+                int counter = 0;
+                foreach (var material in materialName.Split(','))
+                {
+                    var rawMaterialDTO = RawMaterialService.GetRawMaterialByName(material)[0];
+
+                    var rawMaterial = new RawMaterial
+                    {
+                        Material_id = rawMaterialDTO.Material_id,
+                        Name = rawMaterialDTO.Name,
+                        MeasurementType = rawMaterialDTO.MeasurementType,
+                        Stocks = new List<RawMaterialStock> { new RawMaterialStock { Amount = Convert.ToDouble(materialAmountString.Split(',')[counter]) } }
+                    };
+
+                    var rawMaterialNeeded = new ProductRawMaterialNeeded
+                    {
+                        RawMaterial = rawMaterial,
+                        Quantity = Double.Parse(materialAmountString.Split(',')[counter]),
+                    };
+                    rawMaterialNeededList.Add(rawMaterialNeeded);
+                    counter++;
+                }
+
+                
                 var product = new ProductDTO
                 {
-                    Id = 0,
-                    Name = name,
+                    Name = formdata["name"],
                     CreatedAt = DateTime.Now,
                     UpdatedAt = DateTime.Now,
-                    ProductRawMaterialNeeded = new List<ProductRawMaterialNeeded> (),
-                    EstimatedProductionTime = TimeSpan.FromHours(EstimatedProductionTime),
-                    AmountInStock = +amount
+                    ProductRawMaterialNeeded = new List<ProductRawMaterialNeeded>(),
+                    EstimatedProductionTime = TimeSpan.FromHours(int.Parse(formdata["EstimatedProductionTime"])),
+                    AmountInStock = int.Parse(formdata["amount"])
                 };
+                foreach (var rawMaterialNeeded in rawMaterialNeededList)
+                {
+                    product.ProductRawMaterialNeeded.Add(rawMaterialNeeded);
+                }
                 ProductRepository.AddProduct(product);
 
                 return RedirectToAction("ProduktView");

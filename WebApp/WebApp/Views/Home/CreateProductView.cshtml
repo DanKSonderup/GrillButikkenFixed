@@ -15,14 +15,18 @@
         <ul>
             @if (ViewBag.RawMaterials != null)
             {
+                int index = 0;
                 foreach (var item in ViewBag.RawMaterials)
                 {
                     <li>
-                        <input type="checkbox" name="RawMaterialsNeeded" value="@item.Name" />
+                        <input type="checkbox" name="SelectedMaterials" value="@item.Name" />
                         <label>@item.Name</label>
                         <label>@item.FullAmount()</label>
-                        <input type="number" class="form-control" id="@item.FullAmount()" name="@item.FullAmount()" />
+                        <label for="MaterialAmount">Material Amount</label>
+                        <input type="number" id="MaterialAmount" name="Amounts" class="form-control" placeholder="Enter amount" />
+   
                     </li>
+                    index++;
                 }
             }
         </ul>
