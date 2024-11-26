@@ -275,15 +275,43 @@ namespace WebApp.Controllers
             return RedirectToAction("ProduktionView");
         }
 
-        [HttpGet]
+        public ActionResult CompleteProductProductionView(string name)
+        {
+            var productProduction = ProductProductionService.GetProductProductionByName(name);
+
+            if (productProduction == null)
+            {
+                ModelState.AddModelError("", "Produktion findes ikke");
+            }
+
+            return View(productProduction);
+        }
+
+        [HttpPost]
+        public ActionResult CompleteProductProduction(string name)
+        {
+            var productProduction = ProductProductionService.GetProductProductionByName(name);
+
+            if (productProduction == null)
+            {
+                ModelState.AddModelError("", "Produktion findes ikke");
+            }
+
+            productProduction.Status = Status.Completed;
+            ProductProductionService.UpdateProductProduction(productProduction);
+
+            return RedirectToAction("ProduktionView");
+        }
+
         public ActionResult DeleteProductProduction(string name)
         {
             ProductProductionService.DeleteProductProduction(ProductProductionService.GetProductProductionByName(name));
             return RedirectToAction("ProduktionView");
         }
 
+
         [HttpPost]
-        public ActionResult EditProductProduction(int id, string name, int amount, string status, DateTime endDate)
+        public ActionResult EditProductProduction(int id, string name, string status)
         {
             List<ProductProductionDTO> model = ProductProductionService.GetAllProductProductions();
 
@@ -305,12 +333,8 @@ namespace WebApp.Controllers
                 return View("ProduktionView", model);
             }
 
-
-
-            existingProductProduction.QuantityToProduce = amount;
             existingProductProduction.ProjectName = nameCapitalized;
             existingProductProduction.Status = (Status)Enum.Parse(typeof(Status), status);
-            existingProductProduction.Deadline = endDate;
 
             ProductProductionService.UpdateProductProduction(existingProductProduction);
 

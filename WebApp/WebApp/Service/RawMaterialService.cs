@@ -44,15 +44,18 @@ namespace WebApp.Service
         {
             RawMaterialRepository.AddStockToRawMaterial(rawMaterialDTO);
         }
-
-
         /// Other methods
-        
+
         public static bool IsDuplicateName(string name)
         {
             List<RawMaterialDTO> raws = GetAllRawMaterials();
 
             return raws.Any(raw => raw.Name.Equals(name));
+        }
+
+        public static void getStockForRawMaterial(RawMaterialDTO rawDTO)
+        {
+            List<RawMaterialDTO> raws = GetAllRawMaterials();
         }
     }
 }

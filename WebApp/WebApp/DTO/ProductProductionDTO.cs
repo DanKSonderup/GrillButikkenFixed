@@ -17,6 +17,7 @@ namespace WebApp.DTO
         public DateTime Deadline { get; set; }
         public TimeSpan TimeSpent { get; set; }
         public Status Status { get; set; }
+        
 
         public ProductProductionDTO()
         {
