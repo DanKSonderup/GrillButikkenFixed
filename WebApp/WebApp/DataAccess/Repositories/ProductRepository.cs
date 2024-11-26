@@ -52,6 +52,11 @@ namespace WebApp.DataAccess.Repositories
             using (DatabaseContext context = new DatabaseContext())
             {
                 context.Products.Add(ProductMapper.Map(productDTO));
+
+                foreach (var item in productDTO.ProductRawMaterialNeeded)
+                {
+                    context.ProductRawMaterialNeeded.Add(item);
+                }
                 context.SaveChanges();
             }
             return productDTO;
