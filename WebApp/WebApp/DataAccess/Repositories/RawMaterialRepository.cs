@@ -35,7 +35,7 @@ namespace WebApp.DataAccess.Repositories
                     .ToList();
 
 
-                var rawMat = rawMaterials.Where(r => r.Material_id == id).First();
+                var rawMat = rawMaterials.FirstOrDefault(r => r.Material_id == id);
 
                 return RawMaterialMapper.Map(rawMat);
             }

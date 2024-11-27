@@ -17,7 +17,7 @@
 
 <div class="body">
     <div class="crud">
-        <button class="crud-btn create-new" onclick="location.href='@Url.Action("CreateProductProductionView", "Home")'">Opret Ny</button>
+        <button class="crud-btn create-new" onclick="location.href='@Url.Action("CreateProductProductionView", "ProductProductions")'">Opret Ny</button>
     </div>
 
     <table class="table table-striped">
@@ -46,21 +46,21 @@
                     <td>@production.Status</td>
                     <td>
                         <button class="crud-btn create-new"
-                                onclick="location.href='@Url.Action("EditProductProduction", "Home", new { name = production.ProjectName })'"
+                                onclick="location.href='@Url.Action("EditProductProduction", "ProductProductions", new { name = production.ProjectName })'"
                                 @(isCompleted ? "disabled" : "")>
                             Rediger
                         </button>
                     </td>
                     <td>
                         <button class="crud-btn in-progress"
-                                onclick="confirmDelete('@Url.Action("DeleteProductProduction", "Home", new { name = production.ProjectName })')"
+                                onclick="confirmDelete('@Url.Action("DeleteProductProduction", "ProductProductions", new { name = production.ProjectName })')"
                                 @(isCompleted ? "disabled" : "")>
                             Slet
                         </button>
                     </td>
                     <td>
                         <button class="crud-btn in-progress"
-                                onclick="location.href='@Url.Action("CompleteProductProductionView", "Home", new { name = production.ProjectName })'"
+                                onclick="location.href='@Url.Action("CompleteProductProductionView", "ProductProductions", new { name = production.ProjectName })'"
                                 @(isCompleted ? "disabled" : "")>
                             Færdiggør produktion
                         </button>

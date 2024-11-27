@@ -1,0 +1,20 @@
+﻿﻿@model WebApp.DTO.ProductProductionDTO
+@{
+    ViewBag.Title = "CompleteProductProductionView";
+}
+
+<h2>CompleteProductProductionView</h2>
+
+<div>
+    <p><strong>Produktionsnummer:</strong> @Model.ProjectId</p>
+    <p><strong>Produktionsnavn:</strong> @Model.ProjectName</p>
+    <p><strong>Planlagt Antal:</strong> @Model.QuantityToProduce</p>
+    <p><strong>Startdato:</strong> @Model.CreatedAt.ToShortDateString()</p>
+    <p><strong>Slutdato:</strong> @Model.Deadline.ToShortDateString()</p>
+    <p><strong>Nuværende Status:</strong> @Model.Status</p>
+</div>
+
+<form method="post" action="@Url.Action("CompleteProductProduction", "ProductProductions", new { name = Model.ProjectName })">
+    <button type="submit" class="btn btn-primary">Bekræft</button>
+    <a href="@Url.Action("ProduktionView", "ProductProductions")" class="btn btn-secondary">Annuller</a>
+</form>

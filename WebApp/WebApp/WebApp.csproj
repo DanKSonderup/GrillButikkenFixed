@@ -233,9 +233,9 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\IndstillingerView.cshtml" />
-    <Content Include="Views\Home\ProduktionView.cshtml" />
-    <Content Include="Views\Home\ProduktView.cshtml" />
-    <Content Include="Views\Home\RåvarerView.cshtml" />
+    <Content Include="Views\ProductProductions\ProductionView.cshtml" />
+    <Content Include="Views\Products\ProductView.cshtml" />
+    <Content Include="Views\RawMaterials\RawMaterialsView.cshtml" />
     <Content Include="Views\Home\StatistikView.cshtml" />
     <Content Include="Views\Home\TestView.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
@@ -262,6 +262,8 @@
     <Folder Include="App_Data\" />
     <Folder Include="Models\Frontend\" />
     <Folder Include="Views\Overview\" />
+    <Folder Include="Views\Settings\" />
+    <Folder Include="Views\Statistics\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

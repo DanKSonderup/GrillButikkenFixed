@@ -1,4 +1,4 @@
-﻿@model List<WebApp.DTO.RawMaterialDTO>
+﻿﻿@model List<WebApp.DTO.RawMaterialDTO>
 @{
     ViewBag.Title = "Råvarer";
 }
@@ -23,7 +23,7 @@
                 id="loadCreateRawMaterial">
             Opret råvare
         </button>
-        <button class="crud-btn in-progress" onclick="location.href='@Url.Action("DeleteMeasurementType", "Home")'">Slet måleenhed</button>
+        <button class="crud-btn in-progress" onclick="location.href='@Url.Action("DeleteMeasurementType", "RawMaterials")'">Slet måleenhed</button>
     </div>
 
     <table class="table">
@@ -59,10 +59,10 @@
                         </button>
                     </td>
 
-                    <td><button class="crud-btn create-new" onclick="location.href='@Url.Action("ShowRawMaterial", "Home", new { id = item.Material_id})'">Vis</button></td>
-                    <td><button class="crud-btn create-new" onclick="location.href='@Url.Action("EditRawMaterial", "Home", new { id = item.Material_id})'">Rediger</button></td>
+                    <td><button class="crud-btn create-new" onclick="location.href='@Url.Action("ShowRawMaterial", "RawMaterials", new { id = item.Material_id})'">Vis</button></td>
+                    <td><button class="crud-btn create-new" onclick="location.href='@Url.Action("EditRawMaterial", "RawMaterials", new { id = item.Material_id})'">Rediger</button></td>
                     <td>
-                        <form action="@Url.Action("DeleteRawMaterial", "Home")" method="post" style="display:inline;">
+                        <form action="@Url.Action("DeleteRawMaterial", "RawMaterials")" method="post" style="display:inline;">
                             <input type="hidden" name="id" value="@item.Material_id" />
                             <button type="submit" class="btn btn-danger">Slet</button>
                         </form>
@@ -97,7 +97,7 @@
 
         createRawMaterialModal.addEventListener('show.bs.modal', function () {
             // Hent indholdet fra serveren og indsæt det i modal-body
-            fetch('@Url.Action("CreateRawMaterialView", "Home")')
+            fetch('@Url.Action("CreateRawMaterialView", "RawMaterials")')
                 .then(response => {
                     if (!response.ok) {
                         throw new Error('Failed to load the modal content');
@@ -155,7 +155,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                @using (Html.BeginForm("RecordPurchase", "Home", FormMethod.Post))
+                @using (Html.BeginForm("RecordPurchase", "RawMaterials", FormMethod.Post))
                 {
                     <div class="mb-3">
                         <label for="amount" class="form-label">Mængde</label>
