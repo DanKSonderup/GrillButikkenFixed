@@ -24,8 +24,14 @@ namespace WebApp.DataAccess.Context
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
 
-
+            modelBuilder.Entity<RawMaterial>()
+                .HasMany(r => r.Stocks)
+                .WithRequired()
+                .HasForeignKey(s => s.RawMaterialId)
+                .WillCascadeOnDelete(true);
         }
+
+
 
     }
 }

@@ -7006,19 +7006,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Ollie\\.nuget\\packages\\": {}
+    "C:\\Users\\Secon\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Ollie\\Documents\\GitHub\\GrillButikkenFixed\\WebApp\\SpecFlowTests\\SpecFlowTests.csproj",
+      "projectUniqueName": "C:\\Users\\Secon\\Documents\\GitHub\\GrillButikkenFixed\\WebApp\\SpecFlowTests\\SpecFlowTests.csproj",
       "projectName": "SpecFlowTests",
-      "projectPath": "C:\\Users\\Ollie\\Documents\\GitHub\\GrillButikkenFixed\\WebApp\\SpecFlowTests\\SpecFlowTests.csproj",
-      "packagesPath": "C:\\Users\\Ollie\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Ollie\\Documents\\GitHub\\GrillButikkenFixed\\WebApp\\SpecFlowTests\\obj\\",
+      "projectPath": "C:\\Users\\Secon\\Documents\\GitHub\\GrillButikkenFixed\\WebApp\\SpecFlowTests\\SpecFlowTests.csproj",
+      "packagesPath": "C:\\Users\\Secon\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Secon\\Documents\\GitHub\\GrillButikkenFixed\\WebApp\\SpecFlowTests\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Ollie\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Secon\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -7033,8 +7033,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\Ollie\\Documents\\GitHub\\GrillButikkenFixed\\WebApp\\WebApp\\WebApp.csproj": {
-              "projectPath": "C:\\Users\\Ollie\\Documents\\GitHub\\GrillButikkenFixed\\WebApp\\WebApp\\WebApp.csproj"
+            "C:\\Users\\Secon\\Documents\\GitHub\\GrillButikkenFixed\\WebApp\\WebApp\\WebApp.csproj": {
+              "projectPath": "C:\\Users\\Secon\\Documents\\GitHub\\GrillButikkenFixed\\WebApp\\WebApp\\WebApp.csproj"
             }
           }
         }
@@ -7095,7 +7095,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403\\RuntimeIdentifierGraph.json"
       }
     }
   }

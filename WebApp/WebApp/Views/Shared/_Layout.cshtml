@@ -15,7 +15,7 @@
                 <h2><img id="logo" src="https://grillbutikken.dk/img/grillbutikkendk-logo-1606826208.jpg"> GrillButikken</h2>
 
                 <!-- Produkter link -->
-                <a href="@Url.Action("ProduktView", "Home")" class="option-container @(ViewContext.RouteData.Values["action"].ToString() == "ProduktView" ? "active" : "")" id="option-products">
+                <a href="@Url.Action("ProductView", "Products")" class="option-container @(ViewContext.RouteData.Values["action"].ToString() == "ProductView" ? "active" : "")" id="option-products">
                     <div class="option-svg">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-box-fill" viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="M15.528 2.973a.75.75 0 0 1 .472.696v8.662a.75.75 0 0 1-.472.696l-7.25 2.9a.75.75 0 0 1-.557 0l-7.25-2.9A.75.75 0 0 1 0 12.331V3.669a.75.75 0 0 1 .471-.696L7.443.184l.004-.001.274-.11a.75.75 0 0 1 .558 0l.274.11.004.001zm-1.374.527L8 5.962 1.846 3.5 1 3.839v.4l6.5 2.6v7.922l.5.2.5-.2V6.84l6.5-2.6v-.4l-.846-.339Z" />
@@ -25,7 +25,7 @@
                 </a>
 
                 <!-- Råvarer link -->
-                <a href="@Url.Action("RåvarerView", "Home")" class="option-container @(ViewContext.RouteData.Values["action"].ToString() == "RåvarerView" ? "active" : "")" id="option-raw-materials">
+                <a href="@Url.Action("RawMaterialsView", "RawMaterials")" class="option-container @(ViewContext.RouteData.Values["action"].ToString() == "RawMaterialsView" ? "active" : "")" id="option-raw-materials">
                     <div class="option-svg">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-bucket-fill" viewBox="0 0 16 16">
                             <path d="M2.522 5H2a.5.5 0 0 0-.494.574l1.372 9.149A1.5 1.5 0 0 0 4.36 16h7.278a1.5 1.5 0 0 0 1.483-1.277l1.373-9.149A.5.5 0 0 0 14 5h-.522A5.5 5.5 0 0 0 2.522 5m1.005 0a4.5 4.5 0 0 1 8.945 0z" />
@@ -35,7 +35,7 @@
                 </a>
 
                 <!-- Produktion link -->
-                <a href="@Url.Action("ProduktionView", "Home")" class="option-container @(ViewContext.RouteData.Values["action"].ToString() == "ProduktionView" ? "active" : "")" id="option-production">
+                <a href="@Url.Action("ProductionView", "ProductProductions")" class="option-container @(ViewContext.RouteData.Values["action"].ToString() == "ProductionView" ? "active" : "")" id="option-production">
                     <div class="option-svg">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-clipboard-data-fill" viewBox="0 0 16 16">
                             <path d="M6.5 0A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0zm3 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5z" />
@@ -46,7 +46,7 @@
                 </a>
 
                 <!-- Statistik link -->
-                <a href="@Url.Action("StatistikView", "Home")" class="option-container @(ViewContext.RouteData.Values["action"].ToString() == "StatistikView" ? "active" : "")" id="option-statistics">
+                <a href="@Url.Action("StatisticsView", "Statistics")" class="option-container @(ViewContext.RouteData.Values["action"].ToString() == "StatisticsView" ? "active" : "")" id="option-statistics">
                     <div class="option-svg">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-bar-chart-fill" viewBox="0 0 16 16">
                             <path d="M11 1.5a.5.5 0 0 1 .5.5v12a.5.5 0 0 1-1 0v-12a.5.5 0 0 1 .5-.5zm-4 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-1 0v-9a.5.5 0 0 1 .5-.5zm-4 3a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0v-6a.5.5 0 0 1 .5-.5z" />
@@ -56,7 +56,7 @@
                 </a>
 
                 <!-- Indstillinger link -->
-                <a href="@Url.Action("IndstillingerView", "Home")" class="option-container @(ViewContext.RouteData.Values["action"].ToString() == "IndstillingerView" ? "active" : "")" id="option-settings">
+                <a href="@Url.Action("SettingsView", "Settings")" class="option-container @(ViewContext.RouteData.Values["action"].ToString() == "SettingsView" ? "active" : "")" id="option-settings">
                     <div class="option-svg">
                         <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="bi bi-gear-fill" viewBox="0 0 16 16">
                             <path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z" />
