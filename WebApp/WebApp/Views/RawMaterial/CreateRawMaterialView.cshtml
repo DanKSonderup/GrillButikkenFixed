@@ -1,0 +1,30 @@
+﻿<h2>Opret Nyt Råmateriale</h2>
+
+@using (Html.BeginForm("CreateRawMaterial", "RawMaterial", FormMethod.Post, new {id = "createRawMaterialForm"}))
+{
+    <div id="createRawMaterialErrors">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-group mb-3">
+        <label for="name" class="form-label">Navn</label>
+        <input type="text" class="form-control" id="name" name="name" placeholder="Indtast navn" required />
+    </div>
+
+    <div class="form-group mb-3">
+        <label for="unit" class="form-label">Enhed</label>
+        <select class="form-control" id="unit" name="unit" required>
+            <option value="" disabled selected>Vælg en enhed</option>
+            @foreach (var type in ViewBag.MeasurementTypes)
+            {
+                <option value="@type.Name">@type.Name</option>
+            }
+        </select>
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-success btn-lg w-25 mb-5">Opret</button>
+    </div>
+}
+
+@Html.Partial("CreateMeasurementType")

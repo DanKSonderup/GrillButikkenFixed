@@ -1,0 +1,196 @@
+﻿@model List<WebApp.DTO.RawMaterialDTO>
+@{
+    ViewBag.Title = "Råvarer";
+}
+
+<div class="top-bar">
+    <div class="search-container">
+        <form action="">
+            <button type="submit">
+                <i class="bi-box-fill"></i>
+                <i class="bi bi-search"></i>
+            </button>
+            <input type="text" placeholder="Search..." name="Search">
+        </form>
+    </div>
+</div>
+
+<div class="body">
+    <div class="crud">
+        <button class="crud-btn create-new"
+                data-bs-toggle="modal"
+                data-bs-target="#createRawMaterialModal"
+                id="loadCreateRawMaterial">
+            Opret råvare
+        </button>
+        <button class="crud-btn in-progress" onclick="location.href='@Url.Action("DeleteMeasurementType", "RawMaterial")'">Slet måleenhed</button>
+    </div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Varenavn</th>
+                <th>Mængde</th>
+                <th>Måleenhed</th>
+                <th>Næste udløbsdato</th>
+                <th>Registrer indkøb</th>
+                <th>Vis</th>
+                <th>Rediger</th>
+                <th>Slet</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Material_id</td>
+                    <td>@item.Name</td>
+                    <td>@item.FullAmount()</td>
+                    <td>@item.MeasurementType</td>
+                    <td>@(item.GetClosestExpirationDate()?.ToShortDateString() ?? "")</td>
+                    <td>
+                        <button class="crud-btn create-new"
+                                data-bs-toggle="modal"
+                                data-bs-target="#purchaseModal"
+                                data-materialid="@item.Material_id"
+                                data-materialname="@item.Name">
+                            Registrer indkøb
+                        </button>
+                    </td>
+
+                    <td><button class="crud-btn create-new" onclick="location.href='@Url.Action("ShowRawMaterial", "RawMaterial", new { id = item.Material_id})'">Vis</button></td>
+                    <td><button class="crud-btn create-new" onclick="location.href='@Url.Action("EditRawMaterial", "RawMaterial", new { id = item.Material_id})'">Rediger</button></td>
+                    <td>
+                        <form action="@Url.Action("DeleteRawMaterial", "RawMaterial")" method="post" style="display:inline;">
+                            <input type="hidden" name="id" value="@item.Material_id" />
+                            <button type="submit" class="btn btn-danger">Slet</button>
+                        </form>
+                    </td>
+
+
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<!--Opret Råvarer-->
+<div class="modal fade" id="createRawMaterialModal" tabindex="-1" aria-labelledby="createRawMaterialModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="createRawMaterialModalLabel">Opret Nyt Råmateriale</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body" id="createRawMaterialContainer">
+                @Html.Partial("CreateRawMaterialView")
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var createRawMaterialModal = document.getElementById('createRawMaterialModal');
+        var modalBody = createRawMaterialModal.querySelector('.modal-body');
+
+        createRawMaterialModal.addEventListener('show.bs.modal', function () {
+            // Hent indholdet fra serveren og indsæt det i modal-body
+            fetch('@Url.Action("CreateRawMaterialView", "RawMaterial")')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Failed to load the modal content');
+                    }
+                    return response.text();
+                })
+                .then(html => {
+                    modalBody.innerHTML = html;
+                })
+                .catch(error => {
+                    modalBody.innerHTML = `<p class="text-danger">${error.message}</p>`;
+                });
+        });
+
+        // Ryd modalens indhold, når den lukkes
+        createRawMaterialModal.addEventListener('hidden.bs.modal', function () {
+            modalBody.innerHTML = '';
+        });
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const form = document.getElementById('createRawMaterialForm');
+        form.addEventListener('submit', function (e) {
+            e.preventDefault(); // Forhindrer standardformularindsendelse
+
+            const formData = new FormData(form);
+            const container = document.getElementById('createRawMaterialContainer');
+
+            fetch(form.action, {
+                method: 'POST',
+                body: formData
+            })
+                .then(response => response.text())
+                .then(html => {
+                    container.innerHTML = html; // Opdaterer modalens indhold med AJAX-svar
+                    const success = document.querySelector('[data-success]');
+                    if (success) {
+                        // Luk modal eller opdater siden, hvis oprettelsen var succesfuld
+                        $('#createRawMaterialModal').modal('hide');
+                        location.reload(); // Eller opdater listen
+                    }
+                });
+        });
+    });
+
+</script>
+
+
+<!-- Registrer Indkøb-->
+<div class="modal fade" id="purchaseModal" tabindex="-1" aria-labelledby="purchaseModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="purchaseModalLabel">Registrer Indkøb</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                @using (Html.BeginForm("RecordPurchase", "RawMaterial", FormMethod.Post))
+                {
+                    <div class="mb-3">
+                        <label for="amount" class="form-label">Mængde</label>
+                        <input type="number" class="form-control" id="amount" name="amount" placeholder="Indtast mængde" required />
+                    </div>
+                    <div class="mb-3">
+                        <label for="expirationDate" class="form-label">Udløbsdato</label>
+                        <input type="date" class="form-control" id="expirationDate" name="expirationDate" />
+                    </div>
+                    <!-- Skjult input, som får sin værdi direkte fra knappen -->
+                    <input type="hidden" name="materialId" />
+                    <button type="submit" class="btn btn-primary">Registrer</button>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var purchaseModal = document.getElementById('purchaseModal');
+        purchaseModal.addEventListener('show.bs.modal', function (event) {
+            // Button that triggered the modal
+            var button = event.relatedTarget;
+
+            // Extract info from data-* attributes
+            var materialId = button.getAttribute('data-materialid');
+            var materialName = button.getAttribute('data-materialname');
+
+            // Update the modal's content
+            var modalTitle = purchaseModal.querySelector('.modal-title');
+            var hiddenInput = purchaseModal.querySelector('input[name="materialId"]');
+
+            modalTitle.textContent = 'Registrer indkøb for ' + materialName;
+            hiddenInput.value = materialId;
+        });
+    });
+</script>

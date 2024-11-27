@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "CreateMeasurementType";
+}
+
+<h4 class="mb-3">Opret Enhed</h4>
+
+@using (Html.BeginForm("CreateMeasurementType", "RawMaterial", FormMethod.Post))
+{
+    <div class="mb-3">
+        <label>Enhed</label> @Html.TextBox("measurementType")
+
+        <button type="submit" class="btn btn-success btn-lg">Opret</button>
+    </div>
+
+}z

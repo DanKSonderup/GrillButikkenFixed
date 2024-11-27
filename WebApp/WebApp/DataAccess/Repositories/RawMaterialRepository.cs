@@ -152,9 +152,9 @@ namespace WebApp.DataAccess.Repositories
         {
             using (DatabaseContext context = new DatabaseContext())
             {
-
+                
                 var rawMaterial = context.RawMaterials.Find(id);
-
+                Console.WriteLine(rawMaterial);
                 var stock = context.RawMaterialsStock
                     .Where(s => s.RawMaterialId == id)
                     .ToList();

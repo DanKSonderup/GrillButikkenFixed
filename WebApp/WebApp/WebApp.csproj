@@ -126,8 +126,9 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="BLL\BilBLL.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\MaterialController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\ProductProductionController.cs" />
+    <Compile Include="Controllers\RawMaterialController.cs" />
     <Compile Include="DataAccess\Context\DatabaseContext.cs" />
     <Compile Include="DataAccess\Context\DbInitializer.cs" />
     <Compile Include="DataAccess\Repositories\BilRepository.cs" />
@@ -244,6 +245,18 @@
     <Content Include="Views\Home\CreateRawMaterialView.cshtml" />
     <Content Include="Views\Home\EditRawMaterial.cshtml" />
     <Content Include="Views\Home\CreateProductView.cshtml" />
+    <Content Include="Views\Product\CreateProductView.cshtml" />
+    <Content Include="Views\Product\Index.cshtml" />
+    <Content Include="Views\RawMaterial\CreateRawMaterialView.cshtml" />
+    <Content Include="Views\RawMaterial\EditRawMaterial.cshtml" />
+    <Content Include="Views\RawMaterial\Index.cshtml" />
+    <Content Include="Views\RawMaterial\CreateMeasurementType.cshtml" />
+    <Content Include="Views\ProductProduction\Index.cshtml" />
+    <Content Include="Views\RawMaterial\DeleteMeasurementType.cshtml" />
+    <Content Include="Views\RawMaterial\ShowRawMaterial.cshtml" />
+    <Content Include="Views\ProductProduction\CompleteProductProductionView.cshtml" />
+    <Content Include="Views\ProductProduction\CreateProductProductionView.cshtml" />
+    <Content Include="Views\ProductProduction\EditProductProduction.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

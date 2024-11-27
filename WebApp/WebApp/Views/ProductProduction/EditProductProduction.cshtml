@@ -1,0 +1,27 @@
+﻿<h2>Rediger Produktion</h2>
+@model WebApp.DTO.ProductProductionDTO
+
+@using (Html.BeginForm("EditProductProduction", "Home", FormMethod.Post))
+{
+    <div class="form-group mb-3">
+        <label for="name" class="form-label">Navn</label>
+        <input type="text" class="form-control" id="name" name="name" value="@Model.ProjectName" required />
+        <input type="hidden" class="form-control" id="id" name="id" value="@Model.ProjectId" required />
+    </div>
+
+    <div class="form-group mb-3">
+        <label for="status" class="form-label">Status</label>
+        <select class="form-control" id="status" name="status" required>
+            <option value="" disabled selected>@Model.Status</option>
+            @foreach (var type in ViewBag.StatusType)
+            {
+                <option value="@type">@type</option>
+            }
+        </select>
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-success btn-lg w-25 mb-5">Rediger produktion</button>
+    </div>
+}
+

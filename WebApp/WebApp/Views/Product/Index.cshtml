@@ -1,0 +1,54 @@
+﻿@model List<WebApp.DTO.ProductDTO>
+
+@{
+    ViewBag.Title = "Produkter";
+}
+
+<div class="top-bar">
+    <div class="search-container">
+        <form method="get" action="/Product/SearchForProductsContaining">
+            <button type="submit">
+                <i class="bi-box-fill"></i>
+                <i class="bi bi-search"></i>
+            </button>
+            <input type="text" placeholder="Search..." name="name">
+            <a href="@Url.Action("ProduktView", "Home")">
+                <i class="bi bi-arrow-clockwise"></i>
+            </a>
+        </form>
+    </div>
+</div>
+
+<div class="body">
+    <div class="crud">
+        <button class="crud-btn to-do">Slet</button>
+        <button class="crud-btn in-progress">Redigér</button>
+        <button class="crud-btn create-type">Opret Type</button>
+        <button class="crud-btn create-new" onclick="location.href='@Url.Action("CreateProductView", "Product")'">Opret Ny</button>
+    </div>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Navn</th>
+                <th>Estimeret produktionstid</th>
+                <th>Oprettet</th>
+                <th>På lager</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var product in Model)
+            {
+                <tr>
+                    <td>@product.Id</td>
+                    <td>@product.Name</td>
+                    <td>@product.EstimatedProductionTime</td>
+                    <td>@product.CreatedAt</td>
+                    <td>@product.AmountInStock</td>
+                </tr>
+            }
+        </tbody>
+        <p>@ViewBag.Test</p>
+    </table>
+</div>

@@ -74,6 +74,7 @@ namespace WebApp.Controllers
             return View();
         }
 
+        /*
         public ActionResult ProduktView()
         {
             List<ProductDTO> products = ProductRepository.GetProducts();
@@ -81,7 +82,7 @@ namespace WebApp.Controllers
 
             ViewBag.Message = "Your products page.";
             return View(products);
-        }
+        } */
 
         public ActionResult ProduktionView()
         {
@@ -118,12 +119,13 @@ namespace WebApp.Controllers
             return new ProductProduction("Dummy", DateTime.Now, 0, new List<RawMaterials>());
         } */
 
+        /*
         public ActionResult CreateProductView()
         {
             ViewBag.Products = ProductRepository.GetProducts();
             ViewBag.RawMaterials = RawMaterialService.GetAllRawMaterials();
             return View();
-        }
+        } */
 
         // string name, int EstimatedProductionTime, int amount
         [HttpPost]
@@ -180,6 +182,7 @@ namespace WebApp.Controllers
             return View("CreateProductView");
         }
 
+        /*
         public ActionResult CreateRawMaterialView()
         {
 
@@ -206,7 +209,7 @@ namespace WebApp.Controllers
                 .ToList();
 
             return View(rawMaterial);
-        }
+        } */
 
         [HttpPost]
         public ActionResult RecordPurchase(int materialId, double amount, DateTime? expirationDate)
@@ -238,6 +241,7 @@ namespace WebApp.Controllers
             return View("ProduktView", products);
         }
 
+        
         [ChildActionOnly]
         public ActionResult CreateMeasurementType()
         {
