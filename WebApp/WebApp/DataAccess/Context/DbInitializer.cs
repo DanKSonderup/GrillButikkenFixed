@@ -15,6 +15,8 @@ namespace WebApp.DataAccess.Context
     {
         protected override void Seed(DatabaseContext context)
         {
+            MeasurementType kg = new MeasurementType("Kg");
+            context.MeasurementTypes.Add(kg);
             /**
             // Add MeasurementType
             MeasurementType kg = new MeasurementType("Kg");

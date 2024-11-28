@@ -45,17 +45,18 @@ namespace WebApp.Controllers
                 {
                     var rawMaterialDTO = RawMaterialService.GetRawMaterialByName(material)[0];
 
+                    /*
                     var rawMaterial = new RawMaterial
                     {
                         Material_id = rawMaterialDTO.Material_id,
                         Name = rawMaterialDTO.Name,
                         MeasurementType = rawMaterialDTO.MeasurementType,
                         Stocks = new List<RawMaterialStock> { new RawMaterialStock { Amount = Convert.ToDouble(materialAmountString.Split(',')[counter]) } }
-                    };
+                    }; */
 
                     var rawMaterialNeeded = new ProductRawMaterialNeeded
                     {
-                        RawMaterial = rawMaterial,
+                        RawMaterialId = rawMaterialDTO.Material_id,
                         Quantity = Double.Parse(materialAmountString.Split(',')[counter]),
                     };
                     rawMaterialNeededList.Add(rawMaterialNeeded);
