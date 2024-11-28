@@ -12,8 +12,6 @@ namespace WebApp.DataAccess.Repositories
 {
     public class RawMaterialRepository
     {
-        // Create, Delete, Edit, Get, GetAll, Add
-
         public static List<RawMaterialDTO> GetRawMaterial(string name)
         {
             using (DatabaseContext context = new DatabaseContext())
@@ -54,7 +52,6 @@ namespace WebApp.DataAccess.Repositories
             }
         }
 
-            // Add
             public static RawMaterialDTO AddRawMaterial(RawMaterialDTO rawDTO)
         {
             using (DatabaseContext context = new DatabaseContext())
@@ -82,14 +79,12 @@ namespace WebApp.DataAccess.Repositories
             return rawDTO;
         }
 
-        // Edit / update
         public static RawMaterialDTO EditRawMaterial(RawMaterialDTO rawDTO)
         {
             using (DatabaseContext context = new DatabaseContext())
             {
-                // Find det eksisterende RawMaterial
                 RawMaterial dataRawMaterial = context.RawMaterials
-                    .Include(r => r.MeasurementType) // Sørg for at hente MeasurementType med
+                    .Include(r => r.MeasurementType)
                     .FirstOrDefault(r => r.Material_id == rawDTO.Material_id);
 
                 if (dataRawMaterial == null)
@@ -97,7 +92,6 @@ namespace WebApp.DataAccess.Repositories
                     throw new Exception("RawMaterial not found.");
                 }
 
-                // Find det eksisterende MeasurementType i databasen
                 var existingMeasurementType = context.MeasurementTypes
                     .FirstOrDefault(mt => mt.Name == rawDTO.MeasurementType.Name);
 
@@ -106,20 +100,14 @@ namespace WebApp.DataAccess.Repositories
                     throw new Exception("MeasurementType does not exist.");
                 }
 
-                // Opdater RawMaterial med de nye værdier
                 dataRawMaterial.Name = rawDTO.Name;
-                dataRawMaterial.MeasurementType = existingMeasurementType; // Brug det eksisterende MeasurementType
+                dataRawMaterial.MeasurementType = existingMeasurementType;
 
-
-                // Markér RawMaterial som ændret, hvis det er nødvendigt (efter opdateringen)
                 context.Entry(dataRawMaterial).State = EntityState.Modified;
 
-
-                // Gem ændringerne i databasen
                 context.SaveChanges();
             }
 
-            // Returnér DTO'en efter ændringerne er blevet gemt
             return rawDTO;
         }
 
@@ -127,9 +115,8 @@ namespace WebApp.DataAccess.Repositories
         {
             using (DatabaseContext context = new DatabaseContext())
             {
-                // Find det eksisterende RawMaterial
                 RawMaterial dataRawMaterial = context.RawMaterials
-                    .Include(r => r.Stocks) // Sørg for at hente Stocks med
+                    .Include(r => r.Stocks)
                     .FirstOrDefault(r => r.Material_id == rawDTO.Material_id);
 
                 if (dataRawMaterial == null)
@@ -137,11 +124,9 @@ namespace WebApp.DataAccess.Repositories
                     throw new Exception("RawMaterial not found.");
                 }
 
-                // Tilføj det nye Stock-element
-                var newStock = RawMaterialStockMapper.Map(rawDTO.Stocks.Last()); // Map det sidste Stock fra DTO'en
+                var newStock = RawMaterialStockMapper.Map(rawDTO.Stocks.Last()); 
                 dataRawMaterial.Stocks.Add(newStock);
 
-                // Gem ændringerne i databasen
                 context.SaveChanges();
             }
         }

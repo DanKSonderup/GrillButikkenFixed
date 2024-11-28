@@ -11,7 +11,6 @@ namespace WebApp.DataAccess.Repositories
 {
     public class ProductRawMaterialNeededRepository
     {
-        // Get by ID
         public static ProductRawMaterialNeededDTO GetProductRawMaterialNeeded(int id)
         {
             using (DatabaseContext context = new DatabaseContext())
@@ -42,7 +41,6 @@ namespace WebApp.DataAccess.Repositories
             }
         }
 
-        // Get all
         public static List<ProductRawMaterialNeededDTO> GetAllProductRawMaterialsNeeded()
         {
             using (DatabaseContext context = new DatabaseContext())
@@ -55,7 +53,6 @@ namespace WebApp.DataAccess.Repositories
             }
         }
 
-        // Get by RawMaterial name
         public static List<ProductRawMaterialNeededDTO> GetByRawMaterialName(string rawMaterialName)
         {
             using (DatabaseContext context = new DatabaseContext())
@@ -69,7 +66,6 @@ namespace WebApp.DataAccess.Repositories
             }
         }
 
-        // Add
         public static ProductRawMaterialNeededDTO AddProductRawMaterialNeeded(ProductRawMaterialNeededDTO rawMaterialNeededDTO)
         {
             using (DatabaseContext context = new DatabaseContext())
@@ -82,7 +78,6 @@ namespace WebApp.DataAccess.Repositories
             }
         }
 
-        // Edit / Update
         public static ProductRawMaterialNeededDTO EditProductRawMaterialNeeded(ProductRawMaterialNeededDTO rawMaterialNeededDTO)
         {
             using (DatabaseContext context = new DatabaseContext())
@@ -103,7 +98,6 @@ namespace WebApp.DataAccess.Repositories
             }
         }
 
-        // Delete
         public static ProductRawMaterialNeededDTO DeleteProductRawMaterialNeeded(int id)
         {
             using (DatabaseContext context = new DatabaseContext())

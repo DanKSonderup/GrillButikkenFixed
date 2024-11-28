@@ -10,8 +10,8 @@ namespace WebApp.Models
     public class RawMaterial
     {
         [Key]
-        public int Material_id { get; set; } // Key og GUID
-        public string Name { get; set; } // Required og VARCHAR
+        public int Material_id { get; set; } 
+        public string Name { get; set; }
         public MeasurementType MeasurementType { get; set; }
 
         public virtual List<RawMaterialStock> Stocks { get; set; }

@@ -15,9 +15,7 @@ namespace WebApp.DataAccess.Context
     {
         protected override void Seed(DatabaseContext context)
         {
-            // Guid projectId, string projectName, int quantityToProduce,DateTime createdAt, DateTime deadline, TimeSpan timeSpent, Status status
-            context.Biler.Add(new Models.Bil(1, "Honda", DateTime.Now));
-
+            /**
             // Add MeasurementType
             MeasurementType kg = new MeasurementType("Kg");
             context.MeasurementTypes.Add(kg);
@@ -56,6 +54,7 @@ namespace WebApp.DataAccess.Context
             context.Products.Add(product3);
 
             // Save Changes
+            */
             context.SaveChanges();
         }
 

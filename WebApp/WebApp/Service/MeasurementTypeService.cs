@@ -41,7 +41,7 @@ namespace WebApp.Service
         }
 
 
-        /// Other methods
+
         public static bool IsDuplicateName(string name)
         {
             List<MeasurementTypeDTO> raws = GetAllMeasurementTypes();

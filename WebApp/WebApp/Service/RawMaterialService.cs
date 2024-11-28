@@ -44,7 +44,6 @@ namespace WebApp.Service
         {
             RawMaterialRepository.AddStockToRawMaterial(rawMaterialDTO);
         }
-        /// Other methods
 
         public static bool IsDuplicateName(string name)
         {

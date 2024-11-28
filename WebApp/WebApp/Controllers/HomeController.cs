@@ -7,7 +7,6 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.UI.WebControls;
 using System.Web.WebPages;
-using WebApp.BLL;
 using WebApp.DataAccess.Repositories;
 using WebApp.DTO;
 using WebApp.DTO.Mappers;
@@ -20,11 +19,8 @@ namespace WebApp.Controllers
 {
     public class HomeController : Controller
     {
-        //private ProductionFactory grillSpydFactory = new ProductionFactory();
         public ActionResult Index()
         {
-            BilBLL bll = new BilBLL();
-            BilDTO bildto = bll.getBil(1);
             ViewBag.Message = "Your home page.";
             return View();
         }
@@ -32,7 +28,7 @@ namespace WebApp.Controllers
         public ActionResult RåvarerView()
         {
             var items = RawMaterialService.GetAllRawMaterials();
-            ViewBag.MeasurementTypes = MeasurementTypeService.GetAllMeasurementTypes(); // Used when creating a raw material
+            ViewBag.MeasurementTypes = MeasurementTypeService.GetAllMeasurementTypes();
 
             Console.WriteLine(items);
 
@@ -42,12 +38,7 @@ namespace WebApp.Controllers
         [HttpPost]
         public ActionResult StartProduction(string productionName, int plannedQuantity)
         {
-            //List<RawMaterialDTO> items = GetItems();
 
-            //// Assuming grillSpydFactory is defined elsewhere in your code
-            //Production production = grillSpydFactory?.CreateProduction(productionName, plannedQuantity, items);
-
-            //production?.StartProduction();
             return RedirectToAction("TestView");
         }
 
@@ -74,15 +65,6 @@ namespace WebApp.Controllers
             return View();
         }
 
-        /*
-        public ActionResult ProduktView()
-        {
-            List<ProductDTO> products = ProductRepository.GetProducts();
-            List<ProductRawMaterialNeededDTO> productRawMaterialNeededDTOs = ProductRawMaterialNeededRepository.GetProductRawMaterialNeededFromProduct(products[0]);
-
-            ViewBag.Message = "Your products page.";
-            return View(products);
-        } */
 
         public ActionResult ProduktionView()
         {
@@ -96,44 +78,22 @@ namespace WebApp.Controllers
          [HttpPost]
          public ActionResult RegisterSale(string productName, int quantitySold)
          {
-             // ProductService.UpdateInventory(productName, -quantitySold);
              return RedirectToAction("ProduktView");
          } 
 
         [HttpPost]
         public ActionResult CompleteProduction(string productionId, int completedQuantity)
         {
-            // ProductService production = GetProductionById(productionId);
-            // if (production != null)
-            {
-               // production.CompleteProduction(completedQuantity);
-                //ProductService.UpdateInventory(productProduction.ProductName, completedQuantity);
-            }
+
             return RedirectToAction("ProduktView");
         }
 
-        /*
-        private ProductProduction GetProductionById(string productionId)
-        {
-            // Implement logic to retrieve production by ID
-            return new ProductProduction("Dummy", DateTime.Now, 0, new List<RawMaterials>());
-        } */
-
-        /*
-        public ActionResult CreateProductView()
-        {
-            ViewBag.Products = ProductRepository.GetProducts();
-            ViewBag.RawMaterials = RawMaterialService.GetAllRawMaterials();
-            return View();
-        } */
-
-        // string name, int EstimatedProductionTime, int amount
         [HttpPost]
         public ActionResult CreateProduct(FormCollection formdata)
         {
             if (ModelState.IsValid)
             {
-                var materialName = formdata["SelectedMaterials"]; // Access value from the input field with name="MaterialName"
+                var materialName = formdata["SelectedMaterials"];
                 var materialAmountString = formdata["Amounts"];
                 
                 List<ProductRawMaterialNeeded> rawMaterialNeededList = new List<ProductRawMaterialNeeded>();
@@ -182,34 +142,6 @@ namespace WebApp.Controllers
             return View("CreateProductView");
         }
 
-        /*
-        public ActionResult CreateRawMaterialView()
-        {
-
-            ViewBag.MeasurementTypes = MeasurementTypeService.GetAllMeasurementTypes();
-            return PartialView("CreateRawMaterialView");
-        }
-
-        public ActionResult EditRawMaterial(int id)
-        {
-
-            var rawMaterial = RawMaterialService.GetRawMaterialById(id);
-            ViewBag.MeasurementTypes = MeasurementTypeService.GetAllMeasurementTypes();
-            return View(rawMaterial);
-        }
-
-
-
-        public ActionResult ShowRawMaterial(int id)
-        {
-            var rawMaterial = RawMaterialService.GetRawMaterialById(id);
-
-            rawMaterial.Stocks = rawMaterial.Stocks
-                .OrderBy(stock => stock.ExpirationDate)
-                .ToList();
-
-            return View(rawMaterial);
-        } */
 
         [HttpPost]
         public ActionResult RecordPurchase(int materialId, double amount, DateTime? expirationDate)
@@ -220,7 +152,7 @@ namespace WebApp.Controllers
 
             RawMaterialService.AddStockToRawMaterial(rawMaterial);
 
-            return RedirectToAction("RåvarerView");
+            return RedirectToAction("Index");
         }
 
         [HttpPost]
@@ -376,8 +308,7 @@ namespace WebApp.Controllers
 
             RawMaterialService.CreateRawMaterial(nameCapitalized, MeasurementTypeMapper.Map(MeasurementTypeService.GetMeasurementTypeByName(unit)));
 
-            // Redirect til råvareroversigten
-            return RedirectToAction("RåvarerView");
+            return RedirectToAction("Index");
         }
 
         [HttpPost]
@@ -411,22 +342,19 @@ namespace WebApp.Controllers
 
             RawMaterialService.UpdateRawMaterial(rawDTO);
 
-            return RedirectToAction("RåvarerView");
+            return RedirectToAction("Index");
         }
 
         [HttpPost]
         public ActionResult DeleteRawMaterial(int id)
         {
-            // Hent råvaren ved ID
             var rawMaterial = RawMaterialService.GetRawMaterialById(id);
             if (rawMaterial != null)
             {
-                // Slet råvaren via service
                 RawMaterialService.DeleteRawMaterial(id);
             }
 
-            // Omdiriger tilbage til Råvarer oversigt (hvis du har en RåvarerView)
-            return RedirectToAction("RåvarerView");
+            return RedirectToAction("Index");
         }
 
 
@@ -440,7 +368,7 @@ namespace WebApp.Controllers
                 ModelState.AddModelError("", "Navn må ikke være tomt.");
 
                 ViewBag.MeasurementTypes = MeasurementTypeService.GetAllMeasurementTypes();
-                return View("RåvarerView", items);
+                return View("Index", items);
             }
 
             string measurementTypeCapitalized = Helper.CapitalizeFirstLetter(measurementType);
@@ -449,14 +377,14 @@ namespace WebApp.Controllers
             {
                 ModelState.AddModelError("", "Enhed med samme navn eksisterer allerede");
                 ViewBag.MeasurementTypes = MeasurementTypeService.GetAllMeasurementTypes();
-                return View("RåvarerView", items);
+                return View("Index", items);
             }
 
             MeasurementTypeService.CreateMeasurementType(measurementTypeCapitalized);
             ViewBag.MeasurementTypes = MeasurementTypeService.GetAllMeasurementTypes();
             ModelState.Remove("measurementType");
 
-            return View("RåvarerView", items);
+            return View("Index", items);
         }
 
 
@@ -474,7 +402,7 @@ namespace WebApp.Controllers
 
             MeasurementTypeService.DeleteMeasurementType(name);
 
-            return RedirectToAction("RåvarerView", rawMats);
+            return RedirectToAction("Index", rawMats);
         }
     }
 }

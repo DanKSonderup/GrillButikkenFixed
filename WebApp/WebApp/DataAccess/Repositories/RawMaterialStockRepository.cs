@@ -45,14 +45,12 @@ namespace WebApp.DataAccess.Repositories
         {
             using (DatabaseContext context = new DatabaseContext())
             {
-                // Find RawMaterialStock i databasen
                 var stock = context.RawMaterialsStock.SingleOrDefault(s => s.Id == stockId);
                 if (stock == null)
                 {
                     throw new Exception($"RawMaterialStock med ID {stockId} blev ikke fundet.");
                 }
 
-                // Justér mængden eller fjern posten, hvis mængden når 0
                 if (amount >= stock.Amount)
                 {
                     context.RawMaterialsStock.Remove(stock);
@@ -62,10 +60,8 @@ namespace WebApp.DataAccess.Repositories
                     stock.Amount -= amount;
                 }
 
-                // Gem ændringer i databasen
                 context.SaveChanges();
 
-                // Opdater den tilhørende RawMaterial
                 var rawMaterial = context.RawMaterials
                     .SingleOrDefault(rm => rm.Material_id == stock.RawMaterialId);
 

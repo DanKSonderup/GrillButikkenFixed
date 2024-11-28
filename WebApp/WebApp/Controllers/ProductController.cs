@@ -12,12 +12,11 @@ namespace WebApp.Controllers
 {
     public class ProductController : Controller
     {
-        // GET: Product
         [HttpGet]
         public ActionResult Index()
         {
             List<ProductDTO> products = ProductRepository.GetProducts();
-            List<ProductRawMaterialNeededDTO> productRawMaterialNeededDTOs = ProductRawMaterialNeededRepository.GetProductRawMaterialNeededFromProduct(products[0]);
+            // List<ProductRawMaterialNeededDTO> productRawMaterialNeededDTOs = ProductRawMaterialNeededRepository.GetProductRawMaterialNeededFromProduct(products[0]);
 
             ViewBag.Message = "Your products page.";
             return View(products);
@@ -31,12 +30,13 @@ namespace WebApp.Controllers
             return View();
         }
 
+        // Lav et Product
         [HttpPost]
         public ActionResult CreateProduct(FormCollection formdata)
         {
             if (ModelState.IsValid)
             {
-                var materialName = formdata["SelectedMaterials"]; // Access value from the input field with name="MaterialName"
+                var materialName = formdata["SelectedMaterials"]; // Få værdien fra inputfeltet med name "MaterialName"
                 var materialAmountString = formdata["Amounts"];
 
                 List<ProductRawMaterialNeeded> rawMaterialNeededList = new List<ProductRawMaterialNeeded>();
@@ -72,6 +72,7 @@ namespace WebApp.Controllers
                     EstimatedProductionTime = TimeSpan.FromHours(int.Parse(formdata["EstimatedProductionTime"])),
                     AmountInStock = int.Parse(formdata["amount"])
                 };
+
                 foreach (var rawMaterialNeeded in rawMaterialNeededList)
                 {
                     product.ProductRawMaterialNeeded.Add(rawMaterialNeeded);
@@ -88,8 +89,7 @@ namespace WebApp.Controllers
         [HttpPost]
         public ActionResult RegisterSale(string productName, int quantitySold)
         {
-            // ProductService.UpdateInventory(productName, -quantitySold);
-            return RedirectToAction("ProduktView");
+            return RedirectToAction("Index");
         }
 
         public ActionResult SearchForProductsContaining(string name)
@@ -97,7 +97,7 @@ namespace WebApp.Controllers
             ProductService productService = new ProductService();
             var products = productService.GetAllProductsWithNameContaining(name);
 
-            return View("ProduktView", products);
+            return View("Index", products);
         }
     }
 }

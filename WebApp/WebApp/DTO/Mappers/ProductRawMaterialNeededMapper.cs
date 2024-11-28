@@ -35,7 +35,7 @@ namespace WebApp.DTO.Mappers
 
             if (entity.RawMaterial == null)
             {
-                entity.RawMaterial = dto.RawMaterial; // Update RawMaterial reference
+                entity.RawMaterial = dto.RawMaterial;
             }
         }
     }

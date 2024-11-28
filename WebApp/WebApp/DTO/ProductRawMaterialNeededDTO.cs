@@ -8,9 +8,9 @@ namespace WebApp.DTO
 {
     public class ProductRawMaterialNeededDTO
     {
-        public int Id { get; set; } // Primary key for the junction table
+        public int Id { get; set; } 
         public RawMaterial RawMaterial { get; set; }
-        public double Quantity { get; set; } // Represents the amount needed
+        public double Quantity { get; set; }
         public string RawMaterialName { get; set; }
     }
 }

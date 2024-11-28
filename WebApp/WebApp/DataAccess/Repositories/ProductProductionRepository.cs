@@ -42,7 +42,6 @@ namespace WebApp.DataAccess.Repositories
             }
         }
 
-        // Get all ProductProductions
         public static List<ProductProductionDTO> GetProductProductions()
         {
             using (DatabaseContext context = new DatabaseContext())
@@ -53,7 +52,6 @@ namespace WebApp.DataAccess.Repositories
             }
         }
 
-        // Add ProductProduction
         public static ProductProductionDTO AddProductProduction(ProductProductionDTO productProductionDTO)
         {
             using (DatabaseContext context = new DatabaseContext())
@@ -64,12 +62,10 @@ namespace WebApp.DataAccess.Repositories
             return productProductionDTO;
         }
 
-        // Edit / Update ProductProduction
         public static ProductProductionDTO EditProductProduction(ProductProductionDTO productProductionDTO)
         {
             using (DatabaseContext context = new DatabaseContext())
             {
-                // Find den eksisterende produktion
                 ProductProduction dataProduction = context.ProductProductions
                     .FirstOrDefault(p => p.ProjectId == productProductionDTO.ProjectId);
 
@@ -80,13 +76,11 @@ namespace WebApp.DataAccess.Repositories
 
                 
 
-                // Opdater RawMaterial med de nye værdier
                 dataProduction.ProjectName = productProductionDTO.ProjectName;
                 dataProduction.QuantityToProduce = productProductionDTO.QuantityToProduce;
                 dataProduction.Deadline = productProductionDTO.Deadline;
                 dataProduction.Status = productProductionDTO.Status;
 
-                // Markér ProductProduction som ændret, hvis det er nødvendigt (efter opdateringen)
                 context.Entry(dataProduction).State = EntityState.Modified;
 
                 context.SaveChanges();
@@ -94,7 +88,6 @@ namespace WebApp.DataAccess.Repositories
             return productProductionDTO;
         }
 
-        //  Update ProductProductionStatus
         public static ProductProductionDTO UpdateProductProductionStatus(Status status, ProductProductionDTO productProductionDTO)
         {
             using (DatabaseContext context = new DatabaseContext())
@@ -114,7 +107,6 @@ namespace WebApp.DataAccess.Repositories
         }
 
 
-        // Delete ProductProduction
         public static void DeleteProductProduction(ProductProductionDTO productProductionDTO)
         {
             using (DatabaseContext context = new DatabaseContext())

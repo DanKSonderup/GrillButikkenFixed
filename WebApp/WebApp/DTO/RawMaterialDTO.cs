@@ -10,9 +10,9 @@ namespace WebApp.DTO
     public class RawMaterialDTO
     {
         [Key]
-        public int Material_id { get; set; } // Key og GUID
+        public int Material_id { get; set; }
         [Required]
-        public string Name { get; set; } // Required og VARCHAR
+        public string Name { get; set; } 
 
         [Required]
         public MeasurementType MeasurementType { get; set; }

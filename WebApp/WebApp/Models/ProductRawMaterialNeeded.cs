@@ -10,17 +10,17 @@ namespace WebApp.Models
     public class ProductRawMaterialNeeded
     {
         [Key]
-        public int Id { get; set; } // Primary key for the junction table
+        public int Id { get; set; } 
 
         [ForeignKey("RawMaterial")]
-        public int RawMaterialId { get; set; } // Foreign key to RawMaterial
+        public int RawMaterialId { get; set; } 
         public virtual RawMaterial RawMaterial { get; set; }
 
-        public double Quantity { get; set; } // Represents the amount needed
+        public double Quantity { get; set; } 
 
         [ForeignKey("Product")]
-        public int ProductId { get; set; } // Foreign key to Product
-        public virtual Product Product { get; set; } // Navigation property to Product
+        public int ProductId { get; set; } 
+        public virtual Product Product { get; set; }
 
         public ProductRawMaterialNeeded()
         {

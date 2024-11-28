@@ -13,7 +13,6 @@ namespace WebApp.Controllers
 {
     public class ProductProductionController : Controller
     {
-        // GET: ProductProduction
         public ActionResult Index()
         {
             List<ProductProductionDTO> model = ProductProductionService.GetAllProductProductions();
@@ -44,7 +43,7 @@ namespace WebApp.Controllers
 
 
             ProductProductionService.CreateProductProduction(name, ProductMapper.Map(ProductService.GetProductByName(product)), amount, startDato, endDato, (Status)Enum.Parse(typeof(Status), status));
-            return RedirectToAction("ProduktionView");
+            return RedirectToAction("Index");
         }
 
         public ActionResult CompleteProductProductionView(string name)
@@ -72,13 +71,13 @@ namespace WebApp.Controllers
             productProduction.Status = Status.Completed;
             ProductProductionService.UpdateProductProduction(productProduction);
 
-            return RedirectToAction("ProduktionView");
+            return RedirectToAction("Index");
         }
 
         public ActionResult DeleteProductProduction(string name)
         {
             ProductProductionService.DeleteProductProduction(ProductProductionService.GetProductProductionByName(name));
-            return RedirectToAction("ProduktionView");
+            return RedirectToAction("Index");
         }
 
 
@@ -102,7 +101,7 @@ namespace WebApp.Controllers
             {
                 ModelState.AddModelError("", "Produktion med samme navn eksisterer allerede.");
                 ViewBag.StatusType = Enum.GetValues(typeof(Status)).Cast<Status>();
-                return View("ProduktionView", model);
+                return View("Index", model);
             }
 
             existingProductProduction.ProjectName = nameCapitalized;
@@ -112,7 +111,7 @@ namespace WebApp.Controllers
 
 
 
-            return RedirectToAction("ProduktionView", model);
+            return RedirectToAction("Index", model);
         }
 
         public ActionResult EditProductProduction(string name)

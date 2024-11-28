@@ -14,11 +14,10 @@ namespace WebApp.Controllers
 {
     public class RawMaterialController : Controller
     {
-        // GET: RawMaterial
         public ActionResult Index()
         {
             var items = RawMaterialService.GetAllRawMaterials();
-            ViewBag.MeasurementTypes = MeasurementTypeService.GetAllMeasurementTypes(); // Used when creating a raw material
+            ViewBag.MeasurementTypes = MeasurementTypeService.GetAllMeasurementTypes();
 
             Console.WriteLine(items);
 
@@ -55,8 +54,6 @@ namespace WebApp.Controllers
         }
 
 
-        // CRUD RAWMATERIAL ENDPOINTS
-
         [HttpPost]
         public ActionResult CreateRawMaterial(string name, string unit)
         {
@@ -78,7 +75,6 @@ namespace WebApp.Controllers
 
             RawMaterialService.CreateRawMaterial(nameCapitalized, MeasurementTypeMapper.Map(MeasurementTypeService.GetMeasurementTypeByName(unit)));
 
-            // Redirect til råvareroversigten
             return RedirectToAction("Index");
         }
 
@@ -119,15 +115,12 @@ namespace WebApp.Controllers
         [HttpPost]
         public ActionResult DeleteRawMaterial(int id)
         {
-            // Hent råvaren ved ID
             var rawMaterial = RawMaterialService.GetRawMaterialById(id);
             if (rawMaterial != null)
             {
-                // Slet råvaren via service
                 RawMaterialService.DeleteRawMaterial(id);
             }
 
-            // Omdiriger tilbage til Råvarer oversigt (hvis du har en RåvarerView)
             return RedirectToAction("Index");
         }
 

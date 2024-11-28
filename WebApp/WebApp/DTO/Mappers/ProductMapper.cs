@@ -40,7 +40,6 @@ namespace WebApp.DTO.Mappers
                 return new Product(
                     productDTO.Name,
                     productDTO.EstimatedProductionTime,
-                  //  productDTO.ProductRawMaterialNeeded,
                     productDTO.CreatedAt,
                     productDTO.UpdatedAt,
                     productDTO.AmountInStock);

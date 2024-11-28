@@ -26,7 +26,7 @@ namespace WebApp.Service
             return ProductProductionRepository.GetProductProductions();
         }
 
-        public static ProductProductionDTO CreateProductProduction(string projectName, Product product, int quantityToProduce, DateTime createdAt, DateTime deadline, Status status) // Husk at tilføje input params
+        public static ProductProductionDTO CreateProductProduction(string projectName, Product product, int quantityToProduce, DateTime createdAt, DateTime deadline, Status status)
         {
             return ProductProductionRepository.AddProductProduction(new ProductProductionDTO(projectName, product, quantityToProduce, createdAt, deadline, status));
         }

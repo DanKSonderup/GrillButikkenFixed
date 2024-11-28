@@ -10,7 +10,6 @@ namespace WebApp.Service
 {
     internal interface IProductService
     {
-        // CRUD
         ProductDTO CreateProduct(int id, string name, TimeSpan estimatedProductionTime, Dictionary<RawMaterial, double> rawMaterialNeeded, DateTime createdAt, DateTime updatedAt, int amountInStock);
         IEnumerable<ProductDTO> GetProductByName(string name);
         IEnumerable<ProductDTO> GetAllProducts();

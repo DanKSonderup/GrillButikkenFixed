@@ -11,7 +11,6 @@ namespace WebApp.DataAccess.Repositories
 {
     public class ProductRepository
     {
-        // Create, Delete, Edit, Get, GetAll, Add
         public static ProductDTO GetProduct(string name)
         {
             using (DatabaseContext context = new DatabaseContext())
@@ -46,7 +45,6 @@ namespace WebApp.DataAccess.Repositories
         }
 
 
-        // Add
         public static ProductDTO AddProduct(ProductDTO productDTO)
         {
             using (DatabaseContext context = new DatabaseContext())
@@ -63,7 +61,6 @@ namespace WebApp.DataAccess.Repositories
 
         }
 
-        // Edit / update
         public static ProductDTO EditProduct(ProductDTO productDTO)
         {
             using (DatabaseContext context = new DatabaseContext())

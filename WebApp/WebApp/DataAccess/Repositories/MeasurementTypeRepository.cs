@@ -14,10 +14,8 @@ namespace WebApp.DataAccess.Repositories
         {
             using (DatabaseContext context = new DatabaseContext())
             {
-                // Hent data fra databasen først
                 var measurementTypes = context.MeasurementTypes.ToList();
 
-                // Udfør mapping i hukommelsen
                 return measurementTypes.Select(r => MeasurementTypeMapper.Map(r)).ToList();
             }
         }
@@ -48,7 +46,6 @@ namespace WebApp.DataAccess.Repositories
         {
             using (DatabaseContext context = new DatabaseContext())
             {
-                // Find entiteten baseret på en condition
                 var measurementType = context.MeasurementTypes
                                              .SingleOrDefault(r => r.Name == measurementTypeDTO.Name);
 
@@ -57,10 +54,8 @@ namespace WebApp.DataAccess.Repositories
                     throw new Exception("MeasurementType ikke fundet.");
                 }
 
-                // Slet entiteten fra konteksten
                 context.MeasurementTypes.Remove(measurementType);
 
-                // Gem ændringer
                 context.SaveChanges();
             }
             return measurementTypeDTO;

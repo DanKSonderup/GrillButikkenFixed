@@ -11,8 +11,6 @@ namespace WebApp.DataAccess.Context
     public class DatabaseContext : DbContext
     {
         public DatabaseContext() : base("Grillbutikken") { }
-
-        public DbSet<Bil> Biler { get; set; }
         public DbSet<RawMaterial> RawMaterials { get; set; }
         public DbSet<ProductProduction> ProductProductions { get; set; }
         public DbSet<MeasurementType> MeasurementTypes { get; set; }

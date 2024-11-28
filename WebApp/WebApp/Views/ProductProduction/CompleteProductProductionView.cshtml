@@ -14,7 +14,7 @@
     <p><strong>Nuværende Status:</strong> @Model.Status</p>
 </div>
 
-<form method="post" action="@Url.Action("CompleteProductProduction", "Home", new { name = Model.ProjectName })">
+<form method="post" action="@Url.Action("CompleteProductProduction", "ProductProduction", new { name = Model.ProjectName })">
     <button type="submit" class="btn btn-primary">Bekræft</button>
-    <a href="@Url.Action("ProduktionView", "Home")" class="btn btn-secondary">Annuller</a>
+    <a href="@Url.Action("ProduktionView", "ProductProduction")" class="btn btn-secondary">Annuller</a>
 </form>

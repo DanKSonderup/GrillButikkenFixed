@@ -124,22 +124,18 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="BLL\BilBLL.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\ProductProductionController.cs" />
     <Compile Include="Controllers\RawMaterialController.cs" />
     <Compile Include="DataAccess\Context\DatabaseContext.cs" />
     <Compile Include="DataAccess\Context\DbInitializer.cs" />
-    <Compile Include="DataAccess\Repositories\BilRepository.cs" />
     <Compile Include="DataAccess\Repositories\MeasurementTypeRepository.cs" />
     <Compile Include="DataAccess\Repositories\ProductProductionRepository.cs" />
     <Compile Include="DataAccess\Repositories\ProductRawMaterialNeededRepository.cs" />
     <Compile Include="DataAccess\Repositories\ProductRepository.cs" />
     <Compile Include="DataAccess\Repositories\RawMaterialRepository.cs" />
     <Compile Include="DataAccess\Repositories\RawMaterialStockRepository.cs" />
-    <Compile Include="DTO\BilDTO.cs" />
-    <Compile Include="DTO\Mappers\BilMapper.cs" />
     <Compile Include="DTO\Mappers\MeasurementTypeMapper.cs" />
     <Compile Include="DTO\Mappers\ProductMapper.cs" />
     <Compile Include="DTO\Mappers\ProductProductionMapper.cs" />
@@ -155,7 +151,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helper.cs" />
-    <Compile Include="Models\Bil.cs" />
     <Compile Include="Models\MeasurementType.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\ProductRawMaterialNeeded.cs" />
@@ -233,18 +228,10 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\IndstillingerView.cshtml" />
-    <Content Include="Views\ProductProductions\ProductionView.cshtml" />
-    <Content Include="Views\Products\ProductView.cshtml" />
-    <Content Include="Views\RawMaterials\RawMaterialsView.cshtml" />
     <Content Include="Views\Home\StatistikView.cshtml" />
-    <Content Include="Views\Home\TestView.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Home\CreateMeasurementType.cshtml" />
-    <Content Include="Views\Home\CreateRawMaterialView.cshtml" />
-    <Content Include="Views\Home\EditRawMaterial.cshtml" />
-    <Content Include="Views\Home\CreateProductView.cshtml" />
     <Content Include="Views\Product\CreateProductView.cshtml" />
     <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\RawMaterial\CreateRawMaterialView.cshtml" />
@@ -260,7 +247,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\Frontend\" />
     <Folder Include="Views\Overview\" />
     <Folder Include="Views\Settings\" />
     <Folder Include="Views\Statistics\" />
